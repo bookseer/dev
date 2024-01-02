@@ -44,12 +44,13 @@ matplotlib = "^3.8.0"
 notebook = "^7.0.0"
 tqdm = "^4.66.1"
 
-
 [tool.poetry.group.dev.dependencies]
 # dev dependencies
 ghp-import = "^2.1.0"
 jupyter-book = "^0.15.1"
 jupytext = "^1.16.0"
+pyautogui = "^0.9.54"
+termtosvg = "^1.1.0"
 # test dependencies
 bandit = {extras = ["toml"], version = "^1.7.6"}
 black = "^23.12.0"
@@ -63,9 +64,10 @@ pre-commit-hooks = "^4.5.0"
 pylint = "^3.0.3"
 pytest = "^7.4.3"
 pyupgrade = "^3.15.0"
-# test dependencies
+# docs dependencies
 mkdocs = "^1.5.3"
-
+# edu dependencies
+flask = "^3.0.0"
 
 [tool.poetry.extras]
 
@@ -106,6 +108,11 @@ notebook = "python -m jupyter notebook --allow-root --NotebookApp.token='' --Not
 
 # Deactivate virtual environment.
 stop = "deactivate; exit"
+
+# Build book
+buils = """
+jupyter-book build --all --builder html book/
+"""
 
 # Build and publish book
 publish = """
