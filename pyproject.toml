@@ -8,7 +8,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "bookseer-dev"
-version = "0.2.0"
+version = "2024.01.03.02"
 description = "Заметки для разработчиков"
 authors = ["Alexander Krasnikov <askrasnikov@gmail.com>"]
 maintainers = ["askras <askrasnikov@gmail.com>"]
@@ -50,6 +50,7 @@ ghp-import = "^2.1.0"
 jupyter-book = "^0.15.1"
 jupytext = "^1.16.0"
 pyautogui = "^0.9.54"
+pyppeteer = "^1.0.2"
 termtosvg = "^1.1.0"
 # test dependencies
 bandit = {extras = ["toml"], version = "^1.7.6"}
@@ -110,7 +111,7 @@ notebook = "python -m jupyter notebook --allow-root --NotebookApp.token='' --Not
 stop = "deactivate; exit"
 
 # Build book
-buils = """
+builds = """
 jupyter-book build --all --builder html book/
 """
 
