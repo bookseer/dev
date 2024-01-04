@@ -4,6 +4,9 @@
 format: jb-book
 root: index
 parts:
+  - caption: Общая информация
+    chapters:
+      - file: info/typography
   - caption: tmux
     chapters:
     - file: tmux/ch_000_intro # Введение
