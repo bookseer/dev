@@ -21,13 +21,13 @@ kernelspec:
 ```bash
 echo "Hello, World!"
 ```
-Символ **$** является приглашением командной строки. Его вводить не нужно. 
+Символ **$** является приглашением командной строки. Его вводить не нужно.
 
 Команда вводимая в командной строке Windows подобных систем:
 ```shell
 echo "Hello, World!"
 ```
-Символы **C:\\>** являются приглашением командной строки. Их вводить не нужно. 
+Символы **C:\\>** являются приглашением командной строки. Их вводить не нужно.
 
 Команда вводимая в терминал Unix подобных систем вместе с выводом:
 ```bash
@@ -39,7 +39,7 @@ echo "Hello, World!"
 echo "Hello, World!"
 ```
 
-Python код выглядит 
+Python код выглядит
 ```python
 message = "Hello, World!"
 print(message)
@@ -95,7 +95,7 @@ An example of an admonition with a title.
 Материал, требующий особого внимания обозначается так.
 ```
 
-```{admonition} Предупреждение 
+```{admonition} Предупреждение
 :class: warning
 Так обозначаются предупреждения и предостережения.
 ```
@@ -109,55 +109,13 @@ An example of an admonition with a title.
 :class: error
 Так обозначаются действия, которые могут привести к ошибке.
 ```
-
----
-
-```{code-cell} ipython3
-note = "Python syntax highlighting"
-print(note)
-```
-
-```{code-cell} python
-note = "Python syntax highlighting"
-print(note)
-```
-
-
 +++
 
 ## Математика
-
-````{prf:proof}
-We'll omit the full proof.
-
-But we will prove sufficiency of the asserted conditions.
-
-To this end, let $y \in \mathbb R^n$ and let $S$ be a linear subspace of $\mathbb R^n$.
-
-Let $\hat y$ be a vector in $\mathbb R^n$ such that $\hat y \in S$ and $y - \hat y \perp S$.
-
-Let $z$ be any other point in $S$ and use the fact that $S$ is a linear subspace to deduce
-
-```{math}
-\| y - z \|^2
-= \| (y - \hat y) + (\hat y - z) \|^2
-= \| y - \hat y \|^2  + \| \hat y - z  \|^2
-```
-
-Hence $\| y - z \| \geq \| y - \hat y \|$, which completes the proof.
-````
 
 ````{prf:theorem} Теорема Пифагора
 :label: thm-pythagor
 
 В прямоугольном треугольнике, длины катетов которого равны $a$ и $b$, а длина гипотенузы — $c$, выполнено соотношение
-$a^2 + b^2 = c^2$. 
+$a^2 + b^2 = c^2$.
 ````
-
-
-
-
-
-
-
-
