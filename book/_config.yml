@@ -69,6 +69,8 @@ parse:
 html:
   # A path to a favicon image
   favicon: ""
+  # A banner announcement at the top of the site.
+  announcement: "Сайт находится в разработке"
   # Whether to add an "edit this page" button to pages. If `true`, repository information in repository:
   # must be filled in
   use_edit_page_button: true
@@ -96,8 +98,7 @@ html:
   comments:
     hypothesis: false
     utterances: false
-  # A banner announcement at the top of the site.
-  announcement:  "Сайт находится в разработке"
+
 
 
 #======================================================================================================================
@@ -134,7 +135,7 @@ launch_buttons:
    # Add a thebe button to pages (requires the repository to run on Binder)
   thebe: true
   # The URL of Google Colab (https://colab.research.google.com)
-  colab_url: "https://colab.research.google.com"
+  #colab_url: "https://colab.research.google.com"
 
 
 #======================================================================================================================
@@ -163,5 +164,6 @@ sphinx:
   # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   recursive_update: false
   config:  # key-value pairs to directly over-ride the Sphinx configuration
-    copybutton_prompt_text: ">>> "
-    copybutton_exclude: '.linenos, .gp, .go'
+    # https://sphinx-copybutton.readthedocs.io/en/latest/use.html
+    # copybutton_prompt_text: r">>> |\.\.\. |\$"
+    # copybutton_prompt_is_regexp:  True
