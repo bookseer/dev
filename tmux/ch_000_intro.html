@@ -35,6 +35,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/codeblock.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
@@ -51,6 +53,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -68,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Глава 1. Основы tmux" href="ch_010_basic.html" />
-    <link rel="prev" title="Заметки для разработчиков" href="../index.html" />
+    <link rel="prev" title="Типографские соглашения" href="../info/typography.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,7 +179,11 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">tmux</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../info/typography.html">Типографские соглашения</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">tmux</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Введение</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch_010_basic.html">Глава 1. Основы tmux</a></li>
@@ -240,7 +247,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/./book/tmux/ch_000_intro.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/ch_000_intro.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -306,7 +313,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/edit/main/./book/tmux/ch_000_intro.md" target="_blank"
+      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/ch_000_intro.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -515,7 +522,8 @@ document.write(`
 Он позволяет запускать несколько терминалов или окон в одном сеансе, в каждом из которых запущен отдельный процесс или программа.
 Однако одновременный запуск нескольких программ — это лишь одна из функций tmux.</p>
 <p>Окно терминала может быть разделено по горизонтали или вертикали на панели, так что две или более программы могут быть запущены бок о бок на одном экране. Другими словами, можно запускать две или более программы рядом на одном экране.
-Например, на <a class="reference internal" href="#tmux-ch-000-010"><span class="std std-numref">рисунке 1</span></a> показано, как после запуска текстового редактора Vim, с помощью tmux создаются две новые панели. В первой панеле запускается текстовый браузер, для просмотра результатов работы. Во второй — встроенный веб-сервер Flask.
+Например, на <a class="reference internal" href="#tmux-ch-000-010"><span class="std std-numref">рисунке 1</span></a> показано, как после запуска текстового редактора Vim, с помощью tmux создаются две новые панели. В первой панеле запускается текстовый браузер, для просмотра результатов работы.
+Во второй — встроенный веб-сервер Flask.
 В процессе работы можно легко переключаться между этими панелями, закрывать ставшие ненужными и создавать новые.</p>
 <p>Также можно отсоединиться (<code class="docutils literal notranslate"><span class="pre">detach</span></code>) от сеанса, то есть оставить настроенное окружение работать в фоновом режиме.
 Это делает tmux похожим на <a class="reference external" href="https://www.gnu.org/software/screen/">GNU-Screen</a>.
@@ -576,12 +584,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="../info/typography.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Заметки для разработчиков</p>
+        <p class="prev-next-title">Типографские соглашения</p>
       </div>
     </a>
     <a class="right-next"
