@@ -5,8 +5,13 @@ title: Заметки для разработчиков
 author: Красников Александр
 copyright: 2023–2024
 logo: logo.png
+email: writer@bookseer.org
+description: >- # this means to ignore newlines until "baseurl:"
+  Сборник руководств и советов для разработчиков.
+
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
+
 # Auto-exclude files not in the toc
 only_build_toc_files: false
 
@@ -39,17 +44,18 @@ execute:
 #======================================================================================================================
 parse:
   myst_enable_extensions:  # default extensions to enable in the myst parser.
-    # - amsmath
+    - amsmath
     - colon_fence
-    # - deflist
+    - deflist
     - dollarmath
-    # - html_admonition
-    # - html_image
+    - html_admonition
+    - html_image
     - linkify
-    # - replacements
-    # - smartquotes
+    - replacements
+    - smartquotes
     - substitution
     - tasklist
+
   # URI schemes that will be recognised as external URLs in Markdown links
   myst_url_schemes: [mailto, http, https]
   # Allow display math ($$) within an inline context
@@ -81,6 +87,7 @@ html:
   # The base URL where your book will be hosted. Used for creating image previews and social links.
   baseurl: "https://dev.bookseer.org/"
   analytics:
+    google_analytics_id = ''
 
 
 #======================================================================================================================
@@ -105,6 +112,10 @@ latex:
   latex_documents:
     targetname: book.tex
 
+
+#======================================================================================================================
+# BibLaTex-specific settings
+#======================================================================================================================
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
@@ -123,7 +134,7 @@ launch_buttons:
    # Add a thebe button to pages (requires the repository to run on Binder)
   thebe: true
   # The URL of Google Colab (https://colab.research.google.com)
-  colab_url: ""
+  colab_url: "https://colab.research.google.com"
 
 
 #======================================================================================================================
@@ -133,20 +144,24 @@ repository:
   # Online location of your book
   url: https://github.com/bookseer/dev
   # Optional path to your book, relative to the repository root
-  path_to_book: ./book
+  path_to_book: book
   # Which branch of the repository should be used when creating links (optional)
   branch: main
 
 
 #======================================================================================================================
-# Advanced and power-user settings
+# Sphinx Advanced and power-user settings
 #======================================================================================================================
 sphinx:
+  bibtex_reference_style: author_year  # or label, super, \supercite
   # A list of extra extensions to load by Sphinx (added to those already used by JB).
   extra_extensions:
+    - sphinx_inline_tabs
+    - sphinx_proof
   # A list of local extensions to load by sphinx specified by "name: path" items
   local_extensions:
   # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   recursive_update: false
-  # key-value pairs to directly over-ride the Sphinx configuration
-  config:
+  config:  # key-value pairs to directly over-ride the Sphinx configuration
+    copybutton_prompt_text: ">>> "
+    copybutton_exclude: '.linenos, .gp, .go'
