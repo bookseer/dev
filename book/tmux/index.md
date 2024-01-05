@@ -9,7 +9,5 @@ kernelspec:
   name: python3
 ---
 
-# Заметки для разработчиков
-
-```{tableofcontents}
-```
+(tmux_index)=
+# Руководство по tmux

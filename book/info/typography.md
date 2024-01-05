@@ -1,12 +1,11 @@
 ---
 jupytext:
+  formats: md:myst
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.0
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: Python 3
   language: python
   name: python3
 ---
@@ -18,23 +17,21 @@ kernelspec:
 Пример кода внутри строки, обозначается так: `echo "Hello, World!"`.
 
 Команда вводимая в терминал Unix подобных систем:
-```bash
-echo "Hello, World!"
+```console
+$ echo "Hello, World!"
 ```
 Символ **$** является приглашением командной строки. Его вводить не нужно.
 
-Команда вводимая в командной строке Windows подобных систем:
-```shell
-echo "Hello, World!"
+<!--
+Команда вводимая в командной строке Windows:
+```console
+c:\> echo "Hello, World!"
 ```
-Символы **C:\\>** являются приглашением командной строки. Их вводить не нужно.
+Символы **c:\\>** являются приглашением командной строки. Их вводить не нужно.
+-->
 
 Команда вводимая в терминал Unix подобных систем вместе с выводом:
-```bash
-echo "Hello, World!"
-```
-```{code-cell} ipython3
-:tags: ["remove-input"]
+```{code-cell} python
 %%bash
 echo "Hello, World!"
 ```
@@ -44,9 +41,9 @@ Python код выглядит
 message = "Hello, World!"
 print(message)
 ```
-А так — python код и результат его исполнения
 
-```{code-cell} ipython3
+А так — python код и результат его исполнения
+```{code-cell} python
 message = "Hello, World!"
 print(message)
 ```
@@ -56,7 +53,7 @@ print(message)
 ## Графические выделения
 
 <!--
-```{admonition} This is a title
+:::{admonition} This is a title
 :class: note
 :class: warning
 :class: tip
@@ -68,47 +65,42 @@ print(message)
 :class: important
 :class: seealso
 An example of an admonition with a title.
-```
+:::
 -->
 
-```{admonition} Замечание
-:class: note
+:::{note}
 Так обозначаются замечания общего характера.
-```
+:::
 
-```{admonition} Совет
+:::{admonition} Совет
 Так обозначаются советы и рекомендации,
-```
+:::
 
-```{admonition} Подсказка
-:class: hint
+:::{hint}
 Так обозначаются подсказки.
-```
+:::
 
-```{admonition} Смотрите также
+:::{admonition} Смотрите также
 :class: seealso
 Так обозначаются ссылки на материал по теме.
-```
+:::
 
-```{admonition} Внимание
-:class: important
+:::{attention}
 Материал, требующий особого внимания обозначается так.
-```
+:::
 
-```{admonition} Предупреждение
-:class: warning
+:::{warning}
 Так обозначаются предупреждения и предостережения.
-```
+:::
 
-```{admonition} Опасность
-:class: danger
-Потенциально опасные действия, обозначаются так.
-```
-
-```{admonition} Ошибка
-:class: error
+:::{error}
 Так обозначаются действия, которые могут привести к ошибке.
-```
+:::
+
+:::{danger}
+Потенциально опасные действия, обозначаются так.
+:::
+
 +++
 
 ## Математика

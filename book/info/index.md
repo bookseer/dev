@@ -9,7 +9,8 @@ kernelspec:
   name: python3
 ---
 
-# Заметки для разработчиков
+(info_index)=
 
-```{tableofcontents}
-```
+[info/index](Информмция)
+
+[tmux/index.html](Руководство по tmux)
