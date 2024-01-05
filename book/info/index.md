@@ -10,7 +10,8 @@ kernelspec:
 ---
 
 (info_index)=
+# Информация
 
-[info/index](Информмция)
+{ref}`Информация <info_index>
 
-[tmux/index.html](Руководство по tmux)
+{ref}`Руководство по tmux <tmux_index>
