@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Глава 3. Создание настраиваемых рабочих окружений в tmux &#8212; Заметки для разработчиков</title>
+    <title>Приложение Б. Пример конфигурации &#8212; Заметки для разработчиков</title>
   
   
   
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -58,6 +58,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/scripts/scripts.js"></script>
     <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
@@ -67,13 +68,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/ch_030_custom_environment';</script>
-    <link rel="canonical" href="https://dev.bookseer.org/tmux/ch_030_custom_environment.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/appendix-b';</script>
+    <link rel="canonical" href="https://dev.bookseer.org/tmux/appendix-b.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Глава 4. Работа с текстом и буферами" href="ch_040_text_and_buffer.html" />
-    <link rel="prev" title="Глава 2. Настройка tmux" href="ch_020_configuring.html" />
+    <link rel="prev" title="Приложение А. Команды tmux" href="appendix-a.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ru"/>
   </head>
@@ -145,8 +145,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -183,20 +181,25 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../info/index.html">Информация</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../info/typography.html">Типографские соглашения</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../info/index.html">Общая информация</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../info/typography.html">Типографские соглашения</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">tmux</span></p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Софт</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Руководство по tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_000_intro.html">Введение</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_010_basic.html">Глава 1. Основы tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_020_configuring.html">Глава 2. Настройка tmux</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Глава 3. Создание настраиваемых рабочих окружений в tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_040_text_and_buffer.html">Глава 4. Работа с текстом и буферами</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_050_pair_programming.html">Глава 5. Парное программирование с tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_060_workflow.html">Глава 6. Рабочий процесс с tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_070_appendix.html">Приложение</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Руководство по tmux</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Введение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html">Глава 1. Основы tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html">Глава 2. Настройка tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-environment.html">Глава 3. Создание настраиваемых рабочих окружений в tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text-and-buffer.html">Глава 4. Работа с текстом и буферами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pair-programming.html">Глава 5. Парное программирование с tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">Глава 6. Рабочий процесс с tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix-a.html">Приложение А. Команды tmux</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Приложение Б. Пример конфигурации</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -251,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/ch_030_custom_environment.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/appendix-b.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +320,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/ch_030_custom_environment.md" target="_blank"
+      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/appendix-b.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +337,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/ch_030_custom_environment.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/appendix-b.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Открыть вопрос"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +367,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tmux/ch_030_custom_environment.ipynb" target="_blank"
+      <li><a href="../_sources/tmux/appendix-b.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Скачать файл записной книжки"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -381,7 +384,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tmux/ch_030_custom_environment.md" target="_blank"
+      <li><a href="../_sources/tmux/appendix-b.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Скачать исходный файл"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -463,7 +466,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Глава 3. Создание настраиваемых рабочих окружений в tmux</h1>
+    <h1>Приложение Б. Пример конфигурации</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -477,8 +480,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-ch-030-custom-environment"></span><h1>Глава 3. Создание настраиваемых рабочих окружений в tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tmux-appendix-b">
+<span id="id1"></span><h1>Приложение Б. Пример конфигурации<a class="headerlink" href="#tmux-appendix-b" title="Permalink to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -512,22 +515,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ch_020_configuring.html"
+       href="appendix-a.html"
        title="предыдущая страница">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">назад</p>
-        <p class="prev-next-title">Глава 2. Настройка tmux</p>
+        <p class="prev-next-title">Приложение А. Команды tmux</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="ch_040_text_and_buffer.html"
-       title="следующая страница">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">Глава 4. Работа с текстом и буферами</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

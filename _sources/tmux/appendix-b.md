@@ -9,5 +9,5 @@ kernelspec:
   name: python3
 ---
 
-(tmux_ch_060_workflow)=
-# Глава 6. Рабочий процесс с tmux
+(tmux_appendix-b)=
+# Приложение Б. Пример конфигурации

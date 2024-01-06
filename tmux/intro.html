@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -58,6 +58,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/scripts/scripts.js"></script>
     <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
@@ -67,12 +68,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/ch_000_intro';</script>
-    <link rel="canonical" href="https://dev.bookseer.org/tmux/ch_000_intro.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/intro';</script>
+    <link rel="canonical" href="https://dev.bookseer.org/tmux/intro.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Глава 1. Основы tmux" href="ch_010_basic.html" />
+    <link rel="next" title="Глава 1. Основы tmux" href="basic.html" />
     <link rel="prev" title="Руководство по tmux" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ru"/>
@@ -145,8 +146,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -183,20 +182,25 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../info/index.html">Информация</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../info/typography.html">Типографские соглашения</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../info/index.html">Общая информация</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../info/typography.html">Типографские соглашения</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">tmux</span></p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Софт</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Руководство по tmux</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Введение</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_010_basic.html">Глава 1. Основы tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_020_configuring.html">Глава 2. Настройка tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_030_custom_environment.html">Глава 3. Создание настраиваемых рабочих окружений в tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_040_text_and_buffer.html">Глава 4. Работа с текстом и буферами</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_050_pair_programming.html">Глава 5. Парное программирование с tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_060_workflow.html">Глава 6. Рабочий процесс с tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_070_appendix.html">Приложение</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Руководство по tmux</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Введение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html">Глава 1. Основы tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html">Глава 2. Настройка tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-environment.html">Глава 3. Создание настраиваемых рабочих окружений в tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text-and-buffer.html">Глава 4. Работа с текстом и буферами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pair-programming.html">Глава 5. Парное программирование с tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">Глава 6. Рабочий процесс с tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix-a.html">Приложение А. Команды tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix-b.html">Приложение Б. Пример конфигурации</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -251,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/ch_000_intro.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/intro.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +321,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/ch_000_intro.md" target="_blank"
+      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/intro.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/ch_000_intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Открыть вопрос"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +368,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tmux/ch_000_intro.ipynb" target="_blank"
+      <li><a href="../_sources/tmux/intro.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Скачать файл записной книжки"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -381,7 +385,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tmux/ch_000_intro.md" target="_blank"
+      <li><a href="../_sources/tmux/intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Скачать исходный файл"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -490,8 +494,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tmux-ch-000-intro">
-<span id="id1"></span><h1>Введение<a class="headerlink" href="#tmux-ch-000-intro" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tmux-intro">
+<span id="id1"></span><h1>Введение<a class="headerlink" href="#tmux-intro" title="Permalink to this heading">#</a></h1>
 <section id="id2">
 <h2>Ваша мышь замедляет вас<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>С момента своего поялвения, мышь создала новый способ взаимодействия людей с компьютером.
@@ -507,9 +511,9 @@ document.write(`
 Повторяющиеся движения при работе с мышью могут вызвать серьезный дискомфорт.</p>
 <p>tmux позволяет создать аналогичные среды в терминале, полностью управляемые без мыши.
 Например, можно легко управлять текстовым редактором, браузером и локальным веб-сервером в одном окне.</p>
-<figure class="align-default" id="tmux-ch-000-010">
-<img alt="../_images/tmux_ch_000_010.svg" src="../_images/tmux_ch_000_010.svg" /><figcaption>
-<p><span class="caption-number">Рис. 1 </span><span class="caption-text">Работа tmux с несколькими панелями!</span><a class="headerlink" href="#tmux-ch-000-010" title="Постоянная ссылка на рисунок">#</a></p>
+<figure class="align-default" id="tmux-intro-010">
+<img alt="Работа tmux с несколькими панелями!" src="../_images/tmux_intro_010.svg" /><figcaption>
+<p><span class="caption-number">Рис. 1 </span><span class="caption-text">Работа tmux с несколькими панелями!</span><a class="headerlink" href="#tmux-intro-010" title="Постоянная ссылка на рисунок">#</a></p>
 </figcaption>
 </figure>
 <p>Кроме того, разделив окно tmux создав дополнительные окна, можно запускать несколько приложений одновременно и параллельно.
@@ -526,7 +530,7 @@ document.write(`
 Он позволяет запускать несколько терминалов или окон в одном сеансе, в каждом из которых запущен отдельный процесс или программа.
 Однако одновременный запуск нескольких программ — это лишь одна из функций tmux.</p>
 <p>Окно терминала может быть разделено по горизонтали или вертикали на панели, так что две или более программы могут быть запущены бок о бок на одном экране. Другими словами, можно запускать две или более программы рядом на одном экране.
-Например, на <a class="reference internal" href="#tmux-ch-000-010"><span class="std std-numref">рисунке 1</span></a> показано, как после запуска текстового редактора Vim, с помощью tmux создаются две новые панели. В первой панеле запускается текстовый браузер, для просмотра результатов работы.
+Например, на <a class="reference internal" href="#tmux-intro-010"><span class="std std-numref">рисунке 1</span></a> показано, как после запуска текстового редактора Vim, с помощью tmux создаются две новые панели. В первой панеле запускается текстовый браузер, для просмотра результатов работы.
 Во второй — встроенный веб-сервер Flask.
 В процессе работы можно легко переключаться между этими панелями, закрывать ставшие ненужными и создавать новые.</p>
 <p>Также можно отсоединиться (<code class="docutils literal notranslate"><span class="pre">detach</span></code>) от сеанса, то есть оставить настроенное окружение работать в фоновом режиме.
@@ -547,13 +551,14 @@ document.write(`
 <section id="id4">
 <h2>Структура руководства<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>В представленном руководстве показано как использовать tmux в повседневной работе.</p>
-<p>В <a class="reference internal" href="ch_010_basic.html#tmux-ch-010-basic"><span class="std std-ref">главе 1. «Основы tmux»</span></a> описано как в tmux создавать сеансы, панели и окна и как выполнять базовую навигацию между ними.</p>
-<p>В <a class="reference internal" href="ch_020_configuring.html#tmux-ch-020-configuring"><span class="std std-ref">главе 2. «Настройка tmux»</span></a>, рассказывается о том как переопределяются управляющие сочетания клавиш по умолчанию и настраивается внешний вид tmux.</p>
-<p>В <a class="reference internal" href="ch_030_custom_environment.html#tmux-ch-030-custom-environment"><span class="std std-ref">главе 3. «Создание настраиваемых рабочих окружений в tmux»</span></a>, показано создание сценария создания рабочего окружения с помощью интерфейса командной строки, файлов конфигурации и программы tmuxinator.</p>
-<p>В <a class="reference internal" href="ch_040_text_and_buffer.html#tmux-ch-040-text-and-buffer"><span class="std std-ref">главе 4. «Работа с текстом и буферами»</span></a> описаны основыне приемы работы с текстом: использование клавиатуры для перемещения по буферу, выбор и копирование текста, работа с несколькими буферами вставки.</p>
-<p>Далее, <a class="reference internal" href="ch_050_pair_programming.html#tmux-ch-050-pair-programming"><span class="std std-ref">главе 5. «Парное программирование с tmux»</span></a> производится настройка tmux так, чтобы было возможно работать над одной кодовой базой сместе с коллегой.</p>
-<p>Наконец, в <a class="reference internal" href="ch_060_workflow.html#tmux-ch-060-workflow"><span class="std std-ref">главе 6 «Рабочий процесс с tmux»</span></a> рассматриваются более продвинутые способы управления окнами, панелями и сеансами, делающими работу с tmux еще более продуктивной.</p>
-<p>В <a class="reference internal" href="ch_070_appendix.html#tmux-ch-070-appendix"><span class="std std-ref">приложении</span></a> приведена конфигурация tmux, используемая авторами.</p>
+<p>В <a class="reference internal" href="basic.html#tmux-basic"><span class="std std-ref">главе 1. «Основы tmux»</span></a> описано как в tmux создавать сеансы, панели и окна и как выполнять базовую навигацию между ними.</p>
+<p>В <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">главе 2. «Настройка tmux»</span></a>, рассказывается о том как переопределяются управляющие сочетания клавиш по умолчанию и настраивается внешний вид tmux.</p>
+<p>В <a class="reference internal" href="custom-environment.html#tmux-custom-environment"><span class="std std-ref">главе 3. «Создание настраиваемых рабочих окружений в tmux»</span></a>, показано создание сценария создания рабочего окружения с помощью интерфейса командной строки, файлов конфигурации и программы tmuxinator.</p>
+<p>В <a class="reference internal" href="text-and-buffer.html#tmux-text-and-buffer"><span class="std std-ref">главе 4. «Работа с текстом и буферами»</span></a> описаны основыне приемы работы с текстом: использование клавиатуры для перемещения по буферу, выбор и копирование текста, работа с несколькими буферами вставки.</p>
+<p>Далее, <a class="reference internal" href="pair-programming.html#tmux-pair-programming"><span class="std std-ref">главе 5. «Парное программирование с tmux»</span></a> производится настройка tmux так, чтобы было возможно работать над одной кодовой базой сместе с коллегой.</p>
+<p>Наконец, в <a class="reference internal" href="workflow.html#tmux-workflow"><span class="std std-ref">главе 6 «Рабочий процесс с tmux»</span></a> рассматриваются более продвинутые способы управления окнами, панелями и сеансами, делающими работу с tmux еще более продуктивной.</p>
+<p>В <a class="reference internal" href="appendix-a.html#tmux-appendix-a"><span class="std std-ref">приложении А</span></a> приведены основные команды tmux.</p>
+<p>В <a class="reference internal" href="appendix-b.html#tmux-appendix-b"><span class="std std-ref">приложении Б</span></a> приведена конфигурация tmux, используемая авторами.</p>
 </section>
 </section>
 
@@ -597,7 +602,7 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="ch_010_basic.html"
+       href="basic.html"
        title="следующая страница">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">вперёд</p>

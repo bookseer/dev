@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Глава 5. Парное программирование с tmux &#8212; Заметки для разработчиков</title>
+    <title>Глава 1. Основы tmux &#8212; Заметки для разработчиков</title>
   
   
   
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -58,6 +58,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/scripts/scripts.js"></script>
     <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
@@ -67,13 +68,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/ch_050_pair_programming';</script>
-    <link rel="canonical" href="https://dev.bookseer.org/tmux/ch_050_pair_programming.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/basic';</script>
+    <link rel="canonical" href="https://dev.bookseer.org/tmux/basic.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Глава 6. Рабочий процесс с tmux" href="ch_060_workflow.html" />
-    <link rel="prev" title="Глава 4. Работа с текстом и буферами" href="ch_040_text_and_buffer.html" />
+    <link rel="next" title="Глава 2. Настройка tmux" href="configuring.html" />
+    <link rel="prev" title="Введение" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ru"/>
   </head>
@@ -145,8 +146,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -183,20 +182,25 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../info/index.html">Информация</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../info/typography.html">Типографские соглашения</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../info/index.html">Общая информация</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../info/typography.html">Типографские соглашения</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">tmux</span></p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Софт</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Руководство по tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_000_intro.html">Введение</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_010_basic.html">Глава 1. Основы tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_020_configuring.html">Глава 2. Настройка tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_030_custom_environment.html">Глава 3. Создание настраиваемых рабочих окружений в tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_040_text_and_buffer.html">Глава 4. Работа с текстом и буферами</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Глава 5. Парное программирование с tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_060_workflow.html">Глава 6. Рабочий процесс с tmux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch_070_appendix.html">Приложение</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Руководство по tmux</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Введение</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Глава 1. Основы tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html">Глава 2. Настройка tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-environment.html">Глава 3. Создание настраиваемых рабочих окружений в tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text-and-buffer.html">Глава 4. Работа с текстом и буферами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pair-programming.html">Глава 5. Парное программирование с tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">Глава 6. Рабочий процесс с tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix-a.html">Приложение А. Команды tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix-b.html">Приложение Б. Пример конфигурации</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -251,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/ch_050_pair_programming.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/basic.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +321,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/ch_050_pair_programming.md" target="_blank"
+      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/basic.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/ch_050_pair_programming.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/basic.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Открыть вопрос"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +368,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tmux/ch_050_pair_programming.ipynb" target="_blank"
+      <li><a href="../_sources/tmux/basic.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Скачать файл записной книжки"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -381,7 +385,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tmux/ch_050_pair_programming.md" target="_blank"
+      <li><a href="../_sources/tmux/basic.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Скачать исходный файл"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -452,7 +456,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -463,11 +469,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Глава 5. Парное программирование с tmux</h1>
+    <h1>Глава 1. Основы tmux</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Установка tmux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">Установка на Mac</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10">Установка в Windows 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Установка в Linux</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -478,7 +497,108 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-ch-050-pair-programming"></span><h1>Глава 5. Парное программирование с tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+<span id="tmux-basic"></span><h1>Глава 1. Основы tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+<p>При правильном использовании tmux может значительно повысить производительность.
+В этой главе представлены основные приемы управления приложениями в сеансах, окнах и панелях tmux.
+Эти простые концепции являются основой для превращения tmux в отличную среду как для разработчиков, так и для системных
+администраторов.
+Однако прежде всего необходимо установить tmux.</p>
+<section id="id1">
+<h2>Установка tmux<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>tmux может быть установлен одним из двух способов: с помощью менеджера пакетов для целевой операционной системы или
+путем сборки из исходников.
+Какой бы метод не был выбрал, необходимо убедиться, что устанавливается последняя официальная версия (3.3 на момент
+публикации этой главы).
+Ранние версии tmux не поддерживают некоторые функции, которые рассматриваются в этом руководстве, или имеют
+несовместимую конфигурацию.</p>
+<section id="mac">
+<h3>Установка на Mac<a class="headerlink" href="#mac" title="Permalink to this heading">#</a></h3>
+<p>Самый простой способ установить tmux на Mac — с помощью <a class="reference external" href="http://brew.sh">Homebrew</a>.
+Сначала установите <a class="reference external" href="https://developer.apple.com/xcode/">Xcode</a> через Mac App Store.
+После установки Xcode откройте новый терминал и введите команду</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>xcode-select<span class="w"> </span>--install
+</pre></div>
+</div>
+<p>для установки инструментов командной строки, которые нужны Homebrew.</p>
+<p>Затем установите Homebrew, следуя инструкциям на веб-сайте <a class="reference external" href="http://brew.sh">Homebrew</a>.
+Наконец, с помощью следующей команды терминала установите tmux:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>tmux
+</pre></div>
+</div>
+<p>Чтобы убедиться, что tmux установлен, и что у вас правильная версия, выполните в терминале следующую команду:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tmux -V</span>
+</pre></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tmux next-3.4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="windows-10">
+<h3>Установка в Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this heading">#</a></h3>
+<p>В августе 2016 года Microsoft выпустила обновление для Windows 10, которое добавляет оболочку console в Windows.
+Эта оболочка работает на Ubuntu и поддерживает tmux.
+Чтобы использовать ее, сначала переведите свой компьютер в режим разработчика.
+Откройте приложение «Настройки», выберите пункт «Обновление и безопасность», а затем «Для разработчиков».
+Включите «Режим разработчика».</p>
+<p>Затем откройте Панель управления и выберите «Программы».
+Далее нажмите «Включить или отключить компоненты Windows».
+Найдите и включите параметр «Подсистема Windows для Linux».
+После всего этого перезагрузите компьютер.
+Когда компьютер перезагрузится, откройте командную строку и введите</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash
+</pre></div>
+</div>
+<p>Вам будет предложено установить console из Windows Store.
+Это бесплатное приложение.
+Загрузка и распаковка могут занять несколько, после чего все будет готово для установки tmux.</p>
+<p>После установки console перейдите к следующему разделу, так как установка tmux будет проводиться из исходного кода, как
+если бы вы использовали Ubuntu.</p>
+</section>
+<section id="linux">
+<h3>Установка в Linux<a class="headerlink" href="#linux" title="Permalink to this heading">#</a></h3>
+<p>Лучший способ установить в Linux tmux — загрузить исходный код и скомпилировать его самостоятельно.
+Менеджеры пакетов не всегда предоставляют самую последнюю версию tmux.
+Процесс установки tmux одинаков на всех платформах.
+Вам понадобится компилятор GCC, а также libevent и ncurses, от которых зависит tmux.</p>
+<p>В Ubuntu вы можете установить все это с помощью диспетчера пакетов apt:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get install build-essential libevent-dev libncurses-dev</span>
+</pre></div>
+</div>
+<p>После установки компиляторов и необходимых компонентов загрузите <a class="reference external" href="https://github.com/tmux/tmux/wiki">исходный код tmux</a>.</p>
+<p>Разархивируйте загруженную версию и установите ее:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tar -zxvf tmux-3.3.tar.gz</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd tmux-3.3</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./configure</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo make install</span>
+</pre></div>
+</div>
+<p>Вы можете протестировать установку, выполнив команду, которая возвращает текущую установленную версию tmux:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tmux -V</span>
+</pre></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tmux next-3.4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Теперь, когда tmux установлен, рассмотрим основные его функции, начав с базового сеанса.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -512,20 +632,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ch_040_text_and_buffer.html"
+       href="intro.html"
        title="предыдущая страница">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">назад</p>
-        <p class="prev-next-title">Глава 4. Работа с текстом и буферами</p>
+        <p class="prev-next-title">Введение</p>
       </div>
     </a>
     <a class="right-next"
-       href="ch_060_workflow.html"
+       href="configuring.html"
        title="следующая страница">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">Глава 6. Рабочий процесс с tmux</p>
+        <p class="prev-next-title">Глава 2. Настройка tmux</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -536,7 +656,25 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Установка tmux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">Установка на Mac</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10">Установка в Windows 10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Установка в Linux</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

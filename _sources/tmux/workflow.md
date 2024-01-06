@@ -9,8 +9,5 @@ kernelspec:
   name: python3
 ---
 
-(info_index)=
-# Общая информация
-
-:::{tableofcontents}
-:::
+(tmux_workflow)=
+# Глава 6. Рабочий процесс с tmux
