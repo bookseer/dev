@@ -10,8 +10,7 @@ kernelspec:
 ---
 
 (tmux_basic)=
-
-# Глава 1. Основы tmux
+# <!-- 1. -->Основы tmux
 
 +++
 
