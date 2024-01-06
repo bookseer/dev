@@ -10,4 +10,4 @@ kernelspec:
 ---
 
 (tmux_pair-programming)=
-# <!-- 5. -->Парное программирование с tmux
+# Парное программирование с tmux

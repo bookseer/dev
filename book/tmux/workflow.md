@@ -10,4 +10,4 @@ kernelspec:
 ---
 
 (tmux_workflow)=
-# <!-- 3. -->Рабочий процесс с tmux
+# Рабочий процесс с tmux

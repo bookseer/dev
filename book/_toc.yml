@@ -13,7 +13,8 @@ parts:
   chapters:
   - file: tmux/index
     sections:
-    - file: tmux/intro
+    - file: tmux/about
+    - file: tmux/install
     - file: tmux/basic
     - file: tmux/configuring
     - file: tmux/custom-environment
