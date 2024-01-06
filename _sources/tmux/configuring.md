@@ -10,4 +10,4 @@ kernelspec:
 ---
 
 (tmux_configuring)=
-# Глава 2. Настройка tmux
+# <!-- 2. -->Настройка tmux
