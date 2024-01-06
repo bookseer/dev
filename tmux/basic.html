@@ -501,6 +501,47 @@ document.write(`
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux
 </pre></div>
 </div>
+<p>После этого окно терминала станет похоже на следующее изображение</p>
+<figure class="align-default" id="tmux-basic-010">
+<img alt="Сеанс tmux по умолчанию" src="../_images/tmux_basic_010.svg" /><figcaption>
+<p><span class="caption-number">Рис. 2 </span><span class="caption-text">Сеанс tmux по умолчанию</span><a class="headerlink" href="#tmux-basic-010" title="Постоянная ссылка на рисунок">#</a></p>
+</figcaption>
+</figure>
+<p>Это «сеанс» (session) tmux, и он работает так же, как обычный терминальный сеанс.
+Можно ввести любую допустимую команду, и все будет работать, как ожидалось.</p>
+<p>Чтобы закрыть сеанс tmux, нужно ввести</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">exit</span>
+</pre></div>
+</div>
+<p>в самом сеансе.
+Это приведет к закрытию tmux, и возврату к стандартному терминалу.</p>
+<p>Однако, такой способ запуска tmux не очень удобен для продолжительной работы, и годится лишь для кратковременных сеансов.
+Если использовать tmux сколь-нибудь продолжительное время, лучше создать «именованные сеансы».
+Такой способ позволит легко идентифицировать сеансы, и свободно переключаться между ними в процессе работы.</p>
+<p>Таким образом, можно запускать на одном компьютере столько сеасов, сколько необходимо, и при желании организовывать их
+по своему усмотрению.
+Например, один сеанс для рабочего проекта, другой — для собственного крутого крутого сайд-проекта.
+Можно организовать эти сеансы, давая каждому собственное уникальное имя.
+Это очень просто.
+Следующая команда создаст именованный сеанс под названием «base»:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>new-session<span class="w"> </span>-s<span class="w"> </span>base
+</pre></div>
+</div>
+<p>Более короткий вариант этой команды выглядит так:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>base
+</pre></div>
+</div>
+<p>Запуск любой из этих команд приведет к запуску «именованного сеанса» tmux.</p>
+<figure class="align-default" id="tmux-basic-020">
+<img alt="Именованный сеанс base" src="../_images/tmux_basic_020.svg" /><figcaption>
+<p><span class="caption-number">Рис. 3 </span><span class="caption-text">Именованный сеанс base</span><a class="headerlink" href="#tmux-basic-020" title="Постоянная ссылка на рисунок">#</a></p>
+</figcaption>
+</figure>
+<p>Заметить различия, однако, по сравнению с предыдущим запуском, довольно сложно.
+Единственное различие — это имя сеанса в нижнем левом углу окна терминала.</p>
+<p>Именованные сеансы удобны, когда есть необходимость оставлять tmux запущенным в фоне.</p>
+<p>Особенности работы с сеансами tmux и способы запуска программ в фоновом режиме рассматриваются далее.
+А сейчас поговорим о том, как отправлять команды в tmux.</p>
 </section>
 </section>
 
