@@ -8,7 +8,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "bookseer-dev"
-version = "2024.01.05"
+version = "2024.01.06"
 description = "Заметки для разработчиков"
 authors = ["Alexander Krasnikov <askrasnikov@gmail.com>"]
 maintainers = ["askras <askrasnikov@gmail.com>"]
@@ -17,7 +17,7 @@ readme = "README.md"
 homepage = "https://dev.bookseer.org"
 repository = "http://github.com/bookseer/dev"
 documentation = "https://dev.bookseer.org/docs.html"
-keywords = ["keywords"]
+keywords = ["dev", "soft", "development", "programming"]
 packages = [{include = "bookseer", from = "src"}]
 exclude = ["book/*"]
 classifiers = [
@@ -122,13 +122,13 @@ stop = "deactivate; exit"
 
 # Build book
 build = """
-jupyter-book book/ build --all --builder html
+jupyter-book ./book/ build --all --builder html
 """
 
 # Build and publish book
 publish = """
-jupyter-book build book/ --all --builder html
-ghp-import book/_build/html --no-jekyll --push --force --cname=dev.bookseer.org
+jupyter-book build ./book/ --all --builder html
+ghp-import ./book/_build/html --no-jekyll --push --force --cname=dev.bookseer.org
 """
 
 

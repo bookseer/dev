@@ -9,5 +9,5 @@ kernelspec:
   name: python3
 ---
 
-(tmux_ch_070_appendix)=
-# Приложение
+(tmux_pair-programming)=
+# Глава 5. Парное программирование с tmux

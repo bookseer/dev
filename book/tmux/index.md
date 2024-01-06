@@ -11,3 +11,6 @@ kernelspec:
 
 (tmux_index)=
 # Руководство по tmux
+
+:::{tableofcontents}
+:::

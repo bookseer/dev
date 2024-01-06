@@ -9,5 +9,5 @@ kernelspec:
   name: python3
 ---
 
-(tmux_ch_020_configuring)=
-# Глава 2. Настройка tmux
+(tmux_text-and-buffer)=
+# Глава 4. Работа с текстом и буферами

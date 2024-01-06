@@ -140,10 +140,7 @@ html:
     <img src="../_static/images/cc-icons.svg#cc-nc" style="width:12px">
 
   # Add extra HTML to the left navbar
-  extra_navbar: |
-      <div>
-        YOUR HTML
-      </div>
+  extra_navbar: <div>YOUR HTML</div>
 
   html_extra_path:
     - _static/images/
@@ -244,7 +241,7 @@ sphinx:
 
     # Package provides LaTeX support for the included “Font Awesome 5 Free” icon set
     # https://ctan.org/pkg/fontawesome5
-    sd_fontawesome_latex: True
+    # sd_fontawesome_latex: True # FIXME: does not work
 
     # suppress_warnings: ["mystnb.unknown_mime_type", "myst.domains", "mystnb.mime_priority"]
 
@@ -263,6 +260,7 @@ sphinx:
 
     latex_elements:
       preamble: |
+        \usepackage{fontawesome5}
         \newcommand\N{\mathbb{N}}
         \newcommand\floor[1]{\lfloor#1\rfloor}
         \newcommand{\bmat}{\left[\begin{array}}
@@ -284,10 +282,4 @@ sphinx:
     # https://github.com/wpilibsuite/sphinxext-rediraffe
     rediraffe_branch: 'main'
     rediraffe_redirects:
-      info/intro.md: tmux/ch_000_intro.md
-      q.md: tmux/ch_000_intro.md
-      #content-types/notebooks.ipynb: file-types/notebooks.ipynb
-      #content-types/myst-notebooks.md: file-types/myst-notebooks.md
-      #content-types/jupytext.md: file-types/jupytext.Rmd
-      #content-types/restructuredtext.md: file-types/restructuredtext.md
-      #customize/toc.md: structure/toc.md
+      #from: to

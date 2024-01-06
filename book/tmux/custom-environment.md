@@ -9,5 +9,5 @@ kernelspec:
   name: python3
 ---
 
-(tmux_ch_040_text_and_buffer)=
-# Глава 4. Работа с текстом и буферами
+(tmux_custom-environment)=
+# Глава 3. Создание настраиваемых рабочих окружений в tmux

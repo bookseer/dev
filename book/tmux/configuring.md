@@ -9,5 +9,5 @@ kernelspec:
   name: python3
 ---
 
-(tmux_ch_050_pair_programming)=
-# Глава 5. Парное программирование с tmux
+(tmux_configuring)=
+# Глава 2. Настройка tmux

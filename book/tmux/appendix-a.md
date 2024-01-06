@@ -9,5 +9,5 @@ kernelspec:
   name: python3
 ---
 
-(tmux_ch_030_custom_environment)=
-# Глава 3. Создание настраиваемых рабочих окружений в tmux
+(tmux_appendix-a)=
+# Приложение А. Команды tmux

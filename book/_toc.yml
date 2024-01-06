@@ -7,15 +7,18 @@ parts:
 - caption: Общая информация
   chapters:
   - file: info/index
-  - file: info/typography
-- caption: tmux
+    sections:
+    - file: info/typography
+- caption: Софт
   chapters:
   - file: tmux/index
-  - file: tmux/ch_000_intro # Введение
-  - file: tmux/ch_010_basic # Глава 1. Основы tmux
-  - file: tmux/ch_020_configuring # Глава 2. Настройка tmux
-  - file: tmux/ch_030_custom_environment # Глава 3. Создание настраиваемых рабочих окружений в tmux
-  - file: tmux/ch_040_text_and_buffer # Глава 4. Работа с текстом и буферами
-  - file: tmux/ch_050_pair_programming  # Глава 5. Парное программирование с tmux
-  - file: tmux/ch_060_workflow # Глава 6. Рабочий процесс с tmux
-  - file: tmux/ch_070_appendix # Приложение
+    sections:
+    - file: tmux/intro
+    - file: tmux/basic
+    - file: tmux/configuring
+    - file: tmux/custom-environment
+    - file: tmux/text-and-buffer
+    - file: tmux/pair-programming
+    - file: tmux/workflow
+    - file: tmux/appendix-a
+    - file: tmux/appendix-b
