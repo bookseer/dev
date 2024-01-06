@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Настройка tmux &#8212; Заметки для разработчиков</title>
+    <title>О tmux &#8212; Заметки для разработчиков</title>
   
   
   
@@ -68,13 +68,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/configuring';</script>
-    <link rel="canonical" href="https://dev.bookseer.org/tmux/configuring.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/about';</script>
+    <link rel="canonical" href="https://dev.bookseer.org/tmux/about.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Создание настраиваемых рабочих окружений в tmux" href="custom-environment.html" />
-    <link rel="prev" title="Основы tmux" href="basic.html" />
+    <link rel="next" title="Установка tmux" href="install.html" />
+    <link rel="prev" title="Руководство по tmux" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ru"/>
   </head>
@@ -190,10 +190,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Софт</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Руководство по tmux</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="about.html">О tmux</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">О tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html">Установка tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basic.html">Основы tmux</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Настройка tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html">Настройка tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom-environment.html">Создание настраиваемых рабочих окружений в tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="text-and-buffer.html">Работа с текстом и буферами</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pair-programming.html">Парное программирование с tmux</a></li>
@@ -256,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/configuring.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=tree/book/tmux/about.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/configuring.md" target="_blank"
+      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/about.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +339,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/configuring.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/about.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Открыть вопрос"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +369,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tmux/configuring.ipynb" target="_blank"
+      <li><a href="../_sources/tmux/about.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Скачать файл записной книжки"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -386,7 +386,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tmux/configuring.md" target="_blank"
+      <li><a href="../_sources/tmux/about.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Скачать исходный файл"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -457,7 +457,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -468,11 +470,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Настройка tmux</h1>
+    <h1>О tmux</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ваша мышь замедляет вас</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Что такое tmux?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Кому предназначено данное руководство</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -483,7 +495,72 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-configuring"></span><h1>Настройка tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+<span id="tmux-about"></span><h1>О tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+<section id="id1">
+<h2>Ваша мышь замедляет вас<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>С момента своего появления, мышь создала новый способ взаимодействия людей с компьютером.
+Щелчком, двойным или даже тройным щелчком мыши можно открывать документы, переключаться между окнами и выделять текст.
+Мышь вместе с графическим интерфейсом сделали управление компьютером намного проще для обычного человека.
+Однако у использования мыши есть и обратная сторона, особенно для программистов.</p>
+<p>Создавая программное обеспечение, программисты работают с несколькими программами в течение дня.
+Например, веб-разработчик может одновременно работать с консолью базы данных, веб-сервером и текстовым редактором.
+Переключение между ними с помощью мыши обычно замедляет работу.
+Может показаться, что это не так уж и важно, но перемещение руки с клавиатуры на мышь, поиск указателя и выполнение
+задач отнимает много времени и отвлекает.
+Кроме того, это может привести к нагрузке на запястье, руку и плечо.
+Повторяющиеся движения при работе с мышью могут вызвать серьезный дискомфорт.</p>
+<p>tmux позволяет создать аналогичные среды в терминале, полностью управляемые без мыши.
+Например, можно легко управлять текстовым редактором, браузером и локальным веб-сервером в одном окне.</p>
+<figure class="align-default" id="tmux-about-010">
+<img alt="Работа tmux с несколькими панелями!" src="../_images/tmux_about_010.svg" /><figcaption>
+<p><span class="caption-number">Рис. 1 </span><span class="caption-text">Работа tmux с несколькими панелями!</span><a class="headerlink" href="#tmux-about-010" title="Постоянная ссылка на рисунок">#</a></p>
+</figcaption>
+</figure>
+<p>Кроме того, разделив окно tmux создав дополнительные окна, можно запускать несколько приложений одновременно и
+параллельно.
+Это позволяет запускать текстовый браузер, консоль базы данных, IRC-клиент и автоматические тесты (и много чего ещё) в
+том же окружении, что и основной редактор.</p>
+<p>Но главное преимущество заключается в том, что появляется возможность быстро перемещаться между этими окнами и панелями,
+используя только клавиатуру.
+Поначалу сочетания клавиш кажутся сложными, но, по мере использования, они быстро становятся привычными, что значительно
+повышает концентрацию и производительность.
+С помощью tmux можно создать рабочую среду, в которой почти все необходимое всегда будет под рукой.</p>
+<p>В этом руководстве описана настройка и использование tmux.
+Вы узнаете, как управлять несколькими программами одновременно, писать сценарии для создания пользовательских окружений
+и работать удаленно с другими пользователями используя tmux.</p>
+</section>
+<section id="id2">
+<h2>Что такое tmux?<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>tmux — это терминальный мультиплексор (<strong>t</strong>erminal <strong>mu</strong>ltiple<strong>x</strong>er).
+Он позволяет запускать несколько терминалов или окон в одном сеансе, в каждом из которых запущен отдельный процесс или
+программа.
+Однако одновременный запуск нескольких программ — это лишь одна из функций tmux.</p>
+<p>Окно терминала может быть разделено по горизонтали или вертикали на панели, так что две или более программы могут быть
+запущены бок о бок на одном экране. Другими словами, можно запускать две или более программы рядом на одном экране.
+Например, на <a class="reference internal" href="#tmux-about-010"><span class="std std-numref">рисунке 1</span></a> показано, как после запуска текстового редактора Vim, с помощью tmux
+создаются две новые панели.
+В первой панели запускается текстовый браузер, для просмотра результатов работы.
+Во второй — встроенный веб-сервер Flask.
+В процессе работы можно легко переключаться между этими панелями, закрывать ставшие ненужными и создавать новые.</p>
+<p>Также можно отсоединиться (<code class="docutils literal notranslate"><span class="pre">detach</span></code>) от сеанса, то есть оставить настроенное окружение работать в фоновом режиме.
+Это делает tmux похожим на <a class="reference external" href="https://www.gnu.org/software/screen/">GNU-Screen</a>.
+Во многом tmux похож на GNUS-screen, но имеет множество дополнительных возможностей и гораздо проще в настройке.
+Кроме того, tmux использует клиент-серверную модель, что означает, что окнами и панелями можно управлять централизованно
+и переключаться между несколькими сеансами из одного окна терминала.
+Модель клиент-сервер также позволяет создавать сценарии и управлять tmux из других окон и приложений.</p>
+<p>В этом руководстве представлены все эти возможности.</p>
+</section>
+<section id="id3">
+<h2>Кому предназначено данное руководство<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>Данное руководство предназначено, прежде всего, системным администраторам или разработчикам программного обеспечения,
+которые проводят большую часть своего времени используя инструменты терминала и командной строки.
+Это руководство поможет им выполнять свою работу быстрее.</p>
+<p>Разработчики программного обеспечения узнают как можно использовать tmux для создания рабочего окружения, которое может
+упростить работу с несколькими сеансами терминала.
+Особенно это может оказаться полезно при использовании таких текстовых редакторов, как Vim или Emacs.</p>
+<p>Системным администраторам, которым приходится работать с удаленными серверами, может быть интересно, как можно
+использовать tmux для создания постоянной панели управления или мониторинга серверов.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -517,20 +594,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="basic.html"
+       href="index.html"
        title="предыдущая страница">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">назад</p>
-        <p class="prev-next-title">Основы tmux</p>
+        <p class="prev-next-title">Руководство по tmux</p>
       </div>
     </a>
     <a class="right-next"
-       href="custom-environment.html"
+       href="install.html"
        title="следующая страница">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">Создание настраиваемых рабочих окружений в tmux</p>
+        <p class="prev-next-title">Установка tmux</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -541,7 +618,22 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ваша мышь замедляет вас</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Что такое tmux?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Кому предназначено данное руководство</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
