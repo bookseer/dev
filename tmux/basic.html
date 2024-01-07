@@ -481,6 +481,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Запуск tmux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Префикс команд</a></li>
 </ul>
             </nav>
         </div>
@@ -542,6 +543,35 @@ document.write(`
 <p>Именованные сеансы удобны, когда есть необходимость оставлять tmux запущенным в фоне.</p>
 <p>Особенности работы с сеансами tmux и способы запуска программ в фоновом режиме рассматриваются далее.
 А сейчас поговорим о том, как отправлять команды в tmux.</p>
+</section>
+<section id="id2">
+<h2>Префикс команд<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>Поскольку консольные приложения выполняются внутри tmux, становиться необходим способ сообщить tmux, что команда,
+вводимая команда предназначена для него, а не для основного приложения.
+Это делается с помощью комбинации клавиш <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code>, которая называется <em>префиксом команд</em>.
+Для ввода любой команды tmux необходимо предварительно использовать эту комбинацию.
+Важно отметить, что не следует удерживать все клавиши вместе.
+Вместо этого сначала одновременно нажмите <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code>, отпустите эти клавиши, а затем сразу же нажмите клавишу связанную с
+командой, которую вы хотите передать tmux.</p>
+<p>Чтобы понять, как это работает, снова запустите tmux командой</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="sb">`</span>
+</pre></div>
+</div>
+<p>После этого, внутри tmux нажмите <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code>, а затем — <code class="docutils literal notranslate"><span class="pre">t</span></code>.
+На экране появятся большие часы:</p>
+<figure class="align-default" id="tmux-basic-030">
+<img alt="Часы в окне tmux" src="../_images/tmux_basic_030.svg" /><figcaption>
+<p><span class="caption-number">Рис. 4 </span><span class="caption-text">Часы в окне tmux</span><a class="headerlink" href="#tmux-basic-030" title="Постоянная ссылка на рисунок">#</a></p>
+</figcaption>
+</figure>
+<p>Нажмите клавишу <code class="docutils literal notranslate"><span class="pre">Enter</span></code> или <code class="docutils literal notranslate"><span class="pre">Esc</span></code>, чтобы закрыть часы, и выйдите из tmux, набрав <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
+<p>Так как сочетание <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code> набирать достаточно не удобно, разумным решением является назначить для префикса более
+простую комбинацию.
+Как это сделать будет показано в разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>.
+Поэтому в дальнейшем изложении вместо <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code> будем использовать обозначение <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code>, за которым следует горячая
+клавиша для команды tmux, например, <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">t</span></code> для отображения часов, или <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">t</span></code> для отсоединения (detaching) от
+сеанса.</p>
+<p>Теперь давайте посмотрим, как запустить программы в фоновом режиме.</p>
 </section>
 </section>
 
@@ -610,6 +640,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Запуск tmux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Префикс команд</a></li>
 </ul>
   </nav></div>
 
