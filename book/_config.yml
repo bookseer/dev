@@ -280,6 +280,6 @@ sphinx:
     # sphinxext.rediraffe
     # Sphinx Extension to redirect files
     # https://github.com/wpilibsuite/sphinxext-rediraffe
-    rediraffe_branch: 'main'
-    rediraffe_redirects:
+    #rediraffe_branch: 'main'
+    #rediraffe_redirects:
       #from: to
