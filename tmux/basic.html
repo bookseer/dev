@@ -482,6 +482,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Запуск tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Префикс команд</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Отсоединение от сеанса</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Повторное подключение к существующему сеансу</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Закрытие сеанса</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -548,30 +553,136 @@ document.write(`
 <h2>Префикс команд<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Поскольку консольные приложения выполняются внутри tmux, становиться необходим способ сообщить tmux, что команда,
 вводимая команда предназначена для него, а не для основного приложения.
-Это делается с помощью комбинации клавиш <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code>, которая называется <em>префиксом команд</em>.
+Это делается с помощью комбинации клавиш <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, которая называется <em>префиксом команд</em>.
 Для ввода любой команды tmux необходимо предварительно использовать эту комбинацию.
 Важно отметить, что не следует удерживать все клавиши вместе.
-Вместо этого сначала одновременно нажмите <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code>, отпустите эти клавиши, а затем сразу же нажмите клавишу связанную с
-командой, которую вы хотите передать tmux.</p>
+Вместо этого сначала одновременно нажмите <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, отпустите эти клавиши, а затем сразу же
+нажмите клавишу связанную с командой, которую вы хотите передать tmux.</p>
 <p>Чтобы понять, как это работает, снова запустите tmux командой</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux
 </pre></div>
 </div>
-<p>После этого, внутри tmux нажмите <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code>, а затем — <code class="docutils literal notranslate"><span class="pre">t</span></code>.
+<p>После этого, внутри tmux нажмите <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, а затем — <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>.
 На экране появятся большие часы:</p>
 <figure class="align-default" id="tmux-basic-030">
 <img alt="Часы в окне tmux" src="../_images/tmux_basic_030.svg" /><figcaption>
 <p><span class="caption-number">Рис. 4 </span><span class="caption-text">Часы в окне tmux</span><a class="headerlink" href="#tmux-basic-030" title="Постоянная ссылка на рисунок">#</a></p>
 </figcaption>
 </figure>
-<p>Нажмите клавишу <code class="docutils literal notranslate"><span class="pre">Enter</span></code> или <code class="docutils literal notranslate"><span class="pre">Esc</span></code>, чтобы закрыть часы, и выйдите из tmux, набрав <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
-<p>Так как сочетание <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code> набирать достаточно не удобно, разумным решением является назначить для префикса более
-простую комбинацию.
+<p>Нажмите клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Enter</span> или <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Esc</span>, чтобы закрыть часы, и выйдите из tmux, набрав <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
+<p>Так как сочетание <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> набирать достаточно не удобно, разумным решением является назначить для
+префикса более простую комбинацию.
 Как это сделать будет показано в разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>.
-Поэтому в дальнейшем изложении вместо <code class="docutils literal notranslate"><span class="pre">CTRL-b</span></code> будем использовать обозначение <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code>, за которым следует горячая
-клавиша для команды tmux, например, <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">t</span></code> для отображения часов, или <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">t</span></code> для отсоединения (detaching) от
-сеанса.</p>
+Поэтому в дальнейшем изложении вместо <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> будем использовать обозначение <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>,
+за которым следует горячая клавиша для команды tmux, например, <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">t</span> для отображения часов,
+или <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">d</span> для отсоединения (detaching) от сеанса.</p>
 <p>Теперь давайте посмотрим, как запустить программы в фоновом режиме.</p>
+</section>
+<section id="id3">
+<h2>Отсоединение от сеанса<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>Если закрыть обычный сеанс терминала, все программы, запущенные в этом сеансе, будут уничтожены.
+Одной из отличительной особенностью и преимуществом tmux в данном случае является то, что после запуска программ или
+процессов внутри него, можно оставить все это работающим в фоновом режиме, «отсоединившись» (detaching) от сеанса.
+Когда пользователь отсоединяется от сеанса tmux, он на самом деле не закрываете его.
+Любые программы, которые были запущены в этом сеансе будут продолжать работать в фоне.
+Позже, когда возникнет необходимость, пользователь может «присоединиться» (attach) к сеансу и продолжить работу с того
+места, на котором остановился.
+Для демонстрации этого, давайте создадим новый именованный сеанс tmux, запустим программу и отсоединимся от сеанса.</p>
+<p>Сначала создадим сеанс:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>first_session
+</pre></div>
+</div>
+<p>Затем в сеансе tmux запустим приложение с именем <code class="docutils literal notranslate"><span class="pre">top</span></code>, которое отслеживает использование памяти и процессора:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>top
+</pre></div>
+</div>
+<p>В терминале отобразится что-то похожее на следующий рисунок.</p>
+<figure class="align-default" id="tmux-basic-040">
+<img alt="Сеанс tmux с запущенной программой `top`" src="tmux/images/tmux_basic_040.svg" /><figcaption>
+<p><span class="caption-number">Рис. 5 </span><span class="caption-text">Сеанс tmux с запущенной программой <code class="docutils literal notranslate"><span class="pre">top</span></code></span><a class="headerlink" href="#tmux-basic-040" title="Постоянная ссылка на рисунок">#</a></p>
+</figcaption>
+</figure>
+<p>Теперь отключимся от сеанса tmux, нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">d</span>.
+Это вернет обычный терминал.
+Теперь давайте посмотрим, как вернуться к тому сеансу tmux, который мы оставили запущенным.
+Но прежде чем мы это сделать, закроем окно терминала.</p>
+</section>
+<section id="id4">
+<h2>Повторное подключение к существующему сеансу<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>Мы создали сеанс tmux, запустили программу внутри сеанса, отсоединились от него и закрыли окно терминала, но сеанс
+tmux все еще работает вместе с приложением, которое мы запустили.</p>
+<p>Просмотреть список существующих сеансов tmux можно, используя команду</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>list-session
+</pre></div>
+</div>
+<p>или ее сокращенный вариант</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>ls
+</pre></div>
+</div>
+<p>в новом окне терминала.</p>
+<p>Команда покажет, что в данный момент запущен один сеанс:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">first_session: 1 windows (created Thu Jan 01 22:20:00 2024)</span>
+</pre></div>
+</div>
+<p>Для подключения к существующему сеансу используется команда <code class="docutils literal notranslate"><span class="pre">attach</span></code>.
+Так как у нас запущен только один сеанс, то, для присоединения к сеансу, можно использовать команду <code class="docutils literal notranslate"><span class="pre">attach</span></code> без
+параметров</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>attach<span class="sb">`</span>
+</pre></div>
+</div>
+<p>Все становится сложнее, если будет запущено более одного сеанса.
+Отключимся от основного сеанса с помощью <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">d</span>.</p>
+<p>Теперь создадим новый сеанс tmux в фоновом режиме, без присоединения к нему, с помощью команды</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>second_session<span class="w"> </span>-d
+</pre></div>
+</div>
+<p>После этого список запущенных сеансов будет выглядеть так</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>ls
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">first_session: 1 windows (created Thu Jan 01 22:30:00 2024)</span>
+<span class="go">second_session: 1 windows (created Thu Jan 01 22:30:00 2024)</span>
+</pre></div>
+</div>
+<p>Подключиться к нужному сеансу, можно используя флаг <code class="docutils literal notranslate"><span class="pre">-t</span></code>, за которым следует имя сеанса.
+Запустим следующую команду:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>second_session
+</pre></div>
+</div>
+<p>Это присоединит нас к сеансу tmux second_session.
+Отсоединимся от этого сеанса, используя <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">d</span>, а снова присоединимся к первому сеансу.</p>
+<!--
+В разделе «Переключение между сеансами» главы 6 будут рассмотрены другие способы перемещения между активными сеансами.
+-->
+<p>А пока давайте удалим активные сеансы.</p>
+<section id="id5">
+<h3>Закрытие сеанса<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<p>Для закрытия активного сеанса достаточно ввести</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">exit</span>
+</pre></div>
+</div>
+<p>внутри него.</p>
+<p>Другой способ закрытия сеанса — команда <code class="docutils literal notranslate"><span class="pre">kill-session</span></code>.
+Ее использование аналогично <code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">attach</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>kill-session<span class="w"> </span>-t<span class="w"> </span>first_basic
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>kill-session<span class="w"> </span>-t<span class="w"> </span>second_session
+</pre></div>
+</div>
+<p>Это может быть полезно в ситуациях, когда программа в сеансе зависла.</p>
+<p>При попытке снова получить список сеансов</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>ls
+</pre></div>
+</div>
+<p>получим следующее сообщение:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">no server running on /tmp/tmux-1000/default</span>
+</pre></div>
+</div>
+<p>Поскольку сеансы tmux не существуют, то и сам tmux не работает, а сдедовательно, он не может обработать запрос.</p>
+<p>Теперь, после знакомства с основами создания сеансов и работы с ними, давайте посмотрим, как можно организовать
+работу с несколькими программами в рамках одного сеанса.</p>
+</section>
 </section>
 </section>
 
@@ -641,6 +752,11 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Запуск tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Префикс команд</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Отсоединение от сеанса</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Повторное подключение к существующему сеансу</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Закрытие сеанса</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
