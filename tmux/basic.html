@@ -553,16 +553,16 @@ document.write(`
 <h2>Префикс команд<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Поскольку консольные приложения выполняются внутри tmux, становиться необходим способ сообщить tmux, что команда,
 вводимая команда предназначена для него, а не для основного приложения.
-Это делается с помощью комбинации клавиш <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, которая называется <em>префиксом команд</em>.
+Это делается с помощью комбинации клавиш <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, которая называется <em>префиксом команд</em>.
 Для ввода любой команды tmux необходимо предварительно использовать эту комбинацию.
 Важно отметить, что не следует удерживать все клавиши вместе.
-Вместо этого сначала одновременно нажмите <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, отпустите эти клавиши, а затем сразу же
+Вместо этого сначала одновременно нажмите <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, отпустите эти клавиши, а затем сразу же
 нажмите клавишу связанную с командой, которую вы хотите передать tmux.</p>
 <p>Чтобы понять, как это работает, снова запустите tmux командой</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux
 </pre></div>
 </div>
-<p>После этого, внутри tmux нажмите <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, а затем — <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>.
+<p>После этого, внутри tmux нажмите <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, а затем — <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">t</span>.
 На экране появятся большие часы:</p>
 <figure class="align-default" id="tmux-basic-030">
 <img alt="Часы в окне tmux" src="../_images/tmux_basic_030.svg" /><figcaption>
@@ -570,10 +570,10 @@ document.write(`
 </figcaption>
 </figure>
 <p>Нажмите клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Enter</span> или <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Esc</span>, чтобы закрыть часы, и выйдите из tmux, набрав <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
-<p>Так как сочетание <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> набирать достаточно не удобно, разумным решением является назначить для
+<p>Так как сочетание <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> набирать достаточно не удобно, разумным решением является назначить для
 префикса более простую комбинацию.
 Как это сделать будет показано в разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>.
-Поэтому в дальнейшем изложении вместо <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> будем использовать обозначение <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>,
+Поэтому в дальнейшем изложении вместо <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> будем использовать обозначение <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>,
 за которым следует горячая клавиша для команды tmux, например, <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">t</span> для отображения часов,
 или <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">d</span> для отсоединения (detaching) от сеанса.</p>
 <p>Теперь давайте посмотрим, как запустить программы в фоновом режиме.</p>
@@ -597,11 +597,13 @@ document.write(`
 </pre></div>
 </div>
 <p>В терминале отобразится что-то похожее на следующий рисунок.</p>
-<figure class="align-default" id="tmux-basic-040">
-<img alt="Сеанс tmux с запущенной программой `top`" src="tmux/images/tmux_basic_040.svg" /><figcaption>
-<p><span class="caption-number">Рис. 5 </span><span class="caption-text">Сеанс tmux с запущенной программой <code class="docutils literal notranslate"><span class="pre">top</span></code></span><a class="headerlink" href="#tmux-basic-040" title="Постоянная ссылка на рисунок">#</a></p>
-</figcaption>
-</figure>
+<!--
+:::{figure-md} tmux_basic_040
+<img src="./images/tmux_basic_040.svg" alt="Сеанс tmux с запущенной программой `top`">
+
+Сеанс tmux с запущенной программой `top`
+:::
+-->
 <p>Теперь отключимся от сеанса tmux, нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">d</span>.
 Это вернет обычный терминал.
 Теперь давайте посмотрим, как вернуться к тому сеансу tmux, который мы оставили запущенным.
@@ -627,7 +629,7 @@ tmux все еще работает вместе с приложением, ко
 <p>Для подключения к существующему сеансу используется команда <code class="docutils literal notranslate"><span class="pre">attach</span></code>.
 Так как у нас запущен только один сеанс, то, для присоединения к сеансу, можно использовать команду <code class="docutils literal notranslate"><span class="pre">attach</span></code> без
 параметров</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>attach<span class="sb">`</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>attach
 </pre></div>
 </div>
 <p>Все становится сложнее, если будет запущено более одного сеанса.

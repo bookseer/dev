@@ -50,6 +50,65 @@ print(message)
 
 +++
 
+## Сочетания клавиш
+
+```{list-table}
+:header-rows: 1
+:name: tbl_img_notation
+
+* - Нотация
+  - Значение
+* - {bdg-dark}`a`
+  - Нажать одну клавишу {bdg-dark}`a`
+* - {bdg-dark}`Esc`
+  - Нажать клавишу Escape
+* - {bdg-dark}`Enter`
+  - Нажать клавишу Enter
+* - {bdg-dark}`Ctrl`
+  - Нажать клавишу Ctrl
+* - {bdg-dark}`Shift`
+  - Нажать клавишу Shift
+* - {bdg-dark}`Tab`
+  - Нажать клавишу Tab
+* - {bdg-dark}`Space`
+  - Нажать клавишу пробел
+* - {bdg-dark}`Up`
+  - Нажать клавишу со стрелкой вверх
+* - {bdg-dark}`Down`
+  - Нажать клавишу со стрелкой вниз
+* - {bdg-dark}`Right`
+  - Нажать клавишу со стрелкой вправо
+* - {bdg-dark}`Left`
+  - Нажать клавишу со стрелкой влево
+* - {bdg-dark}`a` {bdg-dark}`b`
+  - Нажать клавишу {bdg-dark}`a`, отпустить и нажать клавишу {bdg-dark}`b`
+* - {bdg-dark}`a` {bdg-dark}`b` {bdg-dark}`с`
+  - Нажать клавишу {bdg-dark}`a`, отпустить, затем нажать {bdg-dark}`b`, отпустить и нажать {bdg-dark}`c`
+* - {bdg-dark}`Ctrl`-{bdg-dark}`b`
+  - Одновременно нажать клавиши {bdg-dark}`Ctrl` и {bdg-dark}`b`
+* - {bdg-dark}`Ctrl`-{bdg-dark}`Tab`
+  - Одновременно нажать клавиши {bdg-dark}`Ctrl` и {bdg-dark}`Tab`
+* - {bdg-dark}`Ctrl`-{bdg-dark}`b` {bdg-dark}`t`
+  - Одновременно нажать клавиши {bdg-dark}`Ctrl` и {bdg-dark}`b`, отпустить и нажать {bdg-dark}`t`
+* - {bdg-dark}`g` {bdg-dark}`Ctrl`-{bdg-dark}`]`
+  - Нажать клавишу {bdg-dark}`g`, отпустить и одновременно нажать клавиши {bdg-dark}`Ctrl` и {bdg-dark}`]`
+* - {bdg-dark}`Ctrl`-{bdg-dark}`a` {bdg-dark}`Ctrl`-{bdg-dark}`c`
+  - Одновременно нажать клавиши {bdg-dark}`Ctrl` и {bdg-dark}`a`, отпустить и одновременно нажать клавиши {bdg-dark}`Ctrl` и {bdg-dark}`c`
+* - {bdg-dark}`f` {bdg-dark}`[char]`
+  - Нажать клавишу {bdg-dark}`f`, затем ввести любой символ
+* - {bdg-dark}`m` {bdg-dark}`[a-z]`
+  - Нажать клавишу {bdg-dark}`f`, затем ввести любой символ нижнего регистра
+* - {bdg-dark}`m` {bdg-dark}`[A-Z]`
+  - Нажать клавишу {bdg-dark}`f`, затем ввести любой символ верхнего регистра
+* - {bdg-dark}`m` {bdg-dark}`[a-zA-Z]`
+  - Нажать клавишу {bdg-dark}`f`, затем ввести любой символ нижнего регистра или верхнего регистра
+* - {bdg-dark}`d` {bdg-dark}`[motion]`
+  - Нажать клавишу {bdg-dark}`f`, затем ввести любой символ нижнего регистра или верхнего регистра
+```
+
+
++++
+
 ## Графические выделения
 
 <!--
