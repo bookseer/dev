@@ -482,9 +482,15 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Запуск tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Префикс команд</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Отсоединение от сеанса</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Повторное подключение к существующему сеансу</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Закрытие сеанса</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Работа с сеансами</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Отсоединение от сеанса</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Повторное подключение к существующему сеансу</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Закрытие сеанса</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Работа с окнами</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Создание и наименование окон</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Перемещение между окнами</a></li>
 </ul>
 </li>
 </ul>
@@ -579,7 +585,9 @@ document.write(`
 <p>Теперь давайте посмотрим, как запустить программы в фоновом режиме.</p>
 </section>
 <section id="id3">
-<h2>Отсоединение от сеанса<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>Работа с сеансами<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<section id="id4">
+<h3>Отсоединение от сеанса<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>Если закрыть обычный сеанс терминала, все программы, запущенные в этом сеансе, будут уничтожены.
 Одной из отличительной особенностью и преимуществом tmux в данном случае является то, что после запуска программ или
 процессов внутри него, можно оставить все это работающим в фоновом режиме, «отсоединившись» (detaching) от сеанса.
@@ -609,8 +617,8 @@ document.write(`
 Теперь давайте посмотрим, как вернуться к тому сеансу tmux, который мы оставили запущенным.
 Но прежде чем мы это сделать, закроем окно терминала.</p>
 </section>
-<section id="id4">
-<h2>Повторное подключение к существующему сеансу<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<section id="id5">
+<h3>Повторное подключение к существующему сеансу<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p>Мы создали сеанс tmux, запустили программу внутри сеанса, отсоединились от него и закрыли окно терминала, но сеанс
 tmux все еще работает вместе с приложением, которое мы запустили.</p>
 <p>Просмотреть список существующих сеансов tmux можно, используя команду</p>
@@ -657,8 +665,9 @@ tmux все еще работает вместе с приложением, ко
 В разделе «Переключение между сеансами» главы 6 будут рассмотрены другие способы перемещения между активными сеансами.
 -->
 <p>А пока давайте удалим активные сеансы.</p>
-<section id="id5">
-<h3>Закрытие сеанса<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="id6">
+<h3>Закрытие сеанса<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p>Для закрытия активного сеанса достаточно ввести</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">exit</span>
 </pre></div>
@@ -684,6 +693,63 @@ tmux все еще работает вместе с приложением, ко
 <p>Поскольку сеансы tmux не существуют, то и сам tmux не работает, а сдедовательно, он не может обработать запрос.</p>
 <p>Теперь, после знакомства с основами создания сеансов и работы с ними, давайте посмотрим, как можно организовать
 работу с несколькими программами в рамках одного сеанса.</p>
+</section>
+</section>
+<section id="id7">
+<h2>Работа с окнами<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>В рамках одного сеанса tmux можно одновременно работать с несколькими приложениями.
+И это наиболее часто используемый способ работы c tmux.
+Поддерживать порядок и организацию при этом можно с помощью окон, которые похожи на вкладки в современных эмуляторах
+графического терминала или веб-браузерах.
+Каждый раз когда запускается новый сеанс, tmux создает начальное окно.</p>
+<p>Давайте создадим новый сеанс с двумя окнами.
+В первом окне будет обычный терминал, а во втором запустим команду <code class="docutils literal notranslate"><span class="pre">top</span></code>.</p>
+<section id="id8">
+<h3>Создание и наименование окон<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<p>Создажим именованный сеанс с именем «windows»:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>windows<span class="w"> </span>-n<span class="w"> </span>shell
+</pre></div>
+</div>
+<p>Используя флаг <code class="docutils literal notranslate"><span class="pre">-n</span></code>, можно задать имя первого окна, чтобы можно было легко его идентифицировать.
+Теперь давайте добавим еще одно окно в этот сеанс.</p>
+<p>Чтобы создать окно в текущем сеансе, нажмите <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">c</span>.
+Такой способ создание приводит к автоматическому переключению фокуса на новое окно.
+Давайте запустим <code class="docutils literal notranslate"><span class="pre">top</span></code> в этом новом окне.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>top
+</pre></div>
+</div>
+<p>Первое окно имеет, заданное при его создании, имя «shell», второе — «top».
+Так как имя второго окна не было задано при создании, оно будет меняться в зависимости от запущенного в данный момент
+приложения.
+Чтобы переименовать окно, достаточно нажать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">,</span> (запятая).
+После этого строка состояния изменится, позволяя переименовать текущее окно.
+Переименуем его в «processes».</p>
+<p>В рамках одного сеанса tmux можно создавать столько окон, сколько необходимо.
+Но как только их становится больше одного, нужно иметь возможность перемещаться между ними.</p>
+</section>
+<section id="id9">
+<h3>Перемещение между окнами<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<p>На данный момент вы создали два окна, и есть несколько способов перемещаться между ними.
+Когда у вас только два окна, вы можете быстро перемещаться между ними с помощью <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code>, переключаясь на следующеее
+окно (<strong>n</strong>ext window).
+Так можно циклически перебрать окна, которые вы открыли.
+Так как сейчас у вас есть только два окна такаой способ позволит просто переключается между ними.
+Также можно использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">p</span></code> для перехода к предыдущему окну (<strong>p</strong>revious window).</p>
+<p>По умолчанию каждое окно в tmux имеет номер, начинающийся с 0. Можно быстро перейти к первому окну
+используя <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">0</span></code>, ко второму –  <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">1</span></code> .
+Такая нумерация окон, начинающаяся с нуля, не всегда интуитивно понятна, но в Главе 2 «Настройка tmux», вы узнаете, как
+сделать так, чтобы нумерация окон начиналась с единицы, а не с нуля.</p>
+<p>Если у вас больше девяти окон, вы можете использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">w</span></code> для отображения визуального меню cо списком ваших
+окон, чтобы выбрать то, которое необходимо в данный момент.</p>
+<p>Еще можно использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">f</span></code> , чтобы найти окно, содержащее строку текста.
+Если ввести текст и нажать клавишу <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, отобразится список окон, содержащих этот текст.</p>
+<p>Теперь вы можете продолжить создавать новые окна и запускать программы.
+Когда вы отсоединитесь от своего сеанс и повторно подключить позже, все ваши окна будут там, где вы их оставили.</p>
+<p>Чтобы закрыть окно, вы можете либо ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в приглашение в окне, либо использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, после чего
+отобразится подтверждающее сообщение в строке состояния перед закрытием окна.
+Если вы подтвердите закрытие, активным станет предудущее окно.
+Чтобы полностью закрыть сеанс tmux, вы должны закрыть все окна в сеансе.</p>
+<p>Создание окон — это здорово, но мы можем сделать tmux еще более полезным, разбив окно на панели.</p>
 </section>
 </section>
 </section>
@@ -754,9 +820,15 @@ tmux все еще работает вместе с приложением, ко
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Запуск tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Префикс команд</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Отсоединение от сеанса</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Повторное подключение к существующему сеансу</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Закрытие сеанса</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Работа с сеансами</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Отсоединение от сеанса</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Повторное подключение к существующему сеансу</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Закрытие сеанса</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Работа с окнами</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Создание и наименование окон</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Перемещение между окнами</a></li>
 </ul>
 </li>
 </ul>
