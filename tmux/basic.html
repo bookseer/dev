@@ -490,7 +490,12 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Работа с окнами</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Создание и наименование окон</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Перемещение между окнами</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Переключение между окнами</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Работа с панелями</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Макеты панелей</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Закрытие панелей</a></li>
 </ul>
 </li>
 </ul>
@@ -725,31 +730,92 @@ tmux все еще работает вместе с приложением, ко
 После этого строка состояния изменится, позволяя переименовать текущее окно.
 Переименуем его в «processes».</p>
 <p>В рамках одного сеанса tmux можно создавать столько окон, сколько необходимо.
-Но как только их становится больше одного, нужно иметь возможность перемещаться между ними.</p>
+Но как только их становится больше одного, нужно иметь возможность переключаться между ними.</p>
 </section>
 <section id="id9">
-<h3>Перемещение между окнами<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
-<p>На данный момент вы создали два окна, и есть несколько способов перемещаться между ними.
-Когда у вас только два окна, вы можете быстро перемещаться между ними с помощью <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code>, переключаясь на следующеее
-окно (<strong>n</strong>ext window).
-Так можно циклически перебрать окна, которые вы открыли.
-Так как сейчас у вас есть только два окна такаой способ позволит просто переключается между ними.
-Также можно использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">p</span></code> для перехода к предыдущему окну (<strong>p</strong>revious window).</p>
-<p>По умолчанию каждое окно в tmux имеет номер, начинающийся с 0. Можно быстро перейти к первому окну
-используя <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">0</span></code>, ко второму –  <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">1</span></code> .
-Такая нумерация окон, начинающаяся с нуля, не всегда интуитивно понятна, но в Главе 2 «Настройка tmux», вы узнаете, как
-сделать так, чтобы нумерация окон начиналась с единицы, а не с нуля.</p>
-<p>Если у вас больше девяти окон, вы можете использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">w</span></code> для отображения визуального меню cо списком ваших
-окон, чтобы выбрать то, которое необходимо в данный момент.</p>
-<p>Еще можно использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">f</span></code> , чтобы найти окно, содержащее строку текста.
+<h3>Переключение между окнами<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<p>На данный момент у нас имеется два окна.
+Есть несколько способов переключения между ними.
+Если окон всего два, можно быстро переключаться между ними с помощью <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">n</span>.
+Данная комбинация переключает на следующее окно (<strong>n</strong>ext window), позволяя циклически переключаться между окнами.
+Так как сейчас у нас есть только два окна такой способ позволит просто переключается между ними.
+Аналогично можно использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">p</span> для перехода к предыдущему окну (<strong>p</strong>revious window).</p>
+<p>По умолчанию каждое окно в tmux имеет номер, начинающийся с 0.
+Можно быстро перейти к первому окну используя <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">0</span>, ко второму — <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>
+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">1</span> и т.д.
+Такая нумерация окон, начинающаяся с нуля, не всегда интуитивно понятна, поэтому в разделе
+<a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>, будет показано как сделать так, чтобы нумерация окон начиналась с единицы,
+а не с нуля.</p>
+<p>Если создано больше десяти окон, можно использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">w</span> для отображения визуального меню
+со списком всех окон, чтобы выбрать то, которое необходимо в данный момент.</p>
+<p>Также можно использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">f</span> , чтобы найти окно, содержащее строку текста (не обязательно
+в названии окна).
 Если ввести текст и нажать клавишу <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, отобразится список окон, содержащих этот текст.</p>
-<p>Теперь вы можете продолжить создавать новые окна и запускать программы.
-Когда вы отсоединитесь от своего сеанс и повторно подключить позже, все ваши окна будут там, где вы их оставили.</p>
-<p>Чтобы закрыть окно, вы можете либо ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в приглашение в окне, либо использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, после чего
-отобразится подтверждающее сообщение в строке состояния перед закрытием окна.
-Если вы подтвердите закрытие, активным станет предудущее окно.
-Чтобы полностью закрыть сеанс tmux, вы должны закрыть все окна в сеансе.</p>
-<p>Создание окон — это здорово, но мы можем сделать tmux еще более полезным, разбив окно на панели.</p>
+<p>Если отсоединиться от своего сеанс и повторно подключиться позже, все окна сохранят свое состояние.</p>
+<p>Чтобы закрыть окно, можно либо ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в приглашение командной сторки в окне, либо использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>
+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">&amp;</span>, после чего отобразится подтверждающее сообщение в строке состояния перед закрытием окна.
+После подтверждения закрытия, активным станет предыдущее окно.
+Чтобы полностью закрыть сеанс tmux, достаточно закрыть все его.</p>
+<p>Создание окон — это здорово, но можно сделать tmux еще более полезным, разбив окно на панели.</p>
+</section>
+</section>
+<section id="id10">
+<h2>Работа с панелями<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<p>Наличие программ в отдельных окнах подходит для случаев, которые есть возможность скрывать некоторые из них за
+ненадобностью.
+Но tmux позволяет разделить одно окно на панели.</p>
+<p>Давайте создадим новый сеанс tmux под названием «panes», чтобы можно было поэкспериментировать с тем, как работают
+панели.
+Закройте все существующие сеансы tmux и создайте новый следующим образом:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>panes
+</pre></div>
+</div>
+<p>Окна можно делить окна по вертикали или по горизонтали.</p>
+<p>Давайте сначала разделим окно пополам по вертикали, а затем по горизонтали, создав одну большую панель слева и две
+меньшие справа, как показано на рисунке.</p>
+<!--
+:::{figure-md} tmux_basic_050
+<img src="./images/tmux_basic_050.svg" alt="Использование панелей tmux">
+
+Использование панелей tmux
+:::
+-->
+<p>В сеансе tmux нажмите <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">%</span>, и окно разделится посередине, запустив второй сеанс терминала в
+новой панели.
+Кроме того, фокус переместится на эту новую панель.
+Нажатие <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">«</span> (двойная кавычка) разделит эту новую панель
+пополам по горизонтали.
+По умолчанию новые панели разделяют существующую панель ровно пополам.</p>
+<p>Для циклического переключения между панелями нажимайте <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">o</span>.
+Также для переключения между панелями можете использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> и клавиши со стрелками.</p>
+<p>Всего парой нажатий клавиш удалось разделить одно окно на рабочую область с тремя панелями.
+Давайте посмотрим на то как можно переупорядочить эти панели с помощью макетов.</p>
+<section id="id11">
+<h3>Макеты панелей<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
+<p>Изменить размер панели можно либо с помощью постепенного изменения размера, либо с помощью шаблонов.
+Сочетание клавиш для постепенного изменения размера панелей по умолчанию довольно не удобное.
+В <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">разделе «Настройка tmux»</span></a> будут переопределены сочетания клавиш, чтобы упростить изменение
+размеров панелей.
+На данный момент будем использовать один из нескольких стандартных макетов панелей:</p>
+<ul class="simple">
+<li><p><em>even-horizontal</em> размещает все панели горизонтально, слева направо.</p></li>
+<li><p><em>even-vertical</em>  размещает все панели вертикально сверху вниз.</p></li>
+<li><p><em>main-horizontal</em> создает одну большую панель вверху и меньшие панели внизу.</p></li>
+<li><p><em>main-vertical</em> создает одну большую панель в левой части экрана и остальные панели вертикально справа.</p></li>
+<li><p><em>tiled</em> упорядочивает все панели равномерно на экране.</p></li>
+</ul>
+<p>Переключаться между этими раскладками можно нажимая <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Пробел</span>.</p>
+</section>
+<section id="id12">
+<h3>Закрытие панелей<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<p>Закрытие панели происходит так же, как и закрытие сеанса или окна tmux: нужно просто ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в пенель, которую необходимо закрыть.</p>
+<p>Еще можно закрыть панель с помощью сочетания <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">x</span>, которое также закроет окно, если в нем
+только одна панель.
+Такое удаление панели отлично подходит для ситуации, когда приложение в панели зависло или вы больше не можете с ним
+взаимодействовать.
+При использовании комбинации клавиш необходимо будет подтвердить закрытие панели.</p>
+<p>Теперь мы можем создавать новые сеансы, создавать окна, панели и перемещаться между ними.
+Прежде чем мы перейдем к более сложным темам, давайте рассмотрим некоторые дополнительные команды tmux.</p>
 </section>
 </section>
 </section>
@@ -828,7 +894,12 @@ tmux все еще работает вместе с приложением, ко
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Работа с окнами</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Создание и наименование окон</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Перемещение между окнами</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Переключение между окнами</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Работа с панелями</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Макеты панелей</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Закрытие панелей</a></li>
 </ul>
 </li>
 </ul>

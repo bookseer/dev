@@ -70,7 +70,7 @@ print(message)
   - Нажать клавишу Shift
 * - {bdg-dark}`Tab`
   - Нажать клавишу Tab
-* - {bdg-dark}`Space`
+* - {bdg-dark}`Пробел`
   - Нажать клавишу пробел
 * - {bdg-dark}`Up`
   - Нажать клавишу со стрелкой вверх
