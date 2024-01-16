@@ -457,7 +457,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -473,6 +475,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-conf">Файл .tmux.conf</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -484,6 +494,32 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
 <span id="tmux-configuring"></span><h1>Настройка tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+<p>Сейчас, уже имея некоторый опыт работы с tmux, давайте создадим собственную конфигурацию, которую сможем использовать
+для наших остальных рабочих задач.</p>
+<p>tmux по умолчанию имеет не самые удобные настройки.
+Многие из наиболее важных и полезных функции назначаются труднодоступным сочетаниям клавиш или состоят из длинных многословных команд.
+А цветовая схема tmux по умолчанию не особенно приятна для глаз.
+В этом разделе мы создадим базовый конфигурационный файл, который затем будем использовать в оставшейся части руководства.
+После изучения данного материала, у вас будет лучшее представление о том, насколько гибок tmux, и вы сможете конфигурировать его самостоятельно.
+Давайте начнем с разговора о том, что нужно настроить в tmux в первую очередь.</p>
+<section id="tmux-conf">
+<h2>Файл .tmux.conf<a class="headerlink" href="#tmux-conf" title="Permalink to this heading">#</a></h2>
+<p>По умолчанию tmux ищет параметры конфигурации в двух местах.
+Сначала в <strong>/etc/tmux.conf</strong> он ищет общесистемную конфигурацию.
+Затем — файл с именем <strong>.tmux.conf</strong> в домашнем каталоге текущего пользователя.
+Если эти файлы не существуют, tmux просто использует настройки по умолчанию.
+Нам не нужно создавать общесистемный файл конфигурации, поэтому давайте создадим пустой файл конфигурации в нашем домашнем каталоге.
+Для этого можно использовать следующую команду:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>touch<span class="w"> </span>~/.tmux.conf<span class="w"> </span>
+</pre></div>
+</div>
+<p>В этом файле мы можем делать все, от определения новых сочетаний клавиш до настройки окружения по умолчанию с нескольими окнами, панелями и запущенными программами.
+Давайте начнем с установки нескольких основных параметров, которые сделают работу с tmux намного проще.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Файл .tmux.conf является скрытым и не отображается в файловых менеджерах или списках каталогов по умолчанию.</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -541,7 +577,20 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-conf">Файл .tmux.conf</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
