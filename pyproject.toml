@@ -8,7 +8,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "bookseer-dev"
-version = "2024.01.16"
+version = "2024.01.17"
 description = "Заметки для разработчиков"
 authors = ["Alexander Krasnikov <askrasnikov@gmail.com>"]
 maintainers = ["askras <askrasnikov@gmail.com>"]
@@ -68,8 +68,12 @@ pytest = "^7.4.3"
 pyupgrade = "^3.15.0"
 
 [tool.poetry.group.binder.dependencies]
+asciinema = "^2.4.0"
+asciinema-automation = "^0.2.0"
+asciinema-scene = "^0.8.2"
 ipywidgets = "^8.1.1"
 jupytext = "^1.16.0"
+sphinxcontrib-asciinema = "^0.4.0"
 sphinx-click = "^5.1.0"
 sphinx-inline-tabs = "^2023.4.21"
 sphinx-proof = "^0.1.3"
