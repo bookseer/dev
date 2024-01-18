@@ -482,6 +482,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-conf">Файл .tmux.conf</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Назначение более простого префикса</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Изменение задержки по умолчанию</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Настройка индексации окон и панелей</a></li>
 </ul>
             </nav>
         </div>
@@ -511,7 +513,7 @@ document.write(`
 Если эти файлы не существуют, tmux просто использует настройки по умолчанию.
 Нам не нужно создавать общесистемный файл конфигурации, поэтому давайте создадим пустой файл конфигурации в нашем домашнем каталоге.
 Для этого можно использовать следующую команду:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>touch<span class="w"> </span>~/.tmux.conf<span class="w"> </span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>touch<span class="w"> </span>~/.tmux.conf
 </pre></div>
 </div>
 <p>В этом файле мы можем делать все, от определения новых сочетаний клавиш до настройки окружения по умолчанию с нескольими окнами, панелями и запущенными программами.
@@ -533,12 +535,12 @@ document.write(`
 На многих клавиатурах клавиша <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> находится рядом с клавишей <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> в центральном ряду клавиатуры.
 Переназначив эту клавишу на <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>, можно сделать запуск команд более удобным.
 На Mac переназначить клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> можно в панели настроек клавиатуры в разделе «Системные настройки». Просто нажмите кнопку «Клавиши-модификаторы» и измените действие для <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> на «Control».</p>
-<p>Под Linux этот процесс может быть немного сложнее в зависимости от используемого дистрибутива или оконного менеджера, но можете найти несколько способов, [в вики Emacs](<a class="reference external" href="http://www.emacswiki.org/emacs/MovingT">http://www.emacswiki.org/emacs/MovingT</a> heCtrlKey).
+<p>Под Linux этот процесс может быть немного сложнее в зависимости от используемого дистрибутива или оконного менеджера, но можете найти несколько способов, <a class="reference external" href="http://www.emacswiki.org/emacs/MovingTheCtrlKey">в вики Emacs</a>.
 Это небольшое изменение в конфигурации может сэкономить удивительное количество времени в течение дня.</p>
 </div>
 <p>Чтобы установить параметры в файле .tmux.conf, используется команда <code class="docutils literal notranslate"><span class="pre">set-option</span></code>, которую можно сократить до <code class="docutils literal notranslate"><span class="pre">set</span></code>.
 Для переопределения префикса tmux, нужно добавить в файл .tmux.conf следующие строки:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .tmux.conf</span>
 
 <span class="c1"># Setting the prefix from C-b to C-a</span>
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">prefix</span> <span class="n">C</span><span class="o">-</span><span class="n">a</span>
@@ -550,7 +552,7 @@ document.write(`
 Комментарии в файле конфигурации tmux работают так же, как комментарии в исходном коде.</p>
 <p>Хотя, в данном случае, в этом нет необходимости, можно использовать <code class="docutils literal notranslate"><span class="pre">unbind-key</span></code> или команду <code class="docutils literal notranslate"><span class="pre">unbind</span></code>, чтобы удалить привязку клавиш, которая была определена до этого, чтобы позже назначить другую команду этой клавише.
 Освободим <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> вот так:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .tmux.conf</span>
 
 <span class="c1"># Free the original Ctrl-b prefix keybinding</span>
 <span class="n">unbind</span> <span class="n">C</span><span class="o">-</span><span class="n">b</span>
@@ -566,6 +568,43 @@ document.write(`
 </div>
 <p>Теперь можно использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> в качестве префикса.
 Остальные примеры в этом руководстве будут по-прежнему ссылаться на него как на <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>.</p>
+</section>
+<section id="id2">
+<h2>Изменение задержки по умолчанию<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>tmux добавляет очень небольшую задержку при отправке команд, и эта задержка может мешать другим программам, например, текстовому редактору Vim.
+Устранить эту проблему, можно добавив в конфигурационный файл следующее определение:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .tmux.conf</span>
+
+<span class="c1"># Setting the delay between prefix and command</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">s</span> <span class="n">escape</span><span class="o">-</span><span class="n">time</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>После перезагрузки файла конфигурации, можно будет без задержки нажимать клавиши.</p>
+</section>
+<section id="id3">
+<h2>Настройка индексации окон и панелей<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>В разделе <a class="reference internal" href="basic.html#tmux-basic"><span class="std std-ref">«Основы tmux»</span></a> было рассказано об окнах и о том, как при создании нескольких окон в сеансе, можно ссылаться на них по индексу. Индексация начинается с нуля, что немного неудобно, так как придодится использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">0</span> для доступа к первому окну.</p>
+<p>Добавив эту строку в файл конфигурации</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .tmux.conf</span>
+
+<span class="c1"># Set the base index for windows to 1 instead of 0</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">base</span><span class="o">-</span><span class="n">index</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>установим индексацию окон с 1.
+После этого, для доступа к первому окну можно будет использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">1</span>.
+Это проще и понятнее, так как клавиши на клавиатуре теперь напрямую соответствуют окнам, перечисленным в строке состояния.</p>
+<p>Аналогично установим начальный индекс для панелей, используя опцию <code class="docutils literal notranslate"><span class="pre">pane-base-index</span></code>, чтобы у вас была согласованность между нумерацией панелей и окон.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .tmux.conf</span>
+
+<span class="c1"># Set the base index for panes to 1 instead of 0</span>
+<span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">pane</span><span class="o">-</span><span class="n">base</span><span class="o">-</span><span class="n">index</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>До сих пор использовалась команда <code class="docutils literal notranslate"><span class="pre">set</span></code>, которая устанавливает параметры для сеанса tmux.
+Чтобы настроить параметры, которые влияют на взаимодействие с окнами, необходимо использовать другую команду — <code class="docutils literal notranslate"><span class="pre">set-windowoption</span></code>, или ее сокращенный вариант <code class="docutils literal notranslate"><span class="pre">setw</span></code>.
+Сокращенные версии команд удобны тем, что примеры конфигурации помещающимися в одну строку.</p>
+<p>Теперь давайте создадим несколько полезных сочетаний клавиш, которые повысят вашу продуктивность.</p>
 </section>
 </section>
 
@@ -635,6 +674,8 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-conf">Файл .tmux.conf</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Назначение более простого префикса</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Изменение задержки по умолчанию</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Настройка индексации окон и панелей</a></li>
 </ul>
   </nav></div>
 
