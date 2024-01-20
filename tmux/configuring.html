@@ -486,6 +486,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Настройка индексации окон и панелей</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Назначение сочетания клавиш для перезагрузки конфигурации</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Определение сочетаний клавиш, не требующих префикса</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Отправка префикса в другие приложения</a></li>
 </ul>
             </nav>
         </div>
@@ -661,6 +662,19 @@ document.write(`
 К сожалению, это переопределит эту комбинацию клавиш в любом приложении, которое работает в сеансе tmux, поэтому
 следует пользоваться такой возможностью с большой осторожностью.</p>
 </section>
+<section id="id6">
+<h2>Отправка префикса в другие приложения<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>Мы переназначили <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> в качестве префикса, но такие программы, как Vim, Emacs и даже обычная оболочка Bash также используют эту комбинацию.
+Необходимо настроить tmux для отправки этой команды в приложения, когда вам это нужно.
+Сделать это можно, привязав команду <code class="docutils literal notranslate"><span class="pre">send-prefix</span></code> к нажатию клавиши, например:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Ensure that we can send Ctrl-A to other apps</span>
+<span class="n">bind</span> <span class="n">C</span><span class="o">-</span><span class="n">a</span> <span class="n">send</span><span class="o">-</span><span class="n">prefix</span>
+</pre></div>
+</div>
+<p>После перезагрузки файла конфигурации можнно отправить <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> приложению, работающему в tmux, просто дважды нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -733,6 +747,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Настройка индексации окон и панелей</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Назначение сочетания клавиш для перезагрузки конфигурации</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Определение сочетаний клавиш, не требующих префикса</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Отправка префикса в другие приложения</a></li>
 </ul>
   </nav></div>
 
