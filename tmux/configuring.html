@@ -487,6 +487,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Назначение сочетания клавиш для перезагрузки конфигурации</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Определение сочетаний клавиш, не требующих префикса</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Отправка префикса в другие приложения</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Разделение панелей</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Переназначение клавиш управления курсором</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -519,7 +523,7 @@ document.write(`
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>touch<span class="w"> </span>~/.tmux.conf
 </pre></div>
 </div>
-<p>В этом файле мы можем делать все, от определения новых сочетаний клавиш до настройки окружения по умолчанию с нескольими окнами, панелями и запущенными программами.
+<p>В этом файле мы можем делать все, от определения новых сочетаний клавиш до настройки окружения по умолчанию с несколькими окнами, панелями и запущенными программами.
 Давайте начнем с установки нескольких основных параметров, которые сделают работу с tmux намного проще.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
@@ -532,15 +536,6 @@ document.write(`
 Многие пользователи tmux начинали с GNUScreen, который использует <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> для префикса команд.
 <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span> — отличный выбор для префикса, потому что легко доступен, особенно если переназначить клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> на <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>, как описано на далее.
 Это позволит для большинства действий не убирать руки с центрального ряда клавиатуры.</p>
-<div class="admonition note">
-<p class="admonition-title">Примечание</p>
-<p><strong>Переназначение клавиши <code class="docutils literal notranslate"><span class="pre">Caps</span> <span class="pre">Lock</span></code></strong>
-На многих клавиатурах клавиша <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> находится рядом с клавишей <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> в центральном ряду клавиатуры.
-Переназначив эту клавишу на <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>, можно сделать запуск команд более удобным.
-На Mac переназначить клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> можно в панели настроек клавиатуры в разделе «Системные настройки». Просто нажмите кнопку «Клавиши-модификаторы» и измените действие для <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> на «Control».</p>
-<p>Под Linux этот процесс может быть немного сложнее в зависимости от используемого дистрибутива или оконного менеджера, но можете найти несколько способов, <a class="reference external" href="http://www.emacswiki.org/emacs/MovingTheCtrlKey">в вики Emacs</a>.
-Это небольшое изменение в конфигурации может сэкономить удивительное количество времени в течение дня.</p>
-</div>
 <p>Чтобы установить параметры в файле .tmux.conf, используется команда <code class="docutils literal notranslate"><span class="pre">set-option</span></code>, которую можно сократить до <code class="docutils literal notranslate"><span class="pre">set</span></code>.
 Для переопределения префикса tmux, нужно добавить в файл .tmux.conf следующие строки:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .tmux.conf</span>
@@ -571,6 +566,15 @@ document.write(`
 </div>
 <p>Теперь можно использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> в качестве префикса.
 Остальные примеры в этом руководстве будут по-прежнему ссылаться на него как на <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>.</p>
+<div class="admonition note" id="tmux-configuring-capslock">
+<p class="admonition-title">Примечание</p>
+<p><strong>Переназначение клавиши <code class="docutils literal notranslate"><span class="pre">Caps</span> <span class="pre">Lock</span></code></strong></p>
+<p>На многих клавиатурах клавиша <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> находится рядом с клавишей <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> в центральном ряду клавиатуры.
+Переназначив эту клавишу на <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>, можно сделать запуск команд более удобным.
+На Mac переназначить клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> можно в панели настроек клавиатуры в разделе «Системные настройки». Просто нажмите кнопку «Клавиши-модификаторы» и измените действие для <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> на «Control».</p>
+<p>Под Linux этот процесс может быть немного сложнее в зависимости от используемого дистрибутива или оконного менеджера, но можете найти несколько способов, <a class="reference external" href="http://www.emacswiki.org/emacs/MovingTheCtrlKey">в вики Emacs</a>.
+Это небольшое изменение в конфигурации может сэкономить удивительное количество времени в течение дня.</p>
+</div>
 </section>
 <section id="id2">
 <h2>Изменение задержки по умолчанию<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
@@ -586,7 +590,7 @@ document.write(`
 </section>
 <section id="id3">
 <h2>Настройка индексации окон и панелей<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<p>В разделе <a class="reference internal" href="basic.html#tmux-basic"><span class="std std-ref">«Основы tmux»</span></a> было рассказано об окнах и о том, как при создании нескольких окон в сеансе, можно ссылаться на них по индексу. Индексация начинается с нуля, что немного неудобно, так как придодится использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">0</span> для доступа к первому окну.</p>
+<p>В разделе <a class="reference internal" href="basic.html#tmux-basic"><span class="std std-ref">«Основы tmux»</span></a> было рассказано об окнах и о том, как при создании нескольких окон в сеансе, можно ссылаться на них по индексу. Индексация начинается с нуля, что немного неудобно, так как приходится использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">0</span> для доступа к первому окну.</p>
 <p>Добавив эту строку в файл конфигурации</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .tmux.conf</span>
 
@@ -619,8 +623,7 @@ document.write(`
 <p>чтобы перезагрузить конфигурацию непосредственно из запущенного сеанса tmux.
 Давайте создадим клавиатурную команду для перезагрузки файла конфигурации.</p>
 <p>Определяет новую клавиатурную привязку команда <code class="docutils literal notranslate"><span class="pre">bind</span></code>.
-При этом необходимо указывать клавишу, которая будет использоваться, а затем команду, запуск которой необходимо
-привязать к этой клавише.</p>
+При этом вначале необходимо указывать клавишу, а затем команду, запуск которой необходимо привязать к этой клавише.</p>
 <p>Давайте определим <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">r</span>, чтобы перезагружать файл .tmux.conf в текущем сеансе.
 Для этого добавьте эту строку в свой конфигурационный файл:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
@@ -630,8 +633,8 @@ document.write(`
 </pre></div>
 </div>
 <p>С помощью этой привязки клавиш можно внести изменения в файл конфигурации, а затем немедленно активировать их,
-нажав  <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>  <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">r</span>.
-Однако данной командой все щеще нельзя будет воспользоваться, пока не будет перезагружен файл конфигурации вручную.
+нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>  <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">r</span>.
+Однако данной командой все еще нельзя будет воспользоваться, пока не будет перезагружен файл конфигурации вручную.
 Для этого нужно войти в командный режим с помощью <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">:</span> и ввести</p>
 <div class="highlight-tmux notranslate"><div class="highlight"><pre><span></span>: source-file ~/.tmux.conf
 </pre></div>
@@ -673,7 +676,49 @@ document.write(`
 <span class="n">bind</span> <span class="n">C</span><span class="o">-</span><span class="n">a</span> <span class="n">send</span><span class="o">-</span><span class="n">prefix</span>
 </pre></div>
 </div>
-<p>После перезагрузки файла конфигурации можнно отправить <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> приложению, работающему в tmux, просто дважды нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span>.</p>
+<p>После перезагрузки файла конфигурации можно отправить <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> приложению, работающему в tmux, просто дважды нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span>.</p>
+</section>
+<section id="id7">
+<h2>Разделение панелей<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>Клавиши, используемые по умолчанию для разделения панелей, труднозапоминаемы и достаточно неудобны, поэтому давайте установим свои собственные клавиши.
+Свяжем горизонтальное разделение окна с <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">|</span> и вертикальное разделение с <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">-</span>.
+Для этого добавим эти строки в файл конфигурации:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Splitting panes with | and -</span>
+<span class="n">bind</span> <span class="o">|</span> <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">h</span>
+<span class="n">bind</span> <span class="o">-</span> <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">v</span>
+</pre></div>
+</div>
+<p>На первый взгляд, это может показаться противоречием.
+Параметры <code class="docutils literal notranslate"><span class="pre">-v</span></code> и <code class="docutils literal notranslate"><span class="pre">-h</span></code> в <code class="docutils literal notranslate"><span class="pre">split-window</span></code> означают «вертикальное» и «горизонтальное» разделение, но для tmux вертикальное разделение означает создание новой панели под существующей панелью, чтобы панели укладываются вертикально друг на друга. Горизонтальное разделение означает создание новой панели рядом с существующей, чтобы панели располагались горизонтально на экране.</p>
+<p>Итак, чтобы разделить окно по вертикали, используется «горизонтальное» разделение, а для разделения по горизонтали используется «вертикальное» разделение.
+Новые сочетания клавиш дают простую визуальную ассоциацию.
+Для разделения окна нужно нажать клавишу, которая выглядит как требуемое разделение.</p>
+<section id="id8">
+<h3>Переназначение клавиш управления курсором<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<p>Переход между панелями с помощью <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">o</span> весьма неудобен, а использование клавиш со стрелками предполагает, что нужно убрать пальцы с центрального ряда клавиатуры.
+В текстовом редакторе Vim, используются весьма удобные клавиши <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">h</span>, <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">j</span>, <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">k</span> и <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">l</span> для перемещения курсора.
+Давайте переназначим клавиши перемещения в tmux на эти же клавиши:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Moving between panes with Prefix h, j, k, l</span>
+<span class="n">bind</span> <span class="n">h</span> <span class="n">select</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">L</span>
+<span class="n">bind</span> <span class="n">j</span> <span class="n">select</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">D</span>
+<span class="n">bind</span> <span class="n">k</span> <span class="n">select</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">U</span>
+<span class="n">bind</span> <span class="n">l</span> <span class="n">select</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">R</span>
+</pre></div>
+</div>
+<p>Кроме того, можно назначить сочетания <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">h</span> и <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">l</span> для циклического переключения между окнами:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Quick window selection</span>
+<span class="n">bind</span> <span class="o">-</span><span class="n">r</span> <span class="n">C</span><span class="o">-</span><span class="n">h</span> <span class="n">select</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">t</span> <span class="p">:</span><span class="o">-</span>
+<span class="n">bind</span> <span class="o">-</span><span class="n">r</span> <span class="n">C</span><span class="o">-</span><span class="n">l</span> <span class="n">select</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">t</span> <span class="p">:</span><span class="o">+</span>
+</pre></div>
+</div>
+<p>Если <a class="reference internal" href="#tmux-configuring-capslock"><span class="std std-ref">сопоставить клавишу</span></a> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> с клавишей <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrk</span>, то для перемещаться между окнами и панелями можно не убирая рук с центрального ряда клавиатуры.</p>
+</section>
 </section>
 </section>
 
@@ -748,6 +793,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Назначение сочетания клавиш для перезагрузки конфигурации</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Определение сочетаний клавиш, не требующих префикса</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Отправка префикса в другие приложения</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Разделение панелей</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Переназначение клавиш управления курсором</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
