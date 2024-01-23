@@ -17,6 +17,7 @@ parts:
     - file: tmux/install
     - file: tmux/basic
     - file: tmux/configuring
+    - file: tmux/visual-configuring
     - file: tmux/custom-environment
     - file: tmux/text-and-buffer
     - file: tmux/pair-programming
