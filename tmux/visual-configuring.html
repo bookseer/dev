@@ -458,7 +458,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -474,6 +476,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Настройка поддержки цветов</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -490,6 +500,43 @@ document.write(`
 В этом разделе мы пройдемся по настройкам некоторых из этих параметров, настроим строку состояния и другие компоненты.
 Что ж начнем с настройки цветов для различных элементов.
 Затем превратим строку состояния в элемент интерфейса предоставляющий некоторую важную информацию об используемом окружении.</p>
+<section id="id1">
+<h2>Настройка поддержки цветов<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Чтобы иметь возможность настраивать визуальные эффекты tmux, необходимо убедиться, что и терминал, и tmux настроены
+на использование 256 цветов.</p>
+<p>Команда <code class="docutils literal notranslate"><span class="pre">tput</span></code> поможет быстро определить количество цветов, поддерживаемых терминалом.
+Введите команду</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tput<span class="w"> </span>colors
+</pre></div>
+</div>
+<p>Если в результате будет получено 256, значит все настроено как надо.
+В противном случае, потребуется настроить терминал для использования режима 256 <code class="docutils literal notranslate"><span class="pre">xterm</span></code>’a.
+На Mac можно настроить это в приложение «Terminal», отредактировав профиль, как показано на следующем рисунке:</p>
+<p><img alt="" src="tmux/img/-340-007.png" /></p>
+<p>При использовании (<a class="reference external" href="http://www.iterm2.com">http://www.iterm2.com</a>)[iTerm2], можно сделать это, отредактировав профиль по умолчанию и изменив режим терминала на <code class="docutils literal notranslate"><span class="pre">xterm-256color</span></code>, как показано на следующем рисунке:</p>
+<p><img alt="" src="tmux/img/-440-008.png" /></p>
+<p>При использовании Linux, может потребоваться добавить</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">bashrc</span>
+
+<span class="p">[</span> <span class="o">-</span><span class="n">z</span> <span class="s2">&quot;$TMUX&quot;</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">export</span> <span class="n">TERM</span><span class="o">=</span><span class="n">xterm</span><span class="o">-</span><span class="mi">256</span><span class="n">color</span>
+</pre></div>
+</div>
+<p>в файл <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, чтобы включить 256-цветный режим терминала.
+Этот условный оператор гарантирует, что переменная <code class="docutils literal notranslate"><span class="pre">TERM</span></code> устанавливается только вне tmux, так как tmux устанавливает свой собственный терминал.</p>
+<p>Кроме того, необходимо убедиться, что эмулятор терминала поддерживает отображение символов UTF-8,
+чтобы визуальные элементы, например, разделители панелей отображались пунктирными линиями.</p>
+<p>Чтобы tmux отображал 256 цветов, добавьте эту строку в наш файл .tmux.conf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Set the default terminal mode to 256color mode</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">default</span><span class="o">-</span><span class="n">terminal</span> <span class="s2">&quot;screen-256color&quot;</span>
+</pre></div>
+</div>
+<p>Как только будет установлен правильный цветовой режим, будет намного проще использовать такие программы,
+как Vim, Emacs и другие полноцветные программы с tmux, особенно когда используются более сложные цветовые схемы для подсветка синтаксиса.
+Следующий рисунок, поможет увидеть разницу.</p>
+<p><img alt="" src="tmux/img/-440-009.png" /></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -547,7 +594,20 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Настройка поддержки цветов</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
