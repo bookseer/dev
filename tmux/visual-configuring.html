@@ -482,6 +482,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Настройка поддержки цветов</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Определение кодов цветов</a></li>
 </ul>
             </nav>
         </div>
@@ -533,9 +534,27 @@ document.write(`
 </pre></div>
 </div>
 <p>Как только будет установлен правильный цветовой режим, будет намного проще использовать такие программы,
-как Vim, Emacs и другие полноцветные программы с tmux, особенно когда используются более сложные цветовые схемы для подсветка синтаксиса.
+как Vim, Emacs и другие полноцветные программы с tmux, особенно когда используются более сложные цветовые схемы для подсветки синтаксиса.
 Следующий рисунок, поможет увидеть разницу.</p>
 <p><img alt="" src="tmux/img/-440-009.png" /></p>
+</section>
+<section id="id2">
+<h2>Определение кодов цветов<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>Теперь давайте настроим внешний вид компонентов tmux, начиная с цветовой схемы.</p>
+<p>tmux позволяет изменять цвета почти всех частей интерфейса, включая строку состояния, список окон,
+область сообщений и даже границы панелей.</p>
+<p>tmux предоставляет переменные, которые используются для указания цветов:
+<code class="docutils literal notranslate"><span class="pre">black</span></code>, <code class="docutils literal notranslate"><span class="pre">red</span></code> , <code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">yellow</span></code>, <code class="docutils literal notranslate"><span class="pre">blue</span></code>, <code class="docutils literal notranslate"><span class="pre">magenta</span></code>, <code class="docutils literal notranslate"><span class="pre">cyan</span></code>, или <code class="docutils literal notranslate"><span class="pre">white</span></code>.
+Также можно использовать обозначения от <code class="docutils literal notranslate"><span class="pre">color0</span></code> до <code class="docutils literal notranslate"><span class="pre">color255</span></code> для ссылки на конкретные цвета в палитре из 256 цветов.</p>
+<p>Чтобы найти коды цветов, достаточно запустить следующий простой сценарий:</p>
+<div class="highlight-cobsole notranslate"><div class="highlight"><pre><span></span>for i in {0..255}; do
+    printf &quot;\x1b[38;5;${i}m${i} &quot;
+done
+</pre></div>
+</div>
+<p>При выполнении данного сценария в терминале отобразятся коды доступных для использования цветов:</p>
+<p><img alt="" src="tmux/img/-540-010.png" /></p>
+<p>tmux имеет определенные параметры конфигурации для изменения цветов текста и фона для каждого из своих компонентов.</p>
 </section>
 </section>
 
@@ -604,6 +623,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Настройка поддержки цветов</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Определение кодов цветов</a></li>
 </ul>
   </nav></div>
 
