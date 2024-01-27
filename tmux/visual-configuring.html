@@ -484,7 +484,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Настройка поддержки цветов</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Определение кодов цветов</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Изменение цветов строки состояния</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -607,6 +610,40 @@ done
 </div>
 <p>Теперь неактивные окна окрашены в голубой цвет, а активное окно легко узнать:</p>
 <p><img alt="" src="tmux/img/-740-013.png" /></p>
+<section id="id5">
+<h4>Изменение внешнего вида панелей<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<p>После того как мы настроили список окон, давайте посмотрим, как можно настроить отображение панелей в окне.
+Есть несколько вариантов управления внешним видом панелей.
+Можно управлять цветом разделителей панели, можно определить цвета, чтобы сделать активную панель более заметной, и даже можно «затемнить» неактивные панели.</p>
+<p>Панели имеют основной, и фоновый цвета.
+Основной цвет панели — это пунктирная линия, образующая границу.
+Цвет фона по умолчанию черный, но если закрасить его, когда панель активна, то можно сделать активную панель значительно заметнее, как показано на следующем рисунке:</p>
+<p><img alt="" src="tmux/img/-740-014.png" /></p>
+<p>Чтобы добавить этот эффект, добавим в свой конфигурационный файл следующие определения:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Colors for pane borders</span>
+<span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">pane</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">green</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">black</span>
+<span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">pane</span><span class="o">-</span><span class="n">active</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">white</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">yellow</span>
+</pre></div>
+</div>
+<p>Наконец, можно для того, чтобы сделать активную панель еще более заметной, изменим основной цвет или цвет фона текущей панели.
+Также можно затемнить панели, которые не находятся в фокусе.
+Параметры <code class="docutils literal notranslate"><span class="pre">set-window-style</span></code> и <code class="docutils literal notranslate"><span class="pre">set-window-active-style</span></code> позволяют управлять основным цветом и цветом фона.
+Давайте затемним все панели, которые не активны.
+Добиться этого можно затемнив все панели, а затем сделав так, чтобы активная панель выглядела нормально.
+Добавим эти строки в конфигурацию:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Active pane normal, other shaded out</span>
+<span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">window</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">colour240</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">colour235</span>
+<span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">window</span><span class="o">-</span><span class="n">active</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">white</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">black</span>
+</pre></div>
+</div>
+<p>Чтобы создать эффект затемнения, установим цвет текста переднего плана на светло-серый, а затем используем более темный серый цвет для фона.
+Затем для активной панели используем черный и белый цвета.</p>
+<p>После данных настроек определить активную панель станет значительно проще.</p>
+</section>
 </section>
 </section>
 </section>
@@ -678,7 +715,10 @@ done
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Настройка поддержки цветов</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Определение кодов цветов</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Изменение цветов строки состояния</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
