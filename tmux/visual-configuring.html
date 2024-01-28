@@ -483,13 +483,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Настройка поддержки цветов</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Определение кодов цветов</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Изменение цветов строки состояния</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Изменение цветов строки состояния</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
 </ul>
             </nav>
         </div>
@@ -586,8 +583,9 @@ done
 </pre></div>
 </div>
 <p>Продолжим настроить цвета элементов в строке состояния.</p>
+</section>
 <section id="id4">
-<h3>Изменение цвета списка окон<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h2>Изменение цвета списка окон<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>tmux отображает список окон в строке состояния.
 Давайте выделим активное окно, оформив его в красный цвет, а неактивные окна — в голубой.
 Опция <code class="docutils literal notranslate"><span class="pre">window-status-style</span></code> управляет тем, как выглядят обычные окна, а параметр <code class="docutils literal notranslate"><span class="pre">window-status-current-style</span></code> управляет тем, как выглядит активное окно.
@@ -610,8 +608,9 @@ done
 </div>
 <p>Теперь неактивные окна окрашены в голубой цвет, а активное окно легко узнать:</p>
 <p><img alt="" src="tmux/img/-740-013.png" /></p>
+</section>
 <section id="id5">
-<h4>Изменение внешнего вида панелей<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<h2>Изменение внешнего вида панелей<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>После того как мы настроили список окон, давайте посмотрим, как можно настроить отображение панелей в окне.
 Есть несколько вариантов управления внешним видом панелей.
 Можно управлять цветом разделителей панели, можно определить цвета, чтобы сделать активную панель более заметной, и даже можно «затемнить» неактивные панели.</p>
@@ -644,7 +643,19 @@ done
 Затем для активной панели используем черный и белый цвета.</p>
 <p>После данных настроек определить активную панель станет значительно проще.</p>
 </section>
-</section>
+<section id="id6">
+<h2>Настройка командной строки tmux<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>tmux дает возможность настроить командную строку.
+Подход почти идентичен тому, который применялся к оформлению строки состояния.
+Давайте изменим цвет фона на черный, а цвет текста на белый.
+Причем, будем использовать ярко-белый цвет, чтобы сообщение выделялось более подробно.
+Для этого добавим эти строки в конфигурацию:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Command / message line</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">message</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">white</span><span class="p">,</span><span class="n">bold</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">black</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -714,13 +725,10 @@ done
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Настройка поддержки цветов</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Определение кодов цветов</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Изменение цветов строки состояния</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Изменение цветов строки состояния</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
 </ul>
   </nav></div>
 
