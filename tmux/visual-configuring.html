@@ -487,6 +487,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка элементов строки состояния</a></li>
 </ul>
             </nav>
         </div>
@@ -657,6 +658,99 @@ done
 </pre></div>
 </div>
 </section>
+<section id="id7">
+<h2>Настройка элементов строки состояния<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>Строка состояния tmux может отображать почти любую необходимую информацию.
+Причем можно использовать как некоторые предопределенные компоненты, так и создавать свои собственные, например, выполняя системные команды.</p>
+<p>Строка состояния состоит из трех компонентов: левой панели, списка окон и правой панели.
+По умолчанию строка состояния выглядит так выглядит так:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[0]</span> <span class="pre">0:bash*</span>&#160; <span class="pre">&quot;dev.bookseer&quot;</span> <span class="pre">22:00</span> <span class="pre">31-янв-24</span></code></p>
+<p>С левой стороны отображается имя сеанса tmux, за которым следует список окон.
+Список окон показывает числовой индекс текущего окна и его имя.
+С правой стороны отображается имя хоста, за которым следуют дата и время.
+Давайте настроим содержимое строки состояния.</p>
+<p>Содержимое левой или правой панелей строки состояния можно изменить, используя комбинацию текста и переменных.
+В следующей таблице показаны возможные переменные, которые можно использовать.</p>
+<p><strong>Таблица 1. Переменные строки состояния</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Переменная</p></th>
+<th class="head text-left"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#H</span></code></p></td>
+<td class="text-left"><p>Имя локального хоста</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#h</span></code></p></td>
+<td class="text-left"><p>Имя локального хоста без имени домена</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#F</span></code></p></td>
+<td class="text-left"><p>Флаг текущего окна</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#I</span></code></p></td>
+<td class="text-left"><p>Индекс текущего окна</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#P</span></code></p></td>
+<td class="text-left"><p>Текущий индекс панели</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#S</span></code></p></td>
+<td class="text-left"><p>Имя текущего сеанса</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#T</span></code></p></td>
+<td class="text-left"><p>Текущий заголовок окна</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#W</span></code></p></td>
+<td class="text-left"><p>Имя текущего окна</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">##</span></code></p></td>
+<td class="text-left"><p>Симаол #</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#(shell-command)</span></code></p></td>
+<td class="text-left"><p>Первая строка вывода команды оболочки</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#[attributes]</span></code></p></td>
+<td class="text-left"><p>Изменение цвета или атрибута</p></td>
+</tr>
+</tbody>
+</table>
+<p>Например, чтобы слева отображалось только имя текущего сеанса tmux, нужно использовать параметр
+<code class="docutils literal notranslate"><span class="pre">set-option</span> <span class="pre">-g</span> <span class="pre">status-left</span></code> со значением <code class="docutils literal notranslate"><span class="pre">#S</span></code>, например:
+<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-left</span> <span class="pre">&quot;#S&quot;</span></code></p>
+<p>Также можно сделать элемент более заметным, используя атрибут для установки основного цвета элемента, например:
+<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-left</span> <span class="pre">&quot;#[fg=green]#S&quot;</span></code></p>
+<p>Можно добавить столько атрибутов и элементов в строку состояния, сколько необходимо.
+В качестве примера изменим левую часть строки состояния так, чтобы имя сеанса отображалось зеленым цветом, номер текущего окна — желтым, а текущая панель голубым.
+Добавьте эту строку в ваш файл конфигурации:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/.tmux.conf
+
+set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
+</pre></div>
+</div>
+<p>Также можно добавить и произвольный текст.
+Давайте добавим текст, чтобы сделать сеанс, имя окна и панели более заметными, например:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Status line left side to show Session:window:pane</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">left</span><span class="o">-</span><span class="n">length</span> <span class="mi">40</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">left</span> <span class="s2">&quot;#[fg=green]Session: #S #[fg=yellow]#I #[fg=cyan]#P&quot;</span>
+</pre></div>
+</div>
+<p>Заметим, что для того, чтобы весь текст отобразился нормально, был изменен параметр <code class="docutils literal notranslate"><span class="pre">status-left-length</span></code>, который увеличивает размер отображаемого текста.</p>
+<p>Теперь настроим правую часть строки состояния.
+Добавим текущую дату и время, например:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Status line right side - 31-Oct 13:37</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">right</span> <span class="s2">&quot;#[fg=cyan]</span><span class="si">%d</span><span class="s2"> %b %R&quot;</span>
+</pre></div>
+</div>
+<p>Данная настройка отформатирует дату в виде «31 октября 13:37».
+При желании, можно отформатировать ее по своему усмотрению, используя <a class="reference external" href="http://www.foragoodstrftime.com/">стандартный механизм форматирования времени</a> <code class="docutils literal notranslate"><span class="pre">strftime</span></code> используемый во многих языках программирования.
+Теперь строка состояния должна выглядеть так:</p>
+<p><img alt="" src="tmux/img/-050-015.png" /></p>
+<p>Еще одна мощная возможность — использовать переменную <code class="docutils literal notranslate"><span class="pre">#(shellcommand)</span></code> для возврата результата любой внешней программы командной строки в строку состояния.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -729,6 +823,7 @@ done
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Изменение цвета списка окон</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка элементов строки состояния</a></li>
 </ul>
   </nav></div>
 
