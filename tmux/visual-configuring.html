@@ -488,6 +488,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка элементов строки состояния</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поддержание актуальности информации в строке состояния</a></li>
 </ul>
             </nav>
         </div>
@@ -751,6 +752,21 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p><img alt="" src="tmux/img/-050-015.png" /></p>
 <p>Еще одна мощная возможность — использовать переменную <code class="docutils literal notranslate"><span class="pre">#(shellcommand)</span></code> для возврата результата любой внешней программы командной строки в строку состояния.</p>
 </section>
+<section id="id8">
+<h2>Поддержание актуальности информации в строке состояния<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<p>После настройки отображения текущего времени и другой динамической информации в строке состояния, нужно сообщить tmux, как часто обновлять эту информацию.
+По умолчанию tmux обновляет строку состояния каждые 15 секунд.
+За частоту обновления информации строки состояния отвечает параметр <code class="docutils literal notranslate"><span class="pre">set-option</span></code> с указанием интервала обновления в секундах, например:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Update the status line every sixty seconds</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">interval</span> <span class="mi">60</span>
+</pre></div>
+</div>
+<p>Такая настройкм будет обновлять строку состояния каждые 60 секунд.
+Следует иметь в виду, что при запустке команд оболочки,
+они будут выполняться каждый интервал, поэтому нужно быть осторожнее чтобы не загрузить слишком много ресурсоемких сценариев.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -824,6 +840,7 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Изменение внешнего вида панелей</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка элементов строки состояния</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поддержание актуальности информации в строке состояния</a></li>
 </ul>
   </nav></div>
 
