@@ -489,7 +489,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка элементов строки состояния</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поддержание актуальности информации в строке состояния</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Центрирование окон списка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Центрирование окон списка</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Идентификация активности в других окнах</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -778,8 +781,27 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 </pre></div>
 </div>
 <p>Теперь список окон отображается по центру:</p>
-<p><img alt="" src="tmux/img/-051-016.png" /></p>
+<p><img alt="" src="tmux/img/-150-016.png" /></p>
 <p>По мере создания новых окон список окон будет смещаться, оставаясь в центре строки состояния.</p>
+<section id="id10">
+<h3>Идентификация активности в других окнах<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<p>Когда пользователь работает с более чем одним окном, ему нужно получать уведомления, когда что-то происходит в одном из других окон сеансе, чтобы можно было отреагировать на происходящие события.
+Сделать это можно, добавив визуальные уведомления, например, так:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Enable activity alerts</span>
+<span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">monitor</span><span class="o">-</span><span class="n">activity</span> <span class="n">on</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">visual</span><span class="o">-</span><span class="n">activity</span> <span class="n">on</span>
+</pre></div>
+</div>
+<p>Команда <code class="docutils literal notranslate"><span class="pre">monitor-activity</span> <span class="pre">on</span></code> выделяет имя окна в строке состояния, когда в этом окне есть активность.
+<code class="docutils literal notranslate"><span class="pre">visual-actyvity</span> <span class="pre">on</span></code> указывает tmux также отображать сообщение в строке состояния.
+Теперь, когда в одном из окон есть какая-то активность, оно будет выделяться голубым фоном, как на изображении:</p>
+<p><img alt="" src="tmux/img/-150-017.png" /></p>
+<p>Если переключиться на это окно, цвета вернутся к норме.
+Для настройки цветов можно использовать команду
+<code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-status-activity-style</span></code>.</p>
+</section>
 </section>
 </section>
 
@@ -855,7 +877,10 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка элементов строки состояния</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поддержание актуальности информации в строке состояния</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Центрирование окон списка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Центрирование окон списка</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Идентификация активности в других окнах</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
