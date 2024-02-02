@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="ru" data-content_root="" >
+<html lang="ru" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Настройка внешнего вида tmux &#8212; Заметки для разработчиков</title>
   
@@ -19,58 +18,62 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css?v=4a222da0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/scripts/scripts.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=29b1f277"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/visual-configuring';</script>
+    <script src="../_static/scripts/scripts.js?v=8c6bb025"></script>
     <link rel="canonical" href="https://dev.bookseer.org/tmux/visual-configuring.html" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Создание настраиваемых рабочих окружений в tmux" href="custom-environment.html" />
@@ -87,7 +90,6 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Перейти к основному содержанию</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -128,18 +130,15 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
 
-  <header>
-
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
     <div class="bd-header-announcement__content">Сайт находится в разработке</div>
   </div>
 
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
@@ -178,7 +177,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Поиск</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
 <ul class="nav bd-sidenav">
@@ -505,14 +515,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-visual-configuring"></span><h1>Настройка внешнего вида tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+<span id="tmux-visual-configuring"></span><h1>Настройка внешнего вида tmux<a class="headerlink" href="#tmux" title="Link to this heading">#</a></h1>
 <p>Гибкая система настройки, предоставляемая tmux, позволяет не только настраивать способ взаимодействия с интерфейсом, но также дает возможность настроить его внешний вид, чтобы сделать интерфейс более понятным, а в некоторых случаях и более информативным.</p>
 <p>tmux предоставляет довольно много настроек внешнего вида.
 В этом разделе мы пройдемся по настройкам некоторых из этих параметров, настроим строку состояния и другие компоненты.
 Что ж начнем с настройки цветов для различных элементов.
 Затем превратим строку состояния в элемент интерфейса предоставляющий некоторую важную информацию об используемом окружении.</p>
 <section id="id1">
-<h2>Настройка поддержки цветов<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>Настройка поддержки цветов<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Чтобы иметь возможность настраивать визуальные эффекты tmux, необходимо убедиться, что и терминал, и tmux настроены
 на использование 256 цветов.</p>
 <p>Команда <code class="docutils literal notranslate"><span class="pre">tput</span></code> поможет быстро определить количество цветов, поддерживаемых терминалом.
@@ -521,7 +531,7 @@ document.write(`
 </pre></div>
 </div>
 <p>Если в результате будет получено 256, значит все настроено как надо.
-В противном случае, потребуется настроить терминал для использования режима 256 <code class="docutils literal notranslate"><span class="pre">xterm</span></code>’a.
+В противном случае, потребуется настроить терминал для использования режима 256 <code class="docutils literal notranslate"><span class="pre">xterm</span></code>.
 На Mac можно настроить это в приложение «Terminal», отредактировав профиль, как показано на следующем рисунке:</p>
 <p><img alt="" src="tmux/img/-340-007.png" /></p>
 <p>При использовании (<a class="reference external" href="http://www.iterm2.com">http://www.iterm2.com</a>)[iTerm2], можно сделать это, отредактировав профиль по умолчанию и изменив режим терминала на <code class="docutils literal notranslate"><span class="pre">xterm-256color</span></code>, как показано на следующем рисунке:</p>
@@ -537,7 +547,7 @@ document.write(`
 <p>Кроме того, необходимо убедиться, что эмулятор терминала поддерживает отображение символов UTF-8,
 чтобы визуальные элементы, например, разделители панелей отображались пунктирными линиями.</p>
 <p>Чтобы tmux отображал 256 цветов, добавьте эту строку в наш файл .tmux.conf:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Set the default terminal mode to 256color mode</span>
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">default</span><span class="o">-</span><span class="n">terminal</span> <span class="s2">&quot;screen-256color&quot;</span>
@@ -549,7 +559,7 @@ document.write(`
 <p><img alt="" src="tmux/img/-440-009.png" /></p>
 </section>
 <section id="id2">
-<h2>Определение кодов цветов<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>Определение кодов цветов<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>Теперь давайте настроим внешний вид компонентов tmux, начиная с цветовой схемы.</p>
 <p>tmux позволяет изменять цвета почти всех частей интерфейса, включая строку состояния, список окон,
 область сообщений и даже границы панелей.</p>
@@ -557,9 +567,9 @@ document.write(`
 <code class="docutils literal notranslate"><span class="pre">black</span></code>, <code class="docutils literal notranslate"><span class="pre">red</span></code> , <code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">yellow</span></code>, <code class="docutils literal notranslate"><span class="pre">blue</span></code>, <code class="docutils literal notranslate"><span class="pre">magenta</span></code>, <code class="docutils literal notranslate"><span class="pre">cyan</span></code>, или <code class="docutils literal notranslate"><span class="pre">white</span></code>.
 Также можно использовать обозначения от <code class="docutils literal notranslate"><span class="pre">color0</span></code> до <code class="docutils literal notranslate"><span class="pre">color255</span></code> для ссылки на конкретные цвета в палитре из 256 цветов.</p>
 <p>Чтобы найти коды цветов, достаточно запустить следующий простой сценарий:</p>
-<div class="highlight-cobsole notranslate"><div class="highlight"><pre><span></span>for i in {0..255}; do
-    printf &quot;\x1b[38;5;${i}m${i} &quot;
-done
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">for i in {0..255}; do</span>
+<span class="go">    printf &quot;\x1b[38;5;${i}m${i} &quot;</span>
+<span class="go">done</span>
 </pre></div>
 </div>
 <p>При выполнении данного сценария в терминале отобразятся коды доступных для использования цветов:</p>
@@ -568,13 +578,13 @@ done
 <p>Давайте начнем изучать их с настройки цветов строки состояния.</p>
 </section>
 <section id="id3">
-<h2>Изменение цветов строки состояния<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>Изменение цветов строки состояния<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>Строка состояния по умолчанию имеет черный текст на ярко-зеленом фоне.
 Это не очень красиво, и в зависимости от конфигурации терминала, может быть трудночитаемым.</p>
 <p>Давайте сделаем так, чтобы по умолчанию в строке состояния был белый текст на черном фоне:</p>
 <p><img alt="" src="tmux/img/-640-011.png" /></p>
 <p>Параметр <code class="docutils literal notranslate"><span class="pre">status-style</span></code> устанавливает основной цвет элемента (foreground) и цвет фона (background) строки состояния, а также их стиль. Добавим следующую строку в конфигурацию, чтобы установить цвета строки состояния:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Set the status line&#39;s colors</span>
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">white</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="n">black</span>
@@ -583,7 +593,7 @@ done
 <p>Опция fg устанавливает основной цвет элементов (foreground), а параметр bg (background) устанавливает цвет фона.</p>
 <p>Эта команда поддерживает параметры <code class="docutils literal notranslate"><span class="pre">dim</span></code> (тусклый), <code class="docutils literal notranslate"><span class="pre">bright</span></code> (яркий) (или <code class="docutils literal notranslate"><span class="pre">bold</span></code> (полужирный)), <code class="docutils literal notranslate"><span class="pre">reverse</span></code> (обратный), и <code class="docutils literal notranslate"><span class="pre">blink</span></code> (мигающий) в дополнение к цветам.
 Например, чтобы сделать текст строки состояния белым и полужирным, нужно использовать следующую конфигурацию:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">white</span><span class="p">,</span><span class="n">bold</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="n">black</span>
 </pre></div>
@@ -591,14 +601,14 @@ done
 <p>Продолжим настроить цвета элементов в строке состояния.</p>
 </section>
 <section id="id4">
-<h2>Изменение цвета списка окон<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h2>Изменение цвета списка окон<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>tmux отображает список окон в строке состояния.
 Давайте выделим активное окно, оформив его в красный цвет, а неактивные окна — в голубой.
 Опция <code class="docutils literal notranslate"><span class="pre">window-status-style</span></code> управляет тем, как выглядят обычные окна, а параметр <code class="docutils literal notranslate"><span class="pre">window-status-current-style</span></code> управляет тем, как выглядит активное окно.
 Для настройки цвета, используется тот же синтаксис, что и для параметра <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.
 Давайте сделаем имена окон голубыми, как здесь:</p>
 <p><img alt="" src="tmux/img/-046-012.png" /></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Set the color of the window list</span>
 <span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">window</span><span class="o">-</span><span class="n">status</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">cyan</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="n">black</span>
@@ -606,7 +616,7 @@ done
 </div>
 <p>Можно использовать <code class="docutils literal notranslate"><span class="pre">default</span></code>, чтобы элемент наследовал цвет строки состояния.</p>
 <p>Теперь оформим активное окно с красным фоном и полужирным белым текстом:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Set colors for the active window</span>
 <span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">window</span><span class="o">-</span><span class="n">status</span><span class="o">-</span><span class="n">current</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">white</span><span class="p">,</span><span class="n">bold</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="n">red</span>
@@ -616,7 +626,7 @@ done
 <p><img alt="" src="tmux/img/-740-013.png" /></p>
 </section>
 <section id="id5">
-<h2>Изменение внешнего вида панелей<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h2>Изменение внешнего вида панелей<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>После того как мы настроили список окон, давайте посмотрим, как можно настроить отображение панелей в окне.
 Есть несколько вариантов управления внешним видом панелей.
 Можно управлять цветом разделителей панели, можно определить цвета, чтобы сделать активную панель более заметной, и даже можно «затемнить» неактивные панели.</p>
@@ -625,7 +635,7 @@ done
 Цвет фона по умолчанию черный, но если закрасить его, когда панель активна, то можно сделать активную панель значительно заметнее, как показано на следующем рисунке:</p>
 <p><img alt="" src="tmux/img/-740-014.png" /></p>
 <p>Чтобы добавить этот эффект, добавим в свой конфигурационный файл следующие определения:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Colors for pane borders</span>
 <span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">pane</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">green</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">black</span>
@@ -638,7 +648,7 @@ done
 Давайте затемним все панели, которые не активны.
 Добиться этого можно затемнив все панели, а затем сделав так, чтобы активная панель выглядела нормально.
 Добавим эти строки в конфигурацию:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Active pane normal, other shaded out</span>
 <span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">window</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">colour240</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">colour235</span>
@@ -650,13 +660,13 @@ done
 <p>После данных настроек определить активную панель станет значительно проще.</p>
 </section>
 <section id="id6">
-<h2>Настройка командной строки tmux<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2>Настройка командной строки tmux<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>tmux дает возможность настроить командную строку.
 Подход почти идентичен тому, который применялся к оформлению строки состояния.
 Давайте изменим цвет фона на черный, а цвет текста на белый.
 Причем, будем использовать ярко-белый цвет, чтобы сообщение выделялось более подробно.
 Для этого добавим эти строки в конфигурацию:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Command / message line</span>
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">message</span><span class="o">-</span><span class="n">style</span> <span class="n">fg</span><span class="o">=</span><span class="n">white</span><span class="p">,</span><span class="n">bold</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="n">black</span>
@@ -664,11 +674,11 @@ done
 </div>
 </section>
 <section id="id7">
-<h2>Настройка элементов строки состояния<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h2>Настройка элементов строки состояния<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>Строка состояния tmux может отображать почти любую необходимую информацию.
 Причем можно использовать как некоторые предопределенные компоненты, так и создавать свои собственные, например, выполняя системные команды.</p>
 <p>Строка состояния состоит из трех компонентов: левой панели, списка окон и правой панели.
-По умолчанию строка состояния выглядит так выглядит так:</p>
+По умолчанию строка состояния выглядит так:</p>
 <p><code class="docutils literal notranslate"><span class="pre">[0]</span> <span class="pre">0:bash*</span>&#160; <span class="pre">&quot;dev.bookseer&quot;</span> <span class="pre">22:00</span> <span class="pre">31-янв-24</span></code></p>
 <p>С левой стороны отображается имя сеанса tmux, за которым следует список окон.
 Список окон показывает числовой индекс текущего окна и его имя.
@@ -709,7 +719,7 @@ done
 <td class="text-left"><p>Имя текущего окна</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">##</span></code></p></td>
-<td class="text-left"><p>Симаол #</p></td>
+<td class="text-left"><p>Символ #</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">#(shell-command)</span></code></p></td>
 <td class="text-left"><p>Первая строка вывода команды оболочки</p></td>
@@ -727,14 +737,14 @@ done
 <p>Можно добавить столько атрибутов и элементов в строку состояния, сколько необходимо.
 В качестве примера изменим левую часть строки состояния так, чтобы имя сеанса отображалось зеленым цветом, номер текущего окна — желтым, а текущая панель голубым.
 Добавьте эту строку в ваш файл конфигурации:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/.tmux.conf
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># ~/.tmux.conf
 
 set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 </pre></div>
 </div>
 <p>Также можно добавить и произвольный текст.
 Давайте добавим текст, чтобы сделать сеанс, имя окна и панели более заметными, например:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Status line left side to show Session:window:pane</span>
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">left</span><span class="o">-</span><span class="n">length</span> <span class="mi">40</span>
@@ -744,7 +754,7 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p>Заметим, что для того, чтобы весь текст отобразился нормально, был изменен параметр <code class="docutils literal notranslate"><span class="pre">status-left-length</span></code>, который увеличивает размер отображаемого текста.</p>
 <p>Теперь настроим правую часть строки состояния.
 Добавим текущую дату и время, например:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Status line right side - 31-Oct 13:37</span>
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">right</span> <span class="s2">&quot;#[fg=cyan]</span><span class="si">%d</span><span class="s2"> %b %R&quot;</span>
@@ -757,24 +767,24 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p>Еще одна мощная возможность — использовать переменную <code class="docutils literal notranslate"><span class="pre">#(shellcommand)</span></code> для возврата результата любой внешней программы командной строки в строку состояния.</p>
 </section>
 <section id="id8">
-<h2>Поддержание актуальности информации в строке состояния<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h2>Поддержание актуальности информации в строке состояния<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>После настройки отображения текущего времени и другой динамической информации в строке состояния, нужно сообщить tmux, как часто обновлять эту информацию.
 По умолчанию tmux обновляет строку состояния каждые 15 секунд.
 За частоту обновления информации строки состояния отвечает параметр <code class="docutils literal notranslate"><span class="pre">set-option</span></code> с указанием интервала обновления в секундах, например:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Update the status line every sixty seconds</span>
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">interval</span> <span class="mi">60</span>
 </pre></div>
 </div>
-<p>Такая настройкм будет обновлять строку состояния каждые 60 секунд.
-Следует иметь в виду, что при запустке команд оболочки,
+<p>Такая настройка будет обновлять строку состояния каждые 60 секунд.
+Следует иметь в виду, что при запуске команд оболочки,
 они будут выполняться каждый интервал, поэтому нужно быть осторожнее чтобы не загрузить слишком много ресурсоемких сценариев.</p>
 </section>
 <section id="id9">
-<h2>Центрирование окон списка<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<h2>Центрирование окон списка<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <p>По умолчанию список окон выровнен по левому краю, но можно разместить его по центру строки состояния с помощью изменения конфигурации:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Center the window list in the status line</span>
 <span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">justify</span> <span class="n">centre</span>
@@ -784,10 +794,10 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p><img alt="" src="tmux/img/-150-016.png" /></p>
 <p>По мере создания новых окон список окон будет смещаться, оставаясь в центре строки состояния.</p>
 <section id="id10">
-<h3>Идентификация активности в других окнах<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<h3>Идентификация активности в других окнах<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>Когда пользователь работает с более чем одним окном, ему нужно получать уведомления, когда что-то происходит в одном из других окон сеансе, чтобы можно было отреагировать на происходящие события.
 Сделать это можно, добавив визуальные уведомления, например, так:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Enable activity alerts</span>
 <span class="n">setw</span> <span class="o">-</span><span class="n">g</span> <span class="n">monitor</span><span class="o">-</span><span class="n">activity</span> <span class="n">on</span>
@@ -932,8 +942,8 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
