@@ -499,10 +499,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка элементов строки состояния</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поддержание актуальности информации в строке состояния</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Центрирование окон списка</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Идентификация активности в других окнах</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Центрирование окон списка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Идентификация активности в других окнах</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Команды для управления внешним видом tmux</a></li>
 </ul>
             </nav>
         </div>
@@ -793,8 +792,9 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p>Теперь список окон отображается по центру:</p>
 <p><img alt="" src="tmux/img/-150-016.png" /></p>
 <p>По мере создания новых окон список окон будет смещаться, оставаясь в центре строки состояния.</p>
+</section>
 <section id="id10">
-<h3>Идентификация активности в других окнах<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<h2>Идентификация активности в других окнах<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>Когда пользователь работает с более чем одним окном, ему нужно получать уведомления, когда что-то происходит в одном из других окон сеансе, чтобы можно было отреагировать на происходящие события.
 Сделать это можно, добавив визуальные уведомления, например, так:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
@@ -812,6 +812,62 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 Для настройки цветов можно использовать команду
 <code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-status-activity-style</span></code>.</p>
 </section>
+<section id="id11">
+<h2>Команды для управления внешним видом tmux<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Команда</p></th>
+<th class="head text-left"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-style</span></code></p></td>
+<td class="text-left"><p>Устанавливает основной цвет и цвет фона строки состояния. Кроме того, поддерживает параметры  <code class="docutils literal notranslate"><span class="pre">dim</span></code>, <code class="docutils literal notranslate"><span class="pre">bright</span></code> (или <code class="docutils literal notranslate"><span class="pre">bold</span></code>), <code class="docutils literal notranslate"><span class="pre">reverse</span></code>, и <code class="docutils literal notranslate"><span class="pre">blink</span></code>. Пример: <code class="docutils literal notranslate"> <span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-style</span> <span class="pre">fg=white,bold,bg=black</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-status-style</span></code></p></td>
+<td class="text-left"><p>Устанавливает основной цвет и цвет фона списка окон в строке состояния. Использует те же параметры, что и  <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-status-current-style</span></code></p></td>
+<td class="text-left"><p>Устанавливает основной цвет и цвет фона активного окна в строке состояния. Использует те же параметры, что и  <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-status-activity-style</span></code></p></td>
+<td class="text-left"><p>Устанавливает основной цвет и цвет фона окна с фоновой активностью в строке состояния. Использует те же параметры, что и  <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">pane-border-style</span></code></p></td>
+<td class="text-left"><p>Задает основной цвет и цвет фона границ панели.  Использует те же параметры, что и  <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">pane-active-border-style</span></code></p></td>
+<td class="text-left"><p>Устанавливает основной цвет и цвет фона границ активной панели. Использует те же параметры, что и  <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-style</span></code></p></td>
+<td class="text-left"><p>Устанавливает основной цвет и цвет фона окна. Использует те же параметры, что и  <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-active-style</span></code></p></td>
+<td class="text-left"><p>Устанавливает основной цвет и цвет фона активного окна. Использует те же параметры, что и  <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">message-style</span></code></p></td>
+<td class="text-left"><p>Устанавливает основной цвет и цвет фона области сообщений и командной строки tmux. Использует те же параметры, что и  <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-length-left</span></code>  и <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-length-right</span></code></p></td>
+<td class="text-left"><p>Управляет количеством видимых символов слева и справа в строке состояния.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-left</span></code> и <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-right</span></code></p></td>
+<td class="text-left"><p>Настраивает элементы, которые отображаются в левой и правой частях строки состояния.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-interval</span> <span class="pre">n</span></code></p></td>
+<td class="text-left"><p>Определяет интервал обновления для строки состояния, где n — количество секунд между обновлениями.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">status-justify</span> <span class="pre">centre</span></code></p></td>
+<td class="text-left"><p>Центрирует список окон в строке состояния.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">monitor-activity</span> <span class="pre">on</span></code></p></td>
+<td class="text-left"><p>Ищет активность в других окнах и выделяет имя окна с фоновой активностью.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">visual-activity</span> <span class="pre">on</span></code></p></td>
+<td class="text-left"><p>Отображает сообщение в области сообщений при наличии активности в другом окне.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
@@ -887,10 +943,9 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Настройка командной строки tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Настройка элементов строки состояния</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поддержание актуальности информации в строке состояния</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Центрирование окон списка</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Идентификация активности в других окнах</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Центрирование окон списка</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Идентификация активности в других окнах</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Команды для управления внешним видом tmux</a></li>
 </ul>
   </nav></div>
 
