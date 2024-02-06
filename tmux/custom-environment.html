@@ -468,7 +468,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -484,6 +486,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Создание пользовательских настроек с помощью команд tmux</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -504,6 +514,38 @@ tmux, используя всего одну команду.
 Этого можно добиться, используя клиент-серверную модель tmux для создания пользовательских сценариев, которые создают
 среды разработки, разделяя окна и автоматически запуская в них необходимые программы.
 Сначала рассмотрим, как сделать это вручную, а затем рассмотрим более продвинутые автоматические инструменты.</p>
+<section id="id1">
+<h2>Создание пользовательских настроек с помощью команд tmux<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Помимо создания новых сеансов, команда <code class="docutils literal notranslate"><span class="pre">tmux</span></code> имеет множество других параметров.
+Например, можно разделить окна на панели, изменять макеты или даже запускать приложения в рамках сеанса.</p>
+<p>Ключом к этому является опция <code class="docutils literal notranslate"><span class="pre">-t</span></code> или «target».
+Если существует именованный сеанс tmux, к нему можно подключиться вот так:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span><span class="o">[</span>session_name<span class="o">]</span>
+</pre></div>
+</div>
+<p>Можно использовать этот указатель, чтобы применить команду tmux к нужному сеансу tmux.</p>
+<p>Создадим новый сеанс tmux под названием «development»:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>attach<span class="w"> </span>-s<span class="w"> </span>development
+</pre></div>
+</div>
+<p>Отсоединимся от сеанса с помощью <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p>
+<p>Можно разделить окно горизонтали, даже в неактивном сеансе tmux по, выполнив эту команду:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>split-window<span class="w"> </span>-h<span class="w"> </span>-t<span class="w"> </span>development
+</pre></div>
+</div>
+<p>Присоединитесь к сеансу еще раз, чтобы убедиться, что команда была выполнена:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>development
+</pre></div>
+</div>
+<p>На самом деле не нужно даже отключаться от сеанса tmux для отправки команд.
+Можно просто открыть другой терминал и снова разделить окно, но на этот раз вертикально.
+Откроем второе окно или вкладку терминала и введем следующую команду:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>split-window<span class="w"> </span>-v<span class="w"> </span>-t<span class="w"> </span>development
+</pre></div>
+</div>
+<p>Используя этот подход, можно легко настроить свое окружение.
+Давайте рассмотрим эту концепцию, создав нашу собственную среду разработки.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -561,7 +603,20 @@ tmux, используя всего одну команду.
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Создание пользовательских настроек с помощью команд tmux</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
