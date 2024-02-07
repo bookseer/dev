@@ -492,6 +492,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Создание пользовательских настроек с помощью команд tmux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Сценарий конфигурации проекта</a></li>
 </ul>
             </nav>
         </div>
@@ -545,6 +546,73 @@ tmux, используя всего одну команду.
 </div>
 <p>Используя этот подход, можно легко настроить свое окружение.
 Давайте рассмотрим эту концепцию, создав нашу собственную среду разработки.</p>
+</section>
+<section id="id2">
+<h2>Сценарий конфигурации проекта<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>В разделе <a class="reference internal" href="basic.html#tmux-basic"><span class="std std-ref">«Изучение основ»</span></a> были описаны команды tmux <code class="docutils literal notranslate"><span class="pre">new-session</span></code> и <code class="docutils literal notranslate"><span class="pre">new-window</span></code>.
+Давайте, используя эти и подобные команды, напишем простой скрипт который запустит новый сеанс tmux, создаст основное
+окно с парой панелей и два дополнительных окна с одной панелью в каждом.
+И напоследок, запустит отдельное приложение в каждой из панелей.</p>
+<p>Начнем с создания нового скрипта под названием <code class="docutils literal notranslate"><span class="pre">development</span></code> в домашнем каталоге.
+Сделаем этот скрипт исполняемым файлом, чтобы можно было запустить его, как и исполняемую программу в терминале.
+Для этого выполним эти команды в терминале:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>touch<span class="w"> </span>~/development
+<span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>~/development
+</pre></div>
+</div>
+<p>Пусть после запуска сеанса tmux переходит в каталог для проекта.
+Назовем этот каталог <code class="docutils literal notranslate"><span class="pre">devproject</span></code>.
+Но прежде чем перейти в этот каталог, лучше сначала его создать.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>~/devproject
+</pre></div>
+</div>
+<p>Теперь откроем скрипт <code class="docutils literal notranslate"><span class="pre">~/development</span></code> в текстовом редакторе и добавим команду, создающую новый сеанс tmux с именем “development”:
+Передадим пару дополнительных параметров при создании этого нового сеанса.
+Во-первых, присвоим ему имя с помощью опции <code class="docutils literal notranslate"><span class="pre">-s</span></code>.
+Во-вторых, назначим окну имя «editor».
+И, наконец, немедленно отсоединяемся от этого нового сеанса с помощью опции <code class="docutils literal notranslate"><span class="pre">-d</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
+
+<span class="n">tmux</span> <span class="n">new</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">s</span> <span class="n">development</span> <span class="o">-</span><span class="n">n</span> <span class="n">editor</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>Затем, используя команду tmux <code class="docutils literal notranslate"><span class="pre">send-keys</span></code>, измененим текущий каталог на каталог проекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
+
+<span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+</pre></div>
+</div>
+<p>Последовательность <code class="docutils literal notranslate"><span class="pre">C-m</span></code> в конце строки имитирует последовательность возврата каретки, представленную как
+<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">M</span>.
+Так «заставит» tmux нажать клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Enter</span> после ввода команды.</p>
+<p>Используем тот же подход, чтобы открыть текстовый редактор Vim в этом окне:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
+
+<span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="s1">&#39;vim&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+</pre></div>
+</div>
+<p>С помощью этих трех команд мы создали новый сеанс, перешли в каталог и открыли текстовый редактор, но наша среда еще не
+настроена до конца.
+Давайте разделим главное окно  пополам по горизонтали «editor», чтобы у нас было небольшое окно терминала внизу.
+Сделаем это с помощью команды <code class="docutils literal notranslate"><span class="pre">split-window</span> </code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># ~/development
+
+`tmux split-window -v -t development
+</pre></div>
+</div>
+<p>Можно было бы указать процент, используя что-то вроде</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
+
+<span class="n">tmux</span> <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">p</span> <span class="mi">10</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
+</pre></div>
+</div>
+<p>но пока просто оставим команду <code class="docutils literal notranslate"><span class="pre">split-window</span></code> как есть, а затем выберем один из макетов tmux по умолчанию —
+<code class="docutils literal notranslate"><span class="pre">main-horizontal</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
+
+<span class="n">tmux</span> <span class="n">select</span><span class="o">-</span><span class="n">layout</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="n">main</span><span class="o">-</span><span class="n">horizontal</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -613,6 +681,7 @@ tmux, используя всего одну команду.
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Создание пользовательских настроек с помощью команд tmux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Сценарий конфигурации проекта</a></li>
 </ul>
   </nav></div>
 
