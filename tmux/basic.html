@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="ru" data-content_root="../" >
+<html lang="ru" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Основы tmux &#8212; Заметки для разработчиков</title>
   
@@ -18,62 +19,58 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css?v=4a222da0" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
-    <script src="../_static/documentation_options.js?v=576a2c22"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=6dbb43f8"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
-    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="../_static/translations.js?v=29b1f277"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/scripts/scripts.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/basic';</script>
-    <script src="../_static/scripts/scripts.js?v=8c6bb025"></script>
     <link rel="canonical" href="https://dev.bookseer.org/tmux/basic.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Настройка tmux" href="configuring.html" />
@@ -90,6 +87,7 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Перейти к основному содержанию</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -130,15 +128,18 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
 
+  <header>
+
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
     <div class="bd-header-announcement__content">Сайт находится в разработке</div>
   </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
@@ -177,18 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Поиск</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
 <ul class="nav bd-sidenav">
@@ -529,10 +519,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-basic"></span><h1>Основы tmux<a class="headerlink" href="#tmux" title="Link to this heading">#</a></h1>
+<span id="tmux-basic"></span><h1>Основы tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
 <p>Теперь, когда tmux установлен, рассмотрим основные его функции, начав с базового сеанса.</p>
 <section id="id1">
-<h2>Запуск tmux<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>Запуск tmux<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Самый простой способ запуска tmux — ввести в терминале:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux
 </pre></div>
@@ -540,7 +530,7 @@ document.write(`
 <p>После этого окно терминала станет похоже на следующее изображение</p>
 <figure class="align-default" id="tmux-basic-010">
 <img alt="Сеанс tmux по умолчанию" src="../_images/tmux_basic_010.svg" /><figcaption>
-<p><span class="caption-number">Рис. 2 </span><span class="caption-text">Сеанс tmux по умолчанию</span><a class="headerlink" href="#tmux-basic-010" title="Link to this image">#</a></p>
+<p><span class="caption-number">Рис. 2 </span><span class="caption-text">Сеанс tmux по умолчанию</span><a class="headerlink" href="#tmux-basic-010" title="Постоянная ссылка на рисунок">#</a></p>
 </figcaption>
 </figure>
 <p>Это «сеанс» (session) tmux, и он работает так же, как обычный терминальный сеанс.
@@ -570,7 +560,7 @@ document.write(`
 <p>Запуск любой из этих команд приведет к запуску «именованного сеанса» tmux.</p>
 <figure class="align-default" id="tmux-basic-020">
 <img alt="Именованный сеанс base" src="../_images/tmux_basic_020.svg" /><figcaption>
-<p><span class="caption-number">Рис. 3 </span><span class="caption-text">Именованный сеанс base</span><a class="headerlink" href="#tmux-basic-020" title="Link to this image">#</a></p>
+<p><span class="caption-number">Рис. 3 </span><span class="caption-text">Именованный сеанс base</span><a class="headerlink" href="#tmux-basic-020" title="Постоянная ссылка на рисунок">#</a></p>
 </figcaption>
 </figure>
 <p>Заметить различия, однако, по сравнению с предыдущим запуском, довольно сложно.
@@ -580,7 +570,7 @@ document.write(`
 А сейчас поговорим о том, как отправлять команды в tmux.</p>
 </section>
 <section id="id2">
-<h2>Префикс команд<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>Префикс команд<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Поскольку консольные приложения выполняются внутри tmux, становиться необходим способ сообщить tmux, что команда,
 вводимая команда предназначена для него, а не для основного приложения.
 Это делается с помощью комбинации клавиш <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span>, которая называется <em>префиксом команд</em>.
@@ -596,7 +586,7 @@ document.write(`
 На экране появятся большие часы:</p>
 <figure class="align-default" id="tmux-basic-030">
 <img alt="Часы в окне tmux" src="../_images/tmux_basic_030.svg" /><figcaption>
-<p><span class="caption-number">Рис. 4 </span><span class="caption-text">Часы в окне tmux</span><a class="headerlink" href="#tmux-basic-030" title="Link to this image">#</a></p>
+<p><span class="caption-number">Рис. 4 </span><span class="caption-text">Часы в окне tmux</span><a class="headerlink" href="#tmux-basic-030" title="Постоянная ссылка на рисунок">#</a></p>
 </figcaption>
 </figure>
 <p>Нажмите клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Enter</span> или <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Esc</span>, чтобы закрыть часы, и выйдите из tmux, набрав <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
@@ -609,9 +599,9 @@ document.write(`
 <p>Теперь давайте посмотрим, как запустить программы в фоновом режиме.</p>
 </section>
 <section id="id3">
-<h2>Работа с сеансами<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>Работа с сеансами<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <section id="id4">
-<h3>Отсоединение от сеанса<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h3>Отсоединение от сеанса<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>Если закрыть обычный сеанс терминала, все программы, запущенные в этом сеансе, будут уничтожены.
 Одной из отличительной особенностью и преимуществом tmux в данном случае является то, что после запуска программ или
 процессов внутри него, можно оставить все это работающим в фоновом режиме, «отсоединившись» (detaching) от сеанса.
@@ -642,7 +632,7 @@ document.write(`
 Но прежде чем мы это сделать, закроем окно терминала.</p>
 </section>
 <section id="id5">
-<h3>Повторное подключение к существующему сеансу<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3>Повторное подключение к существующему сеансу<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p>Мы создали сеанс tmux, запустили программу внутри сеанса, отсоединились от него и закрыли окно терминала, но сеанс
 tmux все еще работает вместе с приложением, которое мы запустили.</p>
 <p>Просмотреть список существующих сеансов tmux можно, используя команду</p>
@@ -691,7 +681,7 @@ tmux все еще работает вместе с приложением, ко
 <p>А пока давайте удалим активные сеансы.</p>
 </section>
 <section id="id6">
-<h3>Закрытие сеанса<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3>Закрытие сеанса<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p>Для закрытия активного сеанса достаточно ввести</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">exit</span>
 </pre></div>
@@ -720,7 +710,7 @@ tmux все еще работает вместе с приложением, ко
 </section>
 </section>
 <section id="id7">
-<h2>Работа с окнами<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<h2>Работа с окнами<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <p>В рамках одного сеанса tmux можно одновременно работать с несколькими приложениями.
 И это наиболее часто используемый способ работы c tmux.
 Поддерживать порядок и организацию при этом можно с помощью окон, которые похожи на вкладки в современных эмуляторах
@@ -729,7 +719,7 @@ tmux все еще работает вместе с приложением, ко
 <p>Давайте создадим новый сеанс с двумя окнами.
 В первом окне будет обычный терминал, а во втором запустим команду <code class="docutils literal notranslate"><span class="pre">top</span></code>.</p>
 <section id="id8">
-<h3>Создание и наименование окон<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<h3>Создание и наименование окон<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p>Создажим именованный сеанс с именем «windows»:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>windows<span class="w"> </span>-n<span class="w"> </span>shell
 </pre></div>
@@ -752,7 +742,7 @@ tmux все еще работает вместе с приложением, ко
 Но как только их становится больше одного, нужно иметь возможность переключаться между ними.</p>
 </section>
 <section id="id9">
-<h3>Переключение между окнами<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<h3>Переключение между окнами<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <p>На данный момент у нас имеется два окна.
 Есть несколько способов переключения между ними.
 Если окон всего два, можно быстро переключаться между ними с помощью <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">n</span>.
@@ -779,7 +769,7 @@ tmux все еще работает вместе с приложением, ко
 </section>
 </section>
 <section id="id10">
-<h2>Работа с панелями<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h2>Работа с панелями<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
 <p>Наличие программ в отдельных окнах подходит для случаев, которые есть возможность скрывать некоторые из них за
 ненадобностью.
 Но tmux позволяет разделить одно окно на панели.</p>
@@ -810,7 +800,7 @@ tmux все еще работает вместе с приложением, ко
 <p>Всего парой нажатий клавиш удалось разделить одно окно на рабочую область с тремя панелями.
 Давайте посмотрим на то как можно переупорядочить эти панели с помощью макетов.</p>
 <section id="id11">
-<h3>Макеты панелей<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<h3>Макеты панелей<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <p>Изменить размер панели можно либо с помощью постепенного изменения размера, либо с помощью шаблонов.
 Сочетание клавиш для постепенного изменения размера панелей по умолчанию довольно не удобное.
 В <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">разделе «Настройка tmux»</span></a> будут переопределены сочетания клавиш, чтобы упростить изменение
@@ -826,7 +816,7 @@ tmux все еще работает вместе с приложением, ко
 <p>Переключаться между этими раскладками можно нажимая <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Пробел</span>.</p>
 </section>
 <section id="id12">
-<h3>Закрытие панелей<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<h3>Закрытие панелей<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <p>Закрытие панели происходит так же, как и закрытие сеанса или окна tmux: нужно просто ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в пенель, которую необходимо закрыть.</p>
 <p>Еще можно закрыть панель с помощью сочетания <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">x</span>, которое также закроет окно, если в нем
 только одна панель.
@@ -838,7 +828,7 @@ tmux все еще работает вместе с приложением, ко
 </section>
 </section>
 <section id="id13">
-<h2>Работа в командном режиме<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<h2>Работа в командном режиме<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
 <p>До сих пор мы использовали комбинации клавиш для создания окон и панелей, но эти комбинации клавиш на самом деле альтернативный вариант для команд tmux с некоторыми предустановленными параметрами.
 Команды tmux можно выполнять кдвумя способами: из самого терминала или из области команд в строке состояния tmux.
 Про то, как использовать команды tmux из терминала будет рассказано в разделе <a class="reference internal" href="custom-environment.html#tmux-custom-environment"><span class="std std-ref">«Создание настраиваемых рабочих окружений в tmux»</span></a>, а пока давайте изучим командный режим tmux, используя его для создания новых окон и панелей в рабочей области.</p>
@@ -865,16 +855,16 @@ tmux все еще работает вместе с приложением, ко
 <p>В разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>, будет показано, как создать несколько собственных сочетаний клавиш, чтобы сделать использование некоторых из этих команд еще проще.</p>
 </section>
 <section id="id14">
-<h2>Получение справочной инфориации<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<h2>Получение справочной инфориации<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h2>
 <p>Используя сочетание <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">?</span>, можно получить список всех предопределенных сочетаний клавиш tmux и связанных с ними команд.</p>
 </section>
 <section id="id15">
-<h2>Справочная информация<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<h2>Справочная информация<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="id16">
-<h2>Для дальнейшего использования<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<h2>Для дальнейшего использования<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h2>
 <section id="id17">
-<h3>Создание сеансов<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<h3>Создание сеансов<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Команда</p></th>
@@ -901,7 +891,7 @@ tmux все еще работает вместе с приложением, ко
 </table>
 </section>
 <section id="id18">
-<h3>Команды по умолчанию для сеансов, окон и панелей<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<h3>Команды по умолчанию для сеансов, окон и панелей<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Команда</p></th>
@@ -1104,8 +1094,8 @@ tmux все еще работает вместе с приложением, ко
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>

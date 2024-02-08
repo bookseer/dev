@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="ru" data-content_root="../" >
+<html lang="ru" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Настройка внешнего вида tmux &#8212; Заметки для разработчиков</title>
   
@@ -18,62 +19,58 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css?v=4a222da0" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
-    <script src="../_static/documentation_options.js?v=576a2c22"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=6dbb43f8"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
-    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="../_static/translations.js?v=29b1f277"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/scripts/scripts.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/visual-configuring';</script>
-    <script src="../_static/scripts/scripts.js?v=8c6bb025"></script>
     <link rel="canonical" href="https://dev.bookseer.org/tmux/visual-configuring.html" />
-    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Создание настраиваемых рабочих окружений в tmux" href="custom-environment.html" />
@@ -90,6 +87,7 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Перейти к основному содержанию</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -130,15 +128,18 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
 
+  <header>
+
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
     <div class="bd-header-announcement__content">Сайт находится в разработке</div>
   </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
@@ -177,18 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Поиск</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
 <ul class="nav bd-sidenav">
@@ -514,14 +504,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-visual-configuring"></span><h1>Настройка внешнего вида tmux<a class="headerlink" href="#tmux" title="Link to this heading">#</a></h1>
+<span id="tmux-visual-configuring"></span><h1>Настройка внешнего вида tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
 <p>Гибкая система настройки, предоставляемая tmux, позволяет не только настраивать способ взаимодействия с интерфейсом, но также дает возможность настроить его внешний вид, чтобы сделать интерфейс более понятным, а в некоторых случаях и более информативным.</p>
 <p>tmux предоставляет довольно много настроек внешнего вида.
 В этом разделе мы пройдемся по настройкам некоторых из этих параметров, настроим строку состояния и другие компоненты.
 Что ж начнем с настройки цветов для различных элементов.
 Затем превратим строку состояния в элемент интерфейса предоставляющий некоторую важную информацию об используемом окружении.</p>
 <section id="id1">
-<h2>Настройка поддержки цветов<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>Настройка поддержки цветов<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Чтобы иметь возможность настраивать визуальные эффекты tmux, необходимо убедиться, что и терминал, и tmux настроены
 на использование 256 цветов.</p>
 <p>Команда <code class="docutils literal notranslate"><span class="pre">tput</span></code> поможет быстро определить количество цветов, поддерживаемых терминалом.
@@ -558,7 +548,7 @@ document.write(`
 <p><img alt="" src="tmux/img/-440-009.png" /></p>
 </section>
 <section id="id2">
-<h2>Определение кодов цветов<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>Определение кодов цветов<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Теперь давайте настроим внешний вид компонентов tmux, начиная с цветовой схемы.</p>
 <p>tmux позволяет изменять цвета почти всех частей интерфейса, включая строку состояния, список окон,
 область сообщений и даже границы панелей.</p>
@@ -577,7 +567,7 @@ document.write(`
 <p>Давайте начнем изучать их с настройки цветов строки состояния.</p>
 </section>
 <section id="id3">
-<h2>Изменение цветов строки состояния<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>Изменение цветов строки состояния<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Строка состояния по умолчанию имеет черный текст на ярко-зеленом фоне.
 Это не очень красиво, и в зависимости от конфигурации терминала, может быть трудночитаемым.</p>
 <p>Давайте сделаем так, чтобы по умолчанию в строке состояния был белый текст на черном фоне:</p>
@@ -600,7 +590,7 @@ document.write(`
 <p>Продолжим настроить цвета элементов в строке состояния.</p>
 </section>
 <section id="id4">
-<h2>Изменение цвета списка окон<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2>Изменение цвета списка окон<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>tmux отображает список окон в строке состояния.
 Давайте выделим активное окно, оформив его в красный цвет, а неактивные окна — в голубой.
 Опция <code class="docutils literal notranslate"><span class="pre">window-status-style</span></code> управляет тем, как выглядят обычные окна, а параметр <code class="docutils literal notranslate"><span class="pre">window-status-current-style</span></code> управляет тем, как выглядит активное окно.
@@ -625,7 +615,7 @@ document.write(`
 <p><img alt="" src="tmux/img/-740-013.png" /></p>
 </section>
 <section id="id5">
-<h2>Изменение внешнего вида панелей<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2>Изменение внешнего вида панелей<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>После того как мы настроили список окон, давайте посмотрим, как можно настроить отображение панелей в окне.
 Есть несколько вариантов управления внешним видом панелей.
 Можно управлять цветом разделителей панели, можно определить цвета, чтобы сделать активную панель более заметной, и даже можно «затемнить» неактивные панели.</p>
@@ -659,7 +649,7 @@ document.write(`
 <p>После данных настроек определить активную панель станет значительно проще.</p>
 </section>
 <section id="id6">
-<h2>Настройка командной строки tmux<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<h2>Настройка командной строки tmux<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>tmux дает возможность настроить командную строку.
 Подход почти идентичен тому, который применялся к оформлению строки состояния.
 Давайте изменим цвет фона на черный, а цвет текста на белый.
@@ -673,7 +663,7 @@ document.write(`
 </div>
 </section>
 <section id="id7">
-<h2>Настройка элементов строки состояния<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<h2>Настройка элементов строки состояния<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <p>Строка состояния tmux может отображать почти любую необходимую информацию.
 Причем можно использовать как некоторые предопределенные компоненты, так и создавать свои собственные, например, выполняя системные команды.</p>
 <p>Строка состояния состоит из трех компонентов: левой панели, списка окон и правой панели.
@@ -766,7 +756,7 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p>Еще одна мощная возможность — использовать переменную <code class="docutils literal notranslate"><span class="pre">#(shellcommand)</span></code> для возврата результата любой внешней программы командной строки в строку состояния.</p>
 </section>
 <section id="id8">
-<h2>Поддержание актуальности информации в строке состояния<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<h2>Поддержание актуальности информации в строке состояния<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <p>После настройки отображения текущего времени и другой динамической информации в строке состояния, нужно сообщить tmux, как часто обновлять эту информацию.
 По умолчанию tmux обновляет строку состояния каждые 15 секунд.
 За частоту обновления информации строки состояния отвечает параметр <code class="docutils literal notranslate"><span class="pre">set-option</span></code> с указанием интервала обновления в секундах, например:</p>
@@ -781,7 +771,7 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 они будут выполняться каждый интервал, поэтому нужно быть осторожнее чтобы не загрузить слишком много ресурсоемких сценариев.</p>
 </section>
 <section id="id9">
-<h2>Центрирование окон списка<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<h2>Центрирование окон списка<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
 <p>По умолчанию список окон выровнен по левому краю, но можно разместить его по центру строки состояния с помощью изменения конфигурации:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
@@ -794,7 +784,7 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p>По мере создания новых окон список окон будет смещаться, оставаясь в центре строки состояния.</p>
 </section>
 <section id="id10">
-<h2>Идентификация активности в других окнах<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h2>Идентификация активности в других окнах<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
 <p>Когда пользователь работает с более чем одним окном, ему нужно получать уведомления, когда что-то происходит в одном из других окон сеансе, чтобы можно было отреагировать на происходящие события.
 Сделать это можно, добавив визуальные уведомления, например, так:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
@@ -813,7 +803,7 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-status-activity-style</span></code>.</p>
 </section>
 <section id="id11">
-<h2>Команды для управления внешним видом tmux<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<h2>Команды для управления внешним видом tmux<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Команда</p></th>
@@ -997,8 +987,8 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>
