@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="ru" data-content_root="" >
+<html lang="ru" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Настройка tmux &#8212; Заметки для разработчиков</title>
   
@@ -19,58 +18,62 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css?v=4a222da0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/scripts/scripts.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=29b1f277"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/configuring';</script>
+    <script src="../_static/scripts/scripts.js?v=8c6bb025"></script>
     <link rel="canonical" href="https://dev.bookseer.org/tmux/configuring.html" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Настройка внешнего вида tmux" href="visual-configuring.html" />
@@ -87,7 +90,6 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Перейти к основному содержанию</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -128,18 +130,15 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
 
-  <header>
-
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
     <div class="bd-header-announcement__content">Сайт находится в разработке</div>
   </div>
 
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
@@ -178,7 +177,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Поиск</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
 <ul class="nav bd-sidenav">
@@ -508,7 +518,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-configuring"></span><h1>Настройка tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+<span id="tmux-configuring"></span><h1>Настройка tmux<a class="headerlink" href="#tmux" title="Link to this heading">#</a></h1>
 <p>Сейчас, уже имея некоторый опыт работы с tmux, давайте создадим собственную конфигурацию, которую сможем использовать
 для наших остальных рабочих задач.</p>
 <p>tmux по умолчанию имеет не самые удобные настройки.
@@ -518,7 +528,7 @@ document.write(`
 После изучения данного материала, у вас будет лучшее представление о том, насколько гибок tmux, и вы сможете конфигурировать его самостоятельно.
 Давайте начнем с разговора о том, что нужно настроить в tmux в первую очередь.</p>
 <section id="tmux-conf">
-<h2>Файл .tmux.conf<a class="headerlink" href="#tmux-conf" title="Permalink to this heading">#</a></h2>
+<h2>Файл .tmux.conf<a class="headerlink" href="#tmux-conf" title="Link to this heading">#</a></h2>
 <p>По умолчанию tmux ищет параметры конфигурации в двух местах.
 Сначала в <strong>/etc/tmux.conf</strong> он ищет общесистемную конфигурацию.
 Затем — файл с именем <strong>.tmux.conf</strong> в домашнем каталоге текущего пользователя.
@@ -536,7 +546,7 @@ document.write(`
 </div>
 </section>
 <section id="id1">
-<h2>Назначение более простого префикса<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>Назначение более простого префикса<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>tmux использует <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> в качестве префикса команд.
 Многие пользователи tmux начинали с GNUScreen, который использует <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> для префикса команд.
 <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span> — отличный выбор для префикса, потому что легко доступен, особенно если переназначить клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Caps Lock</span> на <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>, как описано на далее.
@@ -582,7 +592,7 @@ document.write(`
 </div>
 </section>
 <section id="id2">
-<h2>Изменение задержки по умолчанию<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>Изменение задержки по умолчанию<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>tmux добавляет очень небольшую задержку при отправке команд, и эта задержка может мешать другим программам, например, текстовому редактору Vim.
 Устранить эту проблему, можно добавив в конфигурационный файл следующее определение:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
@@ -594,7 +604,7 @@ document.write(`
 <p>После перезагрузки файла конфигурации, можно будет без задержки нажимать клавиши.</p>
 </section>
 <section id="id3">
-<h2>Настройка индексации окон и панелей<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>Настройка индексации окон и панелей<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>В разделе <a class="reference internal" href="basic.html#tmux-basic"><span class="std std-ref">«Основы tmux»</span></a> было рассказано об окнах и о том, как при создании нескольких окон в сеансе, можно ссылаться на них по индексу. Индексация начинается с нуля, что немного неудобно, так как приходится использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">0</span> для доступа к первому окну.</p>
 <p>Добавив эту строку в файл конфигурации</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
@@ -619,7 +629,7 @@ document.write(`
 <p>Теперь давайте создадим несколько полезных сочетаний клавиш, которые повысят вашу продуктивность.</p>
 </section>
 <section id="id4">
-<h2>Назначение сочетания клавиш для перезагрузки конфигурации<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h2>Назначение сочетания клавиш для перезагрузки конфигурации<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Каждый раз, когда при внесении изменений в файл конфигурации, нужно либо закрыть все сеансы и перезапустить tmux, либо
 ввести команду</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">: source</span>
@@ -656,7 +666,7 @@ document.write(`
 <p>Как видите, можно привязать клавишу к последовательности команд, разделив команды комбинацией <code class="docutils literal notranslate"><span class="pre">\;</span></code>.</p>
 </section>
 <section id="id5">
-<h2>Определение сочетаний клавиш, не требующих префикса<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h2>Определение сочетаний клавиш, не требующих префикса<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>Когда определяются привязки клавиш с помощью <code class="docutils literal notranslate"><span class="pre">bind</span></code>, все равно нужно нажать клавиши составляющие <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>,
 прежде чем можно будет нажать вновь определенную клавишу.</p>
 <p>Использование команды <code class="docutils literal notranslate"><span class="pre">bind</span></code> с префиксом <code class="docutils literal notranslate"><span class="pre">-n</span></code> сообщает tmux, что привязка клавиш не требует нажатия префикса.
@@ -671,7 +681,7 @@ document.write(`
 следует пользоваться такой возможностью с большой осторожностью.</p>
 </section>
 <section id="id6">
-<h2>Отправка префикса в другие приложения<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2>Отправка префикса в другие приложения<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>Мы переназначили <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> в качестве префикса, но такие программы, как Vim, Emacs и даже обычная оболочка Bash также используют эту комбинацию.
 Необходимо настроить tmux для отправки этой команды в приложения, когда вам это нужно.
 Сделать это можно, привязав команду <code class="docutils literal notranslate"><span class="pre">send-prefix</span></code> к нажатию клавиши, например:</p>
@@ -684,7 +694,7 @@ document.write(`
 <p>После перезагрузки файла конфигурации можно отправить <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span> приложению, работающему в tmux, просто дважды нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">CTRL</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">a</span>.</p>
 </section>
 <section id="id7">
-<h2>Разделение панелей<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h2>Разделение панелей<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>Клавиши, используемые по умолчанию для разделения панелей, труднозапоминаемы и достаточно неудобны, поэтому давайте установим свои собственные клавиши.
 Свяжем горизонтальное разделение окна с <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">|</span> и вертикальное разделение с <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">-</span>.
 Для этого добавим эти строки в файл конфигурации:</p>
@@ -701,7 +711,7 @@ document.write(`
 Новые сочетания клавиш дают простую визуальную ассоциацию.
 Для разделения окна нужно нажать клавишу, которая выглядит как требуемое разделение.</p>
 <section id="id8">
-<h3>Переназначение клавиш управления курсором<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<h3>Переназначение клавиш управления курсором<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>Переход между панелями с помощью <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">o</span> весьма неудобен, а использование клавиш со стрелками предполагает, что нужно убрать пальцы с центрального ряда клавиатуры.
 В текстовом редакторе Vim, используются весьма удобные клавиши <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">h</span>, <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">j</span>, <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">k</span> и <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">l</span> для перемещения курсора.
 Давайте переназначим клавиши перемещения в tmux на эти же клавиши:</p>
@@ -726,7 +736,7 @@ document.write(`
 </section>
 </section>
 <section id="id9">
-<h2>Изменение размера панелей<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<h2>Изменение размера панелей<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <p>Чтобы изменить размер панели вниз на одну строку, можно ввести в командном режиме</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">: resize-pane -D</span>
 </pre></div>
@@ -792,7 +802,7 @@ tmux позволяет использовать как строчные, так
 повторения до более высокого значения.</p>
 </section>
 <section id="id10">
-<h2>Управление мышью<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<h2>Управление мышью<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>Теперь давайте обратим внимание на то, как tmux может работать с мышью.</p>
 <p>Хотя tmux должен полностью управляться с клавиатуры, бывают случаи, когда может быть проще использовать мышь.
 Если используемый терминал поддерживает управление мышью, то можно указать tmux, как обрабатывать определенные события
@@ -822,7 +832,7 @@ tmux позволяет использовать как строчные, так
 <p>Установка этого параметра предохраняет от случайных действий при выборе окна терминала с помощью мыши, и заставляет чувствовать себя более комфортно с клавиатурой.</p>
 </section>
 <section id="id11">
-<h2>Команды для управления поведением tmux<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<h2>Команды для управления поведением tmux<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Команда</p></th>
@@ -879,7 +889,7 @@ tmux позволяет использовать как строчные, так
 </table>
 </section>
 <section id="id12">
-<h2>Переопределенные сочетания клавиш<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<h2>Переопределенные сочетания клавиш<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Команда</p></th>
@@ -1046,8 +1056,8 @@ tmux позволяет использовать как строчные, так
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

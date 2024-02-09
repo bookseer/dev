@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="ru" data-content_root="" >
+<html lang="ru" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Создание настраиваемых рабочих окружений в tmux &#8212; Заметки для разработчиков</title>
   
@@ -19,58 +18,62 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css?v=4a222da0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=576a2c22"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/scripts/scripts.js"></script>
-    <script src="../_static/translations.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=29b1f277"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/custom-environment';</script>
+    <script src="../_static/scripts/scripts.js?v=8c6bb025"></script>
     <link rel="canonical" href="https://dev.bookseer.org/tmux/custom-environment.html" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Работа с текстом и буферами" href="text-and-buffer.html" />
@@ -87,7 +90,6 @@ const thebe_selector_output = ".output, .cell_output"
   <a id="pst-skip-link" class="skip-link" href="#main-content">Перейти к основному содержанию</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -128,18 +130,15 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
 
-  <header>
-
 
   <div class="bd-header-announcement container-fluid bd-header-announcement">
     <div class="bd-header-announcement__content">Сайт находится в разработке</div>
   </div>
 
   
-    <div class="bd-header navbar navbar-expand-lg bd-navbar">
-    </div>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
-  </header>
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
@@ -178,7 +177,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Поиск</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
 <ul class="nav bd-sidenav">
@@ -484,6 +494,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Создание пользовательских настроек с помощью команд tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Сценарий конфигурации проекта</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Выбор панелей и окон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Создание и выбор окон</a></li>
 </ul>
             </nav>
         </div>
@@ -496,7 +507,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-custom-environment"></span><h1>Создание настраиваемых рабочих окружений в tmux<a class="headerlink" href="#tmux" title="Permalink to this heading">#</a></h1>
+<span id="tmux-custom-environment"></span><h1>Создание настраиваемых рабочих окружений в tmux<a class="headerlink" href="#tmux" title="Link to this heading">#</a></h1>
 <p>Чаще всего разработчику при работе над проектом, приходится запускать целый набор различных инструментов и программ.
 Например, веб-разработчику, скорее всего, потребуется командная оболочка, текстовый редактор, консоль базы данных и окно
 для запуска автоматизированного набора тестов для разрабатываемого приложения.
@@ -507,7 +518,7 @@ tmux, используя всего одну команду.
 среды разработки, разделяя окна и автоматически запуская в них необходимые программы.
 Сначала рассмотрим, как сделать это вручную, а затем рассмотрим более продвинутые автоматические инструменты.</p>
 <section id="id1">
-<h2>Создание пользовательских настроек с помощью команд tmux<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>Создание пользовательских настроек с помощью команд tmux<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Помимо создания новых сеансов, команда <code class="docutils literal notranslate"><span class="pre">tmux</span></code> имеет множество других параметров.
 Например, можно разделить окна на панели, изменять макеты или даже запускать приложения в рамках сеанса.</p>
 <p>Ключом к этому является опция <code class="docutils literal notranslate"><span class="pre">-t</span></code> или «target».
@@ -539,7 +550,7 @@ tmux, используя всего одну команду.
 Давайте рассмотрим эту концепцию, создав нашу собственную среду разработки.</p>
 </section>
 <section id="id2">
-<h2>Сценарий конфигурации проекта<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>Сценарий конфигурации проекта<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>В разделе <a class="reference internal" href="basic.html#tmux-basic"><span class="std std-ref">«Изучение основ»</span></a> были описаны команды tmux <code class="docutils literal notranslate"><span class="pre">new-session</span></code> и <code class="docutils literal notranslate"><span class="pre">new-window</span></code>.
 Давайте, используя эти и подобные команды, напишем простой скрипт который запустит новый сеанс tmux, создаст основное
 окно с парой панелей и два дополнительных окна с одной панелью в каждом.
@@ -606,7 +617,7 @@ tmux, используя всего одну команду.
 </div>
 </section>
 <section id="id3">
-<h2>Выбор панелей и окон<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>Выбор панелей и окон<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>Итак, мы создали первое окно и разделили его на две панели, причем нужно, чтобы нижняя панель должна открываться в папке проекта.
 Давайте рассмотрим как выполнять команды в определенных панелях и окнах.</p>
 <p>С помощью таких команд, как <code class="docutils literal notranslate"><span class="pre">send-keys</span></code>, можно указать не только целевой сеанс, но и целевое окно и панель.
@@ -632,6 +643,78 @@ tmux, используя всего одну команду.
 <span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mf">1.2</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
 </pre></div>
 </div>
+</section>
+<section id="id4">
+<h2>Создание и выбор окон<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>Давайте завершим эту настройку, добавив в сеанс еще пару окон.
+Нам нужно второе окно в нашем сеансе, которое будет полноэкранной консолью.
+Новое окно можно создать с помощью команды <code class="docutils literal notranslate"><span class="pre">new-window</span> </code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
+
+<span class="n">tmux</span> <span class="n">new</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">n</span> <span class="n">console</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
+<span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mi">2</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+</pre></div>
+</div>
+<p>После создания окна, используем <code class="docutils literal notranslate"><span class="pre">send-keys</span></code>, чтобы снова перейти в каталог нашего проекта.
+Так как имеется только одна панель во вновь созданном окне, нужно указать только номер окна.</p>
+<p>После запуска сеанса, необходимо чтобы отображалось первое окно, добиться этого можно с помощью команды <code class="docutils literal notranslate"><span class="pre">select-window</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
+
+<span class="n">tmux</span> <span class="n">select</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mi">1</span>
+<span class="n">tmux</span> <span class="n">attach</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
+</pre></div>
+</div>
+<p>Таким образом, можно продолжать добавлять к этому сценарию новую функциональность, создавая дополнительные окна и
+панели, запуская удаленные подключения к серверам, отслеживая файлы журналов, подключаясь к консолям базы данных или
+даже выполняя команды, которые загружают последнюю версию кода из репозитория.
+Но остановимся на этом и просто завершим сценарий, окончательно подключившись к сеансу, чтобы он появился на экране,
+готовый к началу работы.</p>
+<p>Полностью сценарий выглядит следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
+
+<span class="n">tmux</span> <span class="n">new</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">s</span> <span class="n">development</span> <span class="o">-</span><span class="n">n</span> <span class="n">editor</span> <span class="o">-</span><span class="n">d</span>
+<span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+<span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="s1">&#39;vim&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+<span class="n">tmux</span> <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
+<span class="n">tmux</span> <span class="n">select</span><span class="o">-</span><span class="n">layout</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="n">main</span><span class="o">-</span><span class="n">horizontal</span>
+<span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mf">1.2</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+<span class="n">tmux</span> <span class="n">new</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">n</span> <span class="n">console</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
+<span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mi">2</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+<span class="n">tmux</span> <span class="n">select</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mi">1</span>
+<span class="n">tmux</span> <span class="n">attach</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
+</pre></div>
+</div>
+<p>Запустим его с помощью команды</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>~/development
+</pre></div>
+</div>
+<p>Открывшееся окно будет так:</p>
+<p><img alt="" src="tmux/img/-060-018.png" /></p>
+<p>Одним из недостатков такого подхода является то, что этот сценарий каждый раз создает новый сеанс.
+Это создаст проблемы, если запустить его во второй раз, когда сеанс «development» уже запущен.</p>
+<p>Можно изменить сценарий, чтобы проверять, существует ли сеанс с таким именем, используя команду tmux <code class="docutils literal notranslate"><span class="pre">has-session</span></code>,
+и создать новый сеанс только в том случае, если его нет, например, так:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># ~/development
+
+tmux has-session -t development
+if [$? != 0]
+then
+  tmux new-session -s development -n editor -d
+  tmux send-keys -t development &#39;cd ~/devproject&#39; C-m
+  tmux send-keys -t development &#39;vim&#39; C-m
+  tmux split-window -v -t development
+  tmux select-layout -t development main-horizontal
+  tmux send-keys -t development:1.2 &#39;cd ~/devproject&#39; C-m
+  tmux new-window -n console -t development
+  tmux send-keys -t development:2 &#39;cd ~/devproject&#39; C-m
+  tmux select-window -t development:1
+fi
+tmux attach -t development
+</pre></div>
+</div>
+<p>Такой подход отлично работает для настройки одного проекта.</p>
+<p>Можно сделать его более универсальным, используя переменную для имени проекта, но давайте рассмотрим пару других
+способов настройки для управления несколькими проектами.</p>
 </section>
 </section>
 
@@ -702,6 +785,7 @@ tmux, используя всего одну команду.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Создание пользовательских настроек с помощью команд tmux</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Сценарий конфигурации проекта</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Выбор панелей и окон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Создание и выбор окон</a></li>
 </ul>
   </nav></div>
 
@@ -753,8 +837,8 @@ tmux, используя всего одну команду.
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

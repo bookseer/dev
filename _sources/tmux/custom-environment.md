@@ -174,3 +174,90 @@ tmux select-layout -t development main-horizontal
 
 tmux send-keys -t development:1.2 'cd ~/devproject' C-m
 ```
+
++++
+
+## Создание и выбор окон
+
+Давайте завершим эту настройку, добавив в сеанс еще пару окон.
+Нам нужно второе окно в нашем сеансе, которое будет полноэкранной консолью.
+Новое окно можно создать с помощью команды `new-window `:
+```
+# ~/development
+
+tmux new-window -n console -t development
+tmux send-keys -t development:2 'cd ~/devproject' C-m
+```
+
+После создания окна, используем `send-keys`, чтобы снова перейти в каталог нашего проекта.
+Так как имеется только одна панель во вновь созданном окне, нужно указать только номер окна.
+
+После запуска сеанса, необходимо чтобы отображалось первое окно, добиться этого можно с помощью команды `select-window`:
+```
+# ~/development
+
+tmux select-window -t development:1
+tmux attach -t development
+```
+
+Таким образом, можно продолжать добавлять к этому сценарию новую функциональность, создавая дополнительные окна и
+панели, запуская удаленные подключения к серверам, отслеживая файлы журналов, подключаясь к консолям базы данных или
+даже выполняя команды, которые загружают последнюю версию кода из репозитория.
+Но остановимся на этом и просто завершим сценарий, окончательно подключившись к сеансу, чтобы он появился на экране,
+готовый к началу работы.
+
+Полностью сценарий выглядит следующим образом:
+```
+# ~/development
+
+tmux new-session -s development -n editor -d
+tmux send-keys -t development 'cd ~/devproject' C-m
+tmux send-keys -t development 'vim' C-m
+tmux split-window -v -t development
+tmux select-layout -t development main-horizontal
+tmux send-keys -t development:1.2 'cd ~/devproject' C-m
+tmux new-window -n console -t development
+tmux send-keys -t development:2 'cd ~/devproject' C-m
+tmux select-window -t development:1
+tmux attach -t development
+```
+
+Запустим его с помощью команды
+```console
+$ ~/development
+```
+
+Открывшееся окно будет так:
+
+![](./img/-060-018.png)
+
+
+Одним из недостатков такого подхода является то, что этот сценарий каждый раз создает новый сеанс.
+Это создаст проблемы, если запустить его во второй раз, когда сеанс «development» уже запущен.
+
+Можно изменить сценарий, чтобы проверять, существует ли сеанс с таким именем, используя команду tmux `has-session`,
+и создать новый сеанс только в том случае, если его нет, например, так:
+
+```
+# ~/development
+
+tmux has-session -t development
+if [$? != 0]
+then
+  tmux new-session -s development -n editor -d
+  tmux send-keys -t development 'cd ~/devproject' C-m
+  tmux send-keys -t development 'vim' C-m
+  tmux split-window -v -t development
+  tmux select-layout -t development main-horizontal
+  tmux send-keys -t development:1.2 'cd ~/devproject' C-m
+  tmux new-window -n console -t development
+  tmux send-keys -t development:2 'cd ~/devproject' C-m
+  tmux select-window -t development:1
+fi
+tmux attach -t development
+```
+
+Такой подход отлично работает для настройки одного проекта.
+
+Можно сделать его более универсальным, используя переменную для имени проекта, но давайте рассмотрим пару других
+способов настройки для управления несколькими проектами.
