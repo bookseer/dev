@@ -495,6 +495,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Сценарий конфигурации проекта</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Выбор панелей и окон</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Создание и выбор окон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Использование конфигураций для настройки tmux</a></li>
 </ul>
             </nav>
         </div>
@@ -716,6 +717,48 @@ tmux attach -t development
 <p>Можно сделать его более универсальным, используя переменную для имени проекта, но давайте рассмотрим пару других
 способов настройки для управления несколькими проектами.</p>
 </section>
+<section id="id5">
+<h2>Использование конфигураций для настройки tmux<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>Сам файл <code class="docutils literal notranslate"><span class="pre">~.tmux.conf</span></code> может включать команды, устанавливающие окружение по умолчанию.
+Если необходимо каждый запускать tmux в одной и той же папке по умолчанию или автоматически разделять окна,
+можно прописать это прямо в конфигурацию по умолчанию, просто используя соответствующие команды.</p>
+<p>Также имеется возможность указать файл конфигурации при запуске экземпляра tmux, используя флаг <code class="docutils literal notranslate"><span class="pre">-f</span></code>.
+Таким образом, не нужно менять исходный файл конфигурации по умолчанию, и можно для каждого проекта использовать
+отдельный файл конфигурации с собственными параметрами, такими как сочетания клавиш для запуска команд или запуска
+набора тестов.</p>
+<p>Давайте сделаем это. Создадим новый файл с именем app.conf:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>touch<span class="w"> </span>app.conf
+</pre></div>
+</div>
+<p>Внутри этого файла можно использовать те же самые команды, что и в предыдущем разделе, но поскольку это файл
+конфигурации, а не сценарий оболочки, не нужно явно добавлять префикс к каждой команде tmux:
+Добавьте этот код в ваш файл app.conf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># app.conf</span>
+
+<span class="n">source</span><span class="o">-</span><span class="n">file</span> <span class="o">~/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">new</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">s</span> <span class="n">development</span> <span class="o">-</span><span class="n">n</span> <span class="n">editor</span> <span class="o">-</span><span class="n">d</span>
+<span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+<span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="s1">&#39;vim&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+<span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
+<span class="n">select</span><span class="o">-</span><span class="n">layout</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="n">main</span><span class="o">-</span><span class="n">horizontal</span>
+<span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mf">1.2</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+<span class="n">new</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">n</span> <span class="n">console</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
+<span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mi">2</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
+<span class="n">select</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span><span class="p">:</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Этот код сначала загружает существующий файл .tmux.conf, поэтому будут сохранены все настройки среды, которые
+в нем были определелены, включая сочетания клавиш и настройки строки состояния.
+Это не обязательно, но если этого не сделать, то все сочетания клавиш и параметры вернутся к значениям по умолчанию,
+или придется заново переопределять их в этом файле.</p>
+<p>Чтобы использовать этот файл конфигурации, необходимо передать флаг <code class="docutils literal notranslate"><span class="pre">-f</span></code>, за которым следует путь к файлу конфигурации.
+Также нужно запускать tmux с помощью команды <code class="docutils literal notranslate"><span class="pre">attach</span></code>, например:</p>
+<div class="highlight-cobsole notranslate"><div class="highlight"><pre><span></span>$ tmux -f app.conf attach
+</pre></div>
+</div>
+<p>Это связано с тем, что по умолчанию tmux всегда вызывает команду <code class="docutils literal notranslate"><span class="pre">new-session</span></code> при запуске.
+Приведенный файл уже создает новый сеанс, поэтому, если не использовать <code class="docutils literal notranslate"><span class="pre">attach</span></code>, будет запущено два сеанса.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -786,6 +829,7 @@ tmux attach -t development
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Сценарий конфигурации проекта</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Выбор панелей и окон</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Создание и выбор окон</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Использование конфигураций для настройки tmux</a></li>
 </ul>
   </nav></div>
 
