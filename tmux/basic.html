@@ -510,7 +510,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Работа в командном режиме</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Получение справочной инфориации</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Получение справочной информации</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Справочная информация</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Для дальнейшего использования</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Создание сеансов</a></li>
@@ -714,7 +714,7 @@ tmux все еще работает вместе с приложением, ко
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">no server running on /tmp/tmux-1000/default</span>
 </pre></div>
 </div>
-<p>Поскольку сеансы tmux не существуют, то и сам tmux не работает, а сдедовательно, он не может обработать запрос.</p>
+<p>Поскольку сеансы tmux не существуют, то и сам tmux не работает, а следовательно, он не может обработать запрос.</p>
 <p>Теперь, после знакомства с основами создания сеансов и работы с ними, давайте посмотрим, как можно организовать
 работу с несколькими программами в рамках одного сеанса.</p>
 </section>
@@ -730,7 +730,7 @@ tmux все еще работает вместе с приложением, ко
 В первом окне будет обычный терминал, а во втором запустим команду <code class="docutils literal notranslate"><span class="pre">top</span></code>.</p>
 <section id="id8">
 <h3>Создание и наименование окон<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>Создажим именованный сеанс с именем «windows»:</p>
+<p>Создадим именованный сеанс с именем «windows»:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>windows<span class="w"> </span>-n<span class="w"> </span>shell
 </pre></div>
 </div>
@@ -771,7 +771,7 @@ tmux все еще работает вместе с приложением, ко
 в названии окна).
 Если ввести текст и нажать клавишу <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, отобразится список окон, содержащих этот текст.</p>
 <p>Если отсоединиться от своего сеанс и повторно подключиться позже, все окна сохранят свое состояние.</p>
-<p>Чтобы закрыть окно, можно либо ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в приглашение командной сторки в окне, либо использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>
+<p>Чтобы закрыть окно, можно либо ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в приглашение командной строки в окне, либо использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>
 <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">&amp;</span>, после чего отобразится подтверждающее сообщение в строке состояния перед закрытием окна.
 После подтверждения закрытия, активным станет предыдущее окно.
 Чтобы полностью закрыть сеанс tmux, достаточно закрыть все его.</p>
@@ -818,7 +818,7 @@ tmux все еще работает вместе с приложением, ко
 На данный момент будем использовать один из нескольких стандартных макетов панелей:</p>
 <ul class="simple">
 <li><p><em>even-horizontal</em> размещает все панели горизонтально, слева направо.</p></li>
-<li><p><em>even-vertical</em>  размещает все панели вертикально сверху вниз.</p></li>
+<li><p><em>even-vertical</em> размещает все панели вертикально сверху вниз.</p></li>
 <li><p><em>main-horizontal</em> создает одну большую панель вверху и меньшие панели внизу.</p></li>
 <li><p><em>main-vertical</em> создает одну большую панель в левой части экрана и остальные панели вертикально справа.</p></li>
 <li><p><em>tiled</em> упорядочивает все панели равномерно на экране.</p></li>
@@ -827,7 +827,7 @@ tmux все еще работает вместе с приложением, ко
 </section>
 <section id="id12">
 <h3>Закрытие панелей<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
-<p>Закрытие панели происходит так же, как и закрытие сеанса или окна tmux: нужно просто ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в пенель, которую необходимо закрыть.</p>
+<p>Закрытие панели происходит так же, как и закрытие сеанса или окна tmux: нужно просто ввести <code class="docutils literal notranslate"><span class="pre">exit</span></code> в панель, которую необходимо закрыть.</p>
 <p>Еще можно закрыть панель с помощью сочетания <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">x</span>, которое также закроет окно, если в нем
 только одна панель.
 Такое удаление панели отлично подходит для ситуации, когда приложение в панели зависло или вы больше не можете с ним
@@ -840,7 +840,7 @@ tmux все еще работает вместе с приложением, ко
 <section id="id13">
 <h2>Работа в командном режиме<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <p>До сих пор мы использовали комбинации клавиш для создания окон и панелей, но эти комбинации клавиш на самом деле альтернативный вариант для команд tmux с некоторыми предустановленными параметрами.
-Команды tmux можно выполнять кдвумя способами: из самого терминала или из области команд в строке состояния tmux.
+Команды tmux можно выполнять двумя способами: из самого терминала или из области команд в строке состояния tmux.
 Про то, как использовать команды tmux из терминала будет рассказано в разделе <a class="reference internal" href="custom-environment.html#tmux-custom-environment"><span class="std std-ref">«Создание настраиваемых рабочих окружений в tmux»</span></a>, а пока давайте изучим командный режим tmux, используя его для создания новых окон и панелей в рабочей области.</p>
 <p>Чтобы войти в командный режим, достаточно нажать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">:</span> (двоеточие) в активном сеансе tmux.
 Строка состояния изменит цвет, и будет выведена подсказка, указывающая, что можно ввести команду.
@@ -851,7 +851,7 @@ tmux все еще работает вместе с приложением, ко
 </div>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p><code class="docutils literal notranslate"><span class="pre">:</span></code> обозначает символ приглаашения ко вводу команд. Его набирать не нужно.</p>
+<p><code class="docutils literal notranslate"><span class="pre">:</span></code> обозначает символ приглашения ко вводу команд. Его набирать не нужно.</p>
 </div>
 <p>Давайте сделаем еще один шаг и сразу запустим программу <code class="docutils literal notranslate"><span class="pre">top</span></code> в новом окне при его создании.
 Для этого нужно войти в командный режим и ввести команду:</p>
@@ -861,11 +861,11 @@ tmux все еще работает вместе с приложением, ко
 <p>После нажатия <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">ENTER</span>, появится новое окно и запустится приложение <code class="docutils literal notranslate"><span class="pre">top</span></code>, показывающее запущенные процессы.</p>
 <p>Указание команды для окна при его создании чрезвычайно удобно для краткосрочных задач, но есть небольшой нюанс; если выйти из приложения <code class="docutils literal notranslate"><span class="pre">top</span></code>, нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">q</span>, созданное окно tmux также закроется.
 Можно использовать параметры конфигурации, чтобы обойти это, но если необходимо, сохранять окно после закрытия приложения, просто создайте его без указания начальной команды, а затем уже выполните эту команду новом окне.</p>
-<p>Командный режим может истользоваться для создания новых окон, новых панелей, новых сеансов или для установки других параметров окружения.</p>
+<p>Командный режим может использоваться для создания новых окон, новых панелей, новых сеансов или для установки других параметров окружения.</p>
 <p>В разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>, будет показано, как создать несколько собственных сочетаний клавиш, чтобы сделать использование некоторых из этих команд еще проще.</p>
 </section>
 <section id="id14">
-<h2>Получение справочной инфориации<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<h2>Получение справочной информации<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <p>Используя сочетание <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">?</span>, можно получить список всех предопределенных сочетаний клавиш tmux и связанных с ними команд.</p>
 </section>
 <section id="id15">
@@ -885,16 +885,13 @@ tmux все еще работает вместе с приложением, ко
 <tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">new-session</span></code> или <code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">new</span> <span class="pre">-s</span></code> или <code class="docutils literal notranslate"><span class="pre">tmux</span></code></p></td>
 <td class="text-left"><p>Создает новый сеанс без имени.</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>.</p></td>
-<td class="text-left"><p></p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">new</span> <span class="pre">-s</span> <span class="pre">development</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">new</span> <span class="pre">-s</span> <span class="pre">development</span></code></p></td>
 <td class="text-left"><p>Создает новый сеанс под названием «development».</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">new</span> <span class="pre">-s</span> <span class="pre">development</span> <span class="pre">-n</span> <span class="pre">editor</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">new</span> <span class="pre">-s</span> <span class="pre">development</span> <span class="pre">-n</span> <span class="pre">editor</span></code></p></td>
 <td class="text-left"><p>Создает сеанс с именем «development» и называет первое окно «editor».</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">attach</span> <span class="pre">-t</span> <span class="pre">development</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">attach</span> <span class="pre">-t</span> <span class="pre">development</span></code></p></td>
 <td class="text-left"><p>Подключается к сеансу под названием «development».</p></td>
 </tr>
 </tbody>
@@ -916,13 +913,13 @@ tmux все еще работает вместе с приложением, ко
 <td class="text-left"><p>Переход в командный режим.</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">c</span></code></p></td>
-<td class="text-left"><p>Создание нового окна в текущем сеансе tmux. Сокраещение для <code class="docutils literal notranslate"><span class="pre">new-window</span></code>.</p></td>
+<td class="text-left"><p>Создание нового окна в текущем сеансе tmux. Сокращение для <code class="docutils literal notranslate"><span class="pre">new-window</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
 <td class="text-left"><p>Переход к следующему окну.</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
-<td class="text-left"><p>Переход к предудущему окну.</p></td>
+<td class="text-left"><p>Переход к предыдущему окну.</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">0</span></code>…<code class="docutils literal notranslate"><span class="pre">9</span></code></p></td>
 <td class="text-left"><p>Выбор окна по номеру.</p></td>
@@ -1046,7 +1043,7 @@ tmux все еще работает вместе с приложением, ко
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Работа в командном режиме</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Получение справочной инфориации</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Получение справочной информации</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Справочная информация</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Для дальнейшего использования</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Создание сеансов</a></li>

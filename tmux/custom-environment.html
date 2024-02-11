@@ -579,7 +579,7 @@ tmux, используя всего одну команду.
 <span class="n">tmux</span> <span class="n">new</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">s</span> <span class="n">development</span> <span class="o">-</span><span class="n">n</span> <span class="n">editor</span> <span class="o">-</span><span class="n">d</span>
 </pre></div>
 </div>
-<p>Затем, используя команду tmux <code class="docutils literal notranslate"><span class="pre">send-keys</span></code>, измененим текущий каталог на каталог проекта:</p>
+<p>Затем, используя команду tmux <code class="docutils literal notranslate"><span class="pre">send-keys</span></code>, изменим текущий каталог на каталог проекта:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
 
 <span class="n">tmux</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span> <span class="s1">&#39;cd ~/devproject&#39;</span> <span class="n">C</span><span class="o">-</span><span class="n">m</span>
@@ -596,7 +596,7 @@ tmux, используя всего одну команду.
 </div>
 <p>С помощью этих трех команд мы создали новый сеанс, перешли в каталог и открыли текстовый редактор, но наша среда еще не
 настроена до конца.
-Давайте разделим главное окно  пополам по горизонтали «editor», чтобы у нас было небольшое окно терминала внизу.
+Давайте разделим главное окно пополам по горизонтали «editor», чтобы у нас было небольшое окно терминала внизу.
 Сделаем это с помощью команды <code class="docutils literal notranslate"><span class="pre">split-window</span> </code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># ~/development
 
@@ -609,7 +609,7 @@ tmux, используя всего одну команду.
 <span class="n">tmux</span> <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">p</span> <span class="mi">10</span> <span class="o">-</span><span class="n">t</span> <span class="n">development</span>
 </pre></div>
 </div>
-<p>но пока просто оставим команду <code class="docutils literal notranslate"><span class="pre">split-window</span></code> как есть, а затем выберем один из макетов tmux по умолчанию —
+<p>Но пока просто оставим команду <code class="docutils literal notranslate"><span class="pre">split-window</span></code> как есть, а затем выберем один из макетов tmux по умолчанию —
 <code class="docutils literal notranslate"><span class="pre">main-horizontal</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/development</span>
 
@@ -635,7 +635,7 @@ tmux, используя всего одну команду.
 <span class="o">|-------------------------|</span>
 </pre></div>
 </div>
-<p>В панеле 1 открыт текстовый редактор Vim. В панель 2 необходимо отправить команду, которая выполнит переход в каталог проекта.
+<p>В панели 1 открыт текстовый редактор Vim. В панель 2 необходимо отправить команду, которая выполнит переход в каталог проекта.
 Выбор панели осуществляется с помощью следующего формата <code class="docutils literal notranslate"><span class="pre">[сеанс]:[окно].[панель]</span></code>.
 Таким образом для выбора панели 2 необходимо использовать <code class="docutils literal notranslate"> <span class="pre">development:1.2</span></code>.
 Итак, добавьте эту строку в свой скрипт, и вы получите именно то, что нужно:</p>
@@ -748,7 +748,7 @@ tmux attach -t development
 </pre></div>
 </div>
 <p>Этот код сначала загружает существующий файл .tmux.conf, поэтому будут сохранены все настройки среды, которые
-в нем были определелены, включая сочетания клавиш и настройки строки состояния.
+в нем были определены, включая сочетания клавиш и настройки строки состояния.
 Это не обязательно, но если этого не сделать, то все сочетания клавиш и параметры вернутся к значениям по умолчанию,
 или придется заново переопределять их в этом файле.</p>
 <p>Чтобы использовать этот файл конфигурации, необходимо передать флаг <code class="docutils literal notranslate"><span class="pre">-f</span></code>, за которым следует путь к файлу конфигурации.
