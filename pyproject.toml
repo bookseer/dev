@@ -8,7 +8,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "bookseer-dev"
-version = "2024.03.21"
+version = "2024.03.26"
 description = "Заметки для разработчиков"
 authors = ["Alexander Krasnikov <askrasnikov@gmail.com>"]
 maintainers = ["askras <askrasnikov@gmail.com>"]
@@ -61,7 +61,7 @@ black = "~24.3"
 isort = "~5.13"
 mypy = "~1.9"
 nbqa = "~1.8"
-pre-commit = "~3.6"
+pre-commit = "~3.7"
 pre-commit-hooks = "~4.5"
 pylint = "~3.1"
 pytest = "~8.1"
