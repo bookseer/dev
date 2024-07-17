@@ -8,7 +8,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "bookseer-dev"
-version = "2024.05.12"
+version = "2024.07.17"
 description = "Заметки для разработчиков"
 authors = ["Alexander Krasnikov <askrasnikov@gmail.com>"]
 maintainers = ["askras <askrasnikov@gmail.com>"]
@@ -39,12 +39,12 @@ classifiers = [
 python = "^3.12"
 pip = "^24.0"
 flask = "~3.0"
-matplotlib = "~3.8"
+matplotlib = "~3.9"
 lxml = "~5.2"
 
 [tool.poetry.group.jupyter.dependencies]
-jupyterlab = "~4.1"
-notebook = "~7.1"
+jupyterlab = "~4.2"
+notebook = "~7.2"
 
 [tool.poetry.group.dev.dependencies]
 ghp-import = "~2.1"
@@ -63,9 +63,9 @@ mypy = "~1.10"
 nbqa = "~1.8"
 pre-commit = "~3.7"
 pre-commit-hooks = "~4.6"
-pylint = "~3.1"
+pylint = "~3.2"
 pytest = "~8.2"
-pyupgrade = "~3.15"
+pyupgrade = "~3.16"
 
 [tool.poetry.group.binder.dependencies]
 asciinema = "~2.4"
@@ -74,7 +74,7 @@ asciinema-scene = "~0.8"
 ipywidgets = "~8.1"
 jupytext = "~1.16"
 sphinxcontrib-asciinema = "~0.4"
-sphinx-click = "~5.1"
+sphinx-click = "~6.0"
 sphinx-inline-tabs = "~2023.4"
 sphinx-proof = "~0.1"
 sphinx-togglebutton = "~0.3"
