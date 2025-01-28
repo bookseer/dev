@@ -8,7 +8,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "bookseer-dev"
-version = "2025.01.27"
+version = "2025.01.28"
 description = "Заметки для разработчиков"
 authors = ["Alexander Krasnikov <askrasnikov@gmail.com>"]
 maintainers = ["askras <askrasnikov@gmail.com>"]
@@ -53,6 +53,7 @@ tqdm = "~4.66" # Fast, Extensible Progress Meter
 [tool.poetry.group.jupyter.dependencies] # Dependencies required for JupyterBook
 ipywidgets = "~8.1" # Jupyter interactive widgets
 jupyterlab = "~4.3" # JupyterLab computational environment
+jupyterlab-myst = "~2.4" # Use MyST in JupyterLab
 jupyterlab-rise = "~0.43" # RISE: "Live" Reveal.js JupyterLab Slideshow extension
 jupytext = "~1.16" # Jupyter notebooks as Markdown documents, Julia, Python or R scripts
 lxml = "~5.3" # Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API
