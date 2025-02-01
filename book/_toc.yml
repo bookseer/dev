@@ -9,6 +9,7 @@ parts:
   - file: info/index
     sections:
     - file: info/typography
+  - file: genindex
 - caption: Софт
   chapters:
   - file: tmux/index
