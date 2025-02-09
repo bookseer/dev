@@ -46,9 +46,9 @@ pip = "~25.0" # The PyPA recommended tool for installing Python packages
 
 asciinema = "~2.4" # Terminal session recorder
 asciinema-automation = "~0.2" # CLI utility to automate asciinema
-asciinema-scene = "~0.8" # Toolbox to edit asciinema screencasts (sciine)
+asciinema-scene = "~0.9" # Toolbox to edit asciinema screencasts (sciine)
 sphinxcontrib-asciinema = "~0.4" # Embed asciinema casts in your Sphinx docs
-tqdm = "~4.66" # Fast, Extensible Progress Meter
+tqdm = "~4.67" # Fast, Extensible Progress Meter
 
 [tool.poetry.group.jupyter.dependencies] # Dependencies required for JupyterBook
 ipywidgets = "~8.1" # Jupyter interactive widgets
@@ -250,7 +250,6 @@ line-length = 120
 target-version = ['py312']
 #skip-string-normalization = true
 #quiet = true
-
 
 #======================================================================================================================
 # isort: Uncompromising Python code formatter
