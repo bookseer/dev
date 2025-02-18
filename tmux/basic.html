@@ -602,7 +602,7 @@
 <p>Нажмите клавишу <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Enter</span> или <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Esc</span>, чтобы закрыть часы, и выйдите из tmux, набрав <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
 <p>Так как сочетание <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> набирать достаточно не удобно, разумным решением является назначить для
 префикса более простую комбинацию.
-Как это сделать будет показано в разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>.
+Как это сделать будет показано в разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">&amp;laquo;Настройка tmux&amp;raquo;</span></a>.
 Поэтому в дальнейшем изложении вместо <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Ctrl</span>-<span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">b</span> будем использовать обозначение <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>,
 за которым следует горячая клавиша для команды tmux, например, <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">t</span> для отображения часов,
 или <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">d</span> для отсоединения (detaching) от сеанса.</p>
@@ -686,7 +686,7 @@ tmux все еще работает вместе с приложением, ко
 <p>Это присоединит нас к сеансу tmux second_session.
 Отсоединимся от этого сеанса, используя <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">d</span>, а снова присоединимся к первому сеансу.</p>
 <!--
-В разделе «Переключение между сеансами» главы 6 будут рассмотрены другие способы перемещения между активными сеансами.
+В разделе &laquo;Переключение между сеансами&raquo; главы 6 будут рассмотрены другие способы перемещения между активными сеансами.
 -->
 <p>А пока давайте удалим активные сеансы.</p>
 </section>
@@ -763,7 +763,7 @@ tmux все еще работает вместе с приложением, ко
 Можно быстро перейти к первому окну используя <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">0</span>, ко второму — <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span>
 <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">1</span> и т.д.
 Такая нумерация окон, начинающаяся с нуля, не всегда интуитивно понятна, поэтому в разделе
-<a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>, будет показано как сделать так, чтобы нумерация окон начиналась с единицы,
+<a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">&amp;laquo;Настройка tmux&amp;raquo;</span></a>, будет показано как сделать так, чтобы нумерация окон начиналась с единицы,
 а не с нуля.</p>
 <p>Если создано больше десяти окон, можно использовать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">w</span> для отображения визуального меню
 со списком всех окон, чтобы выбрать то, которое необходимо в данный момент.</p>
@@ -813,7 +813,7 @@ tmux все еще работает вместе с приложением, ко
 <h3>Макеты панелей<a class="headerlink" href="#id11" title="Ссылка на этот заголовок">#</a></h3>
 <p>Изменить размер панели можно либо с помощью постепенного изменения размера, либо с помощью шаблонов.
 Сочетание клавиш для постепенного изменения размера панелей по умолчанию довольно не удобное.
-В <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">разделе «Настройка tmux»</span></a> будут переопределены сочетания клавиш, чтобы упростить изменение
+В <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">разделе &amp;laquo;Настройка tmux&amp;raquo;</span></a> будут переопределены сочетания клавиш, чтобы упростить изменение
 размеров панелей.
 На данный момент будем использовать один из нескольких стандартных макетов панелей:</p>
 <ul class="simple">
@@ -841,7 +841,7 @@ tmux все еще работает вместе с приложением, ко
 <h2>Работа в командном режиме<a class="headerlink" href="#id13" title="Ссылка на этот заголовок">#</a></h2>
 <p>До сих пор мы использовали комбинации клавиш для создания окон и панелей, но эти комбинации клавиш на самом деле альтернативный вариант для команд tmux с некоторыми предустановленными параметрами.
 Команды tmux можно выполнять двумя способами: из самого терминала или из области команд в строке состояния tmux.
-Про то, как использовать команды tmux из терминала будет рассказано в разделе <a class="reference internal" href="custom-environment.html#tmux-custom-environment"><span class="std std-ref">«Создание настраиваемых рабочих окружений в tmux»</span></a>, а пока давайте изучим командный режим tmux, используя его для создания новых окон и панелей в рабочей области.</p>
+Про то, как использовать команды tmux из терминала будет рассказано в разделе <a class="reference internal" href="custom-environment.html#tmux-custom-environment"><span class="std std-ref">&amp;laquo;Создание настраиваемых рабочих окружений в tmux&amp;raquo;</span></a>, а пока давайте изучим командный режим tmux, используя его для создания новых окон и панелей в рабочей области.</p>
 <p>Чтобы войти в командный режим, достаточно нажать <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">PREFIX</span> <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">:</span> (двоеточие) в активном сеансе tmux.
 Строка состояния изменит цвет, и будет выведена подсказка, указывающая, что можно ввести команду.
 Например, можно создать новое окно с помощью команды <code class="docutils literal notranslate"><span class="pre">new-window</span></code>.
@@ -862,7 +862,7 @@ tmux все еще работает вместе с приложением, ко
 <p>Указание команды для окна при его создании чрезвычайно удобно для краткосрочных задач, но есть небольшой нюанс; если выйти из приложения <code class="docutils literal notranslate"><span class="pre">top</span></code>, нажав <span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">q</span>, созданное окно tmux также закроется.
 Можно использовать параметры конфигурации, чтобы обойти это, но если необходимо, сохранять окно после закрытия приложения, просто создайте его без указания начальной команды, а затем уже выполните эту команду новом окне.</p>
 <p>Командный режим может использоваться для создания новых окон, новых панелей, новых сеансов или для установки других параметров окружения.</p>
-<p>В разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">«Настройка tmux»</span></a>, будет показано, как создать несколько собственных сочетаний клавиш, чтобы сделать использование некоторых из этих команд еще проще.</p>
+<p>В разделе <a class="reference internal" href="configuring.html#tmux-configuring"><span class="std std-ref">&amp;laquo;Настройка tmux&amp;raquo;</span></a>, будет показано, как создать несколько собственных сочетаний клавиш, чтобы сделать использование некоторых из этих команд еще проще.</p>
 </section>
 <section id="id14">
 <h2>Получение справочной информации<a class="headerlink" href="#id14" title="Ссылка на этот заголовок">#</a></h2>
