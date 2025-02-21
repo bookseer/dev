@@ -16,22 +16,20 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -41,11 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/styles.css?v=4a222da0" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=576a2c22"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -75,7 +72,6 @@
     <link rel="prev" title="Настройка tmux" href="configuring.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ru"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -91,8 +87,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -100,6 +107,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +115,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -127,8 +135,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -158,17 +165,21 @@
     
     
     <img src="../_static/logo-wide.svg" class="logo__image only-light" alt="Заметки для разработчиков - Home"/>
-    <img src="../_static/logo-wide.svg" class="logo__image only-dark pst-js-only" alt="Заметки для разработчиков - Home"/>
+    <script>document.write(`<img src="../_static/logo-wide.svg" class="logo__image only-dark" alt="Заметки для разработчиков - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Поиск</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Поиск</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Общая информация</span></p>
@@ -203,14 +214,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -455,16 +461,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="светлая"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="темная"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="светлая/темная" aria-label="светлая/темная" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Поиск" aria-label="Поиск" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -529,9 +543,21 @@
 <p>Если в результате будет получено 256, значит все настроено как надо.
 В противном случае, потребуется настроить терминал для использования режима 256 <code class="docutils literal notranslate"><span class="pre">xterm</span></code>.
 На Mac можно настроить это в приложение «Terminal», отредактировав профиль, как показано на следующем рисунке:</p>
-<p><img alt="" src="tmux/img/-340-007.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-340-007.png
+:::
+-->
 <p>При использовании (<a class="reference external" href="http://www.iterm2.com">http://www.iterm2.com</a>)[iTerm2], можно сделать это, отредактировав профиль по умолчанию и изменив режим терминала на <code class="docutils literal notranslate"><span class="pre">xterm-256color</span></code>, как показано на следующем рисунке:</p>
-<p><img alt="" src="tmux/img/-440-008.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-440-008.png
+:::
+-->
 <p>При использовании Linux, может потребоваться добавить</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">bashrc</span>
 
@@ -552,8 +578,13 @@
 <p>Как только будет установлен правильный цветовой режим, будет намного проще использовать такие программы,
 как Vim, Emacs и другие полноцветные программы с tmux, особенно когда используются более сложные цветовые схемы для подсветки синтаксиса.
 Следующий рисунок, поможет увидеть разницу.</p>
-<p><img alt="" src="tmux/img/-440-009.png" /></p>
-</section>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-440-009.png
+:::
+--></section>
 <section id="id2">
 <h2>Определение кодов цветов<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">#</a></h2>
 <p>Теперь давайте настроим внешний вид компонентов tmux, начиная с цветовой схемы.</p>
@@ -569,7 +600,13 @@
 </pre></div>
 </div>
 <p>При выполнении данного сценария в терминале отобразятся коды доступных для использования цветов:</p>
-<p><img alt="" src="tmux/img/-540-010.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-540-010.png
+:::
+-->
 <p>tmux имеет определенные параметры конфигурации для изменения цветов текста и фона для каждого из своих компонентов.</p>
 <p>Давайте начнем изучать их с настройки цветов строки состояния.</p>
 </section>
@@ -578,7 +615,13 @@
 <p>Строка состояния по умолчанию имеет черный текст на ярко-зеленом фоне.
 Это не очень красиво, и в зависимости от конфигурации терминала, может быть трудночитаемым.</p>
 <p>Давайте сделаем так, чтобы по умолчанию в строке состояния был белый текст на черном фоне:</p>
-<p><img alt="" src="tmux/img/-640-011.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-640-011.png
+:::
+-->
 <p>Параметр <code class="docutils literal notranslate"><span class="pre">status-style</span></code> устанавливает основной цвет элемента (foreground) и цвет фона (background) строки состояния, а также их стиль. Добавим следующую строку в конфигурацию, чтобы установить цвета строки состояния:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
@@ -603,7 +646,13 @@
 Опция <code class="docutils literal notranslate"><span class="pre">window-status-style</span></code> управляет тем, как выглядят обычные окна, а параметр <code class="docutils literal notranslate"><span class="pre">window-status-current-style</span></code> управляет тем, как выглядит активное окно.
 Для настройки цвета, используется тот же синтаксис, что и для параметра <code class="docutils literal notranslate"><span class="pre">status-style</span></code>.
 Давайте сделаем имена окон голубыми, как здесь:</p>
-<p><img alt="" src="tmux/img/-046-012.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-046-012.png
+:::
+-->
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
 <span class="c1"># Set the color of the window list</span>
@@ -619,8 +668,13 @@
 </pre></div>
 </div>
 <p>Теперь неактивные окна окрашены в голубой цвет, а активное окно легко узнать:</p>
-<p><img alt="" src="tmux/img/-740-013.png" /></p>
-</section>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-740-013.png
+:::
+--></section>
 <section id="id5">
 <h2>Изменение внешнего вида панелей<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">#</a></h2>
 <p>После того как мы настроили список окон, давайте посмотрим, как можно настроить отображение панелей в окне.
@@ -629,7 +683,13 @@
 <p>Панели имеют основной, и фоновый цвета.
 Основной цвет панели — это пунктирная линия, образующая границу.
 Цвет фона по умолчанию черный, но если закрасить его, когда панель активна, то можно сделать активную панель значительно заметнее, как показано на следующем рисунке:</p>
-<p><img alt="" src="tmux/img/-740-014.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-740-014.png
+:::
+-->
 <p>Чтобы добавить этот эффект, добавим в свой конфигурационный файл следующие определения:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ~/.tmux.conf</span>
 
@@ -760,7 +820,13 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p>Данная настройка отформатирует дату в виде «31 октября 13:37».
 При желании, можно отформатировать ее по своему усмотрению, используя <a class="reference external" href="http://www.foragoodstrftime.com/">стандартный механизм форматирования времени</a> <code class="docutils literal notranslate"><span class="pre">strftime</span></code> используемый во многих языках программирования.
 Теперь строка состояния должна выглядеть так:</p>
-<p><img alt="" src="tmux/img/-050-015.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-050-015.png
+:::
+-->
 <p>Еще одна мощная возможность — использовать переменную <code class="docutils literal notranslate"><span class="pre">#(shellcommand)</span></code> для возврата результата любой внешней программы командной строки в строку состояния.</p>
 </section>
 <section id="id8">
@@ -788,7 +854,13 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 </pre></div>
 </div>
 <p>Теперь список окон отображается по центру:</p>
-<p><img alt="" src="tmux/img/-150-016.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-150-016.png
+:::
+-->
 <p>По мере создания новых окон список окон будет смещаться, оставаясь в центре строки состояния.</p>
 </section>
 <section id="id10">
@@ -805,7 +877,13 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
 <p>Команда <code class="docutils literal notranslate"><span class="pre">monitor-activity</span> <span class="pre">on</span></code> выделяет имя окна в строке состояния, когда в этом окне есть активность.
 <code class="docutils literal notranslate"><span class="pre">visual-actyvity</span> <span class="pre">on</span></code> указывает tmux также отображать сообщение в строке состояния.
 Теперь, когда в одном из окон есть какая-то активность, оно будет выделяться голубым фоном, как на изображении:</p>
-<p><img alt="" src="tmux/img/-150-017.png" /></p>
+<!--
+:::{figure-md} tmux_
+<img src="./images/tmux.svg" alt="">
+
+TODO Здесь будет изображение ./img/-150-017.png
+:::
+-->
 <p>Если переключиться на это окно, цвета вернутся к норме.
 Для настройки цветов можно использовать команду
 <code class="docutils literal notranslate"><span class="pre">setw</span> <span class="pre">-g</span> <span class="pre">window-status-activity-style</span></code>.</p>
@@ -925,8 +1003,7 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -960,7 +1037,7 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
   <div class="footer-item">
     
 <p class="component-author">
-По Красников Александр
+Автор: Красников Александр
 </p>
 
   </div>
@@ -997,8 +1074,8 @@ set -g status-left &quot;#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P&quot;`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
