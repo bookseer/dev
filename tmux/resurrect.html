@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Установка tmux &#8212; Заметки для разработчиков</title>
+    <title>Восстановление окружения tmux после перезагрузки системы &#8212; Заметки для разработчиков</title>
   
   
   
@@ -62,14 +62,14 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/install';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tmux/resurrect';</script>
     <script src="../_static/scripts/scripts.js?v=8c6bb025"></script>
-    <link rel="canonical" href="https://dev.bookseer.org/tmux/install.html" />
+    <link rel="canonical" href="https://dev.bookseer.org/tmux/resurrect.html" />
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Основы tmux" href="basic.html" />
-    <link rel="prev" title="О tmux" href="about.html" />
+    <link rel="next" title="Приложение А. Команды tmux" href="appendix-a.html" />
+    <link rel="prev" title="Рабочий процесс с tmux" href="workflow.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ru"/>
   </head>
@@ -194,7 +194,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Руководство по tmux</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="about.html">О tmux</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Установка tmux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Установка tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basic.html">Основы tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuring.html">Настройка tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="visual-configuring.html">Настройка внешнего вида tmux</a></li>
@@ -202,7 +202,7 @@
 <li class="toctree-l2"><a class="reference internal" href="text-and-buffer.html">Работа с текстом и буферами</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pair-programming.html">Парное программирование с tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workflow.html">Рабочий процесс с tmux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resurrect.html">Восстановление окружения <code class="docutils literal notranslate"><span class="pre">tmux</span></code> после перезагрузки системы</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Восстановление окружения <code class="docutils literal notranslate"><span class="pre">tmux</span></code> после перезагрузки системы</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appendix-a.html">Приложение А. Команды tmux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appendix-b.html">Приложение Б. Пример конфигурации</a></li>
 </ul>
@@ -261,7 +261,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=lab/tree/book/tmux/install.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/bookseer/dev/main?urlpath=lab/tree/book/tmux/resurrect.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +279,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/bookseer/dev/blob/main/book/tmux/install.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/bookseer/dev/blob/main/book/tmux/resurrect.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -345,7 +345,7 @@
       
       
       
-      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/install.md" target="_blank"
+      <li><a href="https://github.com/bookseer/dev/edit/main/book/tmux/resurrect.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -362,7 +362,7 @@
       
       
       
-      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/install.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/bookseer/dev/issues/new?title=Issue%20on%20page%20%2Ftmux/resurrect.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Открыть вопрос"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -392,7 +392,7 @@
       
       
       
-      <li><a href="../_sources/tmux/install.ipynb" target="_blank"
+      <li><a href="../_sources/tmux/resurrect.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Скачать файл записной книжки"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +409,7 @@
       
       
       
-      <li><a href="../_sources/tmux/install.md" target="_blank"
+      <li><a href="../_sources/tmux/resurrect.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Скачать исходный файл"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -493,7 +493,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Установка tmux</h1>
+    <h1>Восстановление окружения tmux после перезагрузки системы</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -503,10 +503,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Установка tmux</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">Установка на Mac</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10">Установка в Windows 10</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Установка в Linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-resurrect">Tmux Resurrect</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Основные возможности:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Управление</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Технические требования</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Принцип работы:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Установка</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-plugin-manager">Установка через Tmux Plugin Manager</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Ручная установка</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-continuum">Tmux Continuum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Основные функции</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поддерживаемые системы</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Технические требования</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Установка через Tmux Plugin Manager</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Ручная установка</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -520,107 +536,162 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tmux">
-<span id="tmux-install"></span><h1>Установка tmux<a class="headerlink" href="#tmux" title="Ссылка на этот заголовок">#</a></h1>
-<p>При правильном использовании tmux может значительно повысить производительность.
-В этой главе представлены основные приемы управления приложениями в сеансах, окнах и панелях tmux.
-Эти простые концепции являются основой для превращения tmux в отличную среду как для разработчиков, так и для системных
-администраторов.
-Однако прежде всего необходимо установить tmux.</p>
+  <p>(tmux_resurrect)</p>
+<section class="tex2jax_ignore mathjax_ignore" id="tmux">
+<h1>Восстановление окружения <code class="docutils literal notranslate"><span class="pre">tmux</span></code> после перезагрузки системы<a class="headerlink" href="#tmux" title="Ссылка на этот заголовок">#</a></h1>
+<section id="tmux-resurrect">
+<h2>Tmux Resurrect<a class="headerlink" href="#tmux-resurrect" title="Ссылка на этот заголовок">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tmux-resurrect</span></code> решает проблему потери рабочих сессий при перезапуске компьютера,
+включая запущенные процессы, текущие директории и структуру панелей.
+Для работы не требуется предварительная настройка или регулярное обновление конфигурации.</p>
 <section id="id1">
-<h2>Установка tmux<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h2>
-<p>tmux может быть установлен одним из двух способов: с помощью менеджера пакетов для целевой операционной системы или
-путем сборки из исходников.
-Какой бы метод ни был выбрал, необходимо убедиться, что устанавливается последняя официальная версия (3.4 на момент
-публикации этой главы).
-Ранние версии tmux не поддерживают некоторые функции, которые рассматриваются в этом руководстве, или имеют
-несовместимую конфигурацию.</p>
-<section id="mac">
-<h3>Установка на Mac<a class="headerlink" href="#mac" title="Ссылка на этот заголовок">#</a></h3>
-<p>Самый простой способ установить tmux на Mac — с помощью <a class="reference external" href="http://brew.sh">Homebrew</a>.
-Сначала установите <a class="reference external" href="https://developer.apple.com/xcode/">Xcode</a> через Mac App Store.
-После установки Xcode откройте новый терминал и введите команду</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>xcode-select<span class="w"> </span>--install
-</pre></div>
-</div>
-<p>для установки инструментов командной строки, которые нужны Homebrew.</p>
-<p>Затем установите Homebrew, следуя инструкциям на веб-сайте <a class="reference external" href="http://brew.sh">Homebrew</a>.
-Наконец, с помощью следующей команды терминала установите tmux:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>tmux
-</pre></div>
-</div>
-<p>Чтобы убедиться, что tmux установлен, и что у вас правильная версия, выполните в терминале следующую команду:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>-V
-</pre></div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tmux 3.5a
-</pre></div>
-</div>
-</div>
-</div>
+<h3>Основные возможности:<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h3>
+<ul class="simple">
+<li><p>Полное восстановление сессий, окон, панелей и их иерархии</p></li>
+<li><p>Сохранение рабочей директории для каждой панели</p></li>
+<li><p>Точное воссоздание расположения панелей (включая масштабированные)</p></li>
+<li><p>Восстановление активных сессий, окон и панелей</p></li>
+<li><p>Поддержка групповых сессий (для многомониторных конфигураций)</p></li>
+<li><p>Опциональное восстановление:</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/tmux-plugins/tmux-resurrect/tree/master/docs/restoring_vim_and_neovim_sessions.md">Сессий Vim/Neovim</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tmux-plugins/tmux-resurrect/tree/master/docs/restoring_pane_contents.md">Содержимого панелей</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tmux-plugins/tmux-resurrect/tree/master/docs/restoring_previously_saved_environment.md">Истории окружений</a></p></li>
+</ul>
+</li>
+</ul>
+<p>Интеграция с <a class="reference external" href="https://github.com/tmux-plugins/tmux-continuum">tmux-continuum</a>
+позволяет настроить автоматическое сохранение и восстановление.</p>
 </section>
-<section id="windows-10">
-<h3>Установка в Windows 10<a class="headerlink" href="#windows-10" title="Ссылка на этот заголовок">#</a></h3>
-<p>В августе 2016 года Microsoft выпустила обновление для Windows 10, которое добавляет оболочку console в Windows.
-Эта оболочка работает на Ubuntu и поддерживает tmux.
-Чтобы использовать ее, сначала переведите свой компьютер в режим разработчика.
-Откройте приложение «Настройки», выберите пункт «Обновление и безопасность», а затем «Для разработчиков».
-Включите «Режим разработчика».</p>
-<p>Затем откройте Панель управления и выберите «Программы».
-Далее нажмите «Включить или отключить компоненты Windows».
-Найдите и включите параметр «Подсистема Windows для Linux».
-После всего этого перезагрузите компьютер.
-Когда компьютер перезагрузится, откройте командную строку и введите</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash
-</pre></div>
-</div>
-<p>Вам будет предложено установить console из Windows Store.
-Это бесплатное приложение.
-Загрузка и распаковка могут занять несколько, после чего все будет готово для установки tmux.</p>
-<p>После установки console перейдите к следующему разделу, так как установка tmux будет проводиться из исходного кода, как
-если бы вы использовали Ubuntu.</p>
+<section id="id2">
+<h3>Управление<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">#</a></h3>
+<ul class="simple">
+<li><p>Сохранение состояния: <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">+</span> <span class="pre">Ctrl-s</span></code></p></li>
+<li><p>Восстановление: <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">+</span> <span class="pre">Ctrl-r</span></code></p></li>
+</ul>
 </section>
-<section id="linux">
-<h3>Установка в Linux<a class="headerlink" href="#linux" title="Ссылка на этот заголовок">#</a></h3>
-<p>Лучший способ установить в Linux tmux — загрузить исходный код и скомпилировать его самостоятельно.
-Менеджеры пакетов не всегда предоставляют самую последнюю версию tmux.
-Процесс установки tmux одинаков на всех платформах.
-Вам понадобится компилятор GCC, а также libevent и ncurses, от которых зависит tmux.</p>
-<p>В Ubuntu вы можете установить все это с помощью диспетчера пакетов apt:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>libevent-dev<span class="w"> </span>libncurses-dev
+<section id="id3">
+<h3>Технические требования<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">#</a></h3>
+<ul class="simple">
+<li><p>Минимальная версия tmux: 1.9+</p></li>
+<li><p>Зависимости: bash</p></li>
+<li><p>Поддерживаемые ОС: Linux, macOS, Cygwin</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Принцип работы:<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">#</a></h3>
+<p>Плагин избегает конфликтов с существующими элементами tmux.
+Единственное исключение — перезапись единственной панели при начальном
+восстановлении окружения.</p>
+</section>
+<section id="id5">
+<h3>Установка<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">#</a></h3>
+<section id="tmux-plugin-manager">
+<h4>Установка через Tmux Plugin Manager<a class="headerlink" href="#tmux-plugin-manager" title="Ссылка на этот заголовок">#</a></h4>
+<ol class="arabic">
+<li><p>Добавить в <code class="docutils literal notranslate"><span class="pre">.tmux.conf</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>@plugin<span class="w"> </span><span class="s1">&#39;tmux-plugins/tmux-resurrect&#39;</span>
 </pre></div>
 </div>
-<p>После установки компиляторов и необходимых компонентов загрузите <a class="reference external" href="https://github.com/tmux/tmux/wiki">исходный код tmux</a>.</p>
-<p>Разархивируйте загруженную версию и установите ее:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tar<span class="w"> </span>-zxvf<span class="w"> </span>tmux-3.3.tar.gz
+</li>
+<li><p>Активировать плагин комбинацией <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">+</span> <span class="pre">I</span></code>.</p></li>
+</ol>
+</section>
+<section id="id6">
+<h4>Ручная установка<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">#</a></h4>
+<ol class="arabic">
+<li><p>Клонировать репозиторий:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tmux-plugins/tmux-resurrect<span class="w"> </span>/путь/до/плагина
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>tmux-3.3
+</li>
+<li><p>Добавить в <code class="docutils literal notranslate"><span class="pre">.tmux.conf</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>run-shell<span class="w"> </span>/путь/до/плагина/resurrect.tmux
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./configure
+</li>
+<li><p>Применить изменения:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmux<span class="w"> </span>source-file<span class="w"> </span>~/.tmux.conf
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make
+</li>
+</ol>
+<p>Для автоматизации процессов сохранения рекомендуется использовать
+<a class="reference external" href="https://github.com/tmux-plugins/tmux-continuum">tmux-continuum</a>.</p>
+</section>
+</section>
+</section>
+<section id="tmux-continuum">
+<h2>Tmux Continuum<a class="headerlink" href="#tmux-continuum" title="Ссылка на этот заголовок">#</a></h2>
+<p>tmux-continuum — плагин для автоматизации управления сессиями tmux.</p>
+<section id="id7">
+<h3>Основные функции<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Фоновое сохранение окружения</strong>
+Состояние tmux сохраняется каждые 15 минут без прерывания работы пользователя.
+<em>Требование:</em> статусная строка должна быть активна (используется хук <code class="docutils literal notranslate"><span class="pre">status-right</span></code>).</p></li>
+<li><p><strong>Автозапуск tmux</strong>
+Tmux автоматически стартует при включении компьютера/сервера.
+<a class="reference internal" href="#docs/automatic_start.md"><span class="xref myst">Инструкции по настройке</span></a> для разных ОС.</p></li>
+<li><p><strong>Восстановление сессий</strong>
+Последнее сохранённое состояние автоматически восстанавливается при запуске tmux.
+Активация: добавить в <code class="docutils literal notranslate"><span class="pre">.tmux.conf</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>@continuum-restore<span class="w"> </span><span class="s1">&#39;on&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+<p><em>Примечание:</em> восстановление происходит только при старте сервера tmux.</p>
+</li>
+</ol>
+</section>
+<section id="id8">
+<h3>Поддерживаемые системы<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">#</a></h3>
+<ul class="simple">
+<li><p>Linux</p></li>
+<li><p>macOS</p></li>
+<li><p>Cygwin</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Технические требования<a class="headerlink" href="#id9" title="Ссылка на этот заголовок">#</a></h3>
+<ul class="simple">
+<li><p>Tmux версии 1.9+</p></li>
+<li><p>Bash</p></li>
+<li><p>Плагин <a class="reference external" href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a></p></li>
+</ul>
+<section id="id10">
+<h4>Установка через Tmux Plugin Manager<a class="headerlink" href="#id10" title="Ссылка на этот заголовок">#</a></h4>
+<ol class="arabic">
+<li><p>Добавить в <code class="docutils literal notranslate"><span class="pre">.tmux.conf</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>@plugin<span class="w"> </span><span class="s1">&#39;tmux-plugins/tmux-resurrect&#39;</span>
+<span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>@plugin<span class="w"> </span><span class="s1">&#39;tmux-plugins/tmux-continuum&#39;</span>
 </pre></div>
 </div>
-<p>Вы можете протестировать установку, выполнив команду, которая возвращает текущую установленную версию tmux:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tmux<span class="w"> </span>-V
+</li>
+<li><p>Активировать комбинацией <code class="docutils literal notranslate"><span class="pre">PREFIX</span> <span class="pre">+</span> <span class="pre">I</span></code>.</p></li>
+</ol>
+<p>Плагин начнёт работать в фоновом режиме без дополнительных действий.</p>
+</section>
+<section id="id11">
+<h4>Ручная установка<a class="headerlink" href="#id11" title="Ссылка на этот заголовок">#</a></h4>
+<ol class="arabic">
+<li><p>Клонировать репозиторий:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tmux-plugins/tmux-continuum<span class="w"> </span>/путь/для/установки
 </pre></div>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tmux 3.5a
+</li>
+<li><p>Добавить в <code class="docutils literal notranslate"><span class="pre">.tmux.conf</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>run-shell<span class="w"> </span>/путь/для/установки/continuum.tmux
 </pre></div>
 </div>
+</li>
+<li><p>Применить изменения:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmux<span class="w"> </span>source-file<span class="w"> </span>~/.tmux.conf
+</pre></div>
 </div>
-</div>
-<p>Теперь, когда tmux установлен, рассмотрим основные его функции, начав с базового сеанса.</p>
+</li>
+</ol>
+<p>Функционал активируется автоматически после перезагрузки конфигурации.</p>
+</section>
 </section>
 </section>
 </section>
@@ -656,20 +727,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="about.html"
+       href="workflow.html"
        title="предыдущая страница">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">назад</p>
-        <p class="prev-next-title">О tmux</p>
+        <p class="prev-next-title">Рабочий процесс с tmux</p>
       </div>
     </a>
     <a class="right-next"
-       href="basic.html"
+       href="appendix-a.html"
        title="следующая страница">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">Основы tmux</p>
+        <p class="prev-next-title">Приложение А. Команды tmux</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -689,10 +760,26 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Установка tmux</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">Установка на Mac</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10">Установка в Windows 10</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Установка в Linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-resurrect">Tmux Resurrect</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Основные возможности:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Управление</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Технические требования</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Принцип работы:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Установка</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-plugin-manager">Установка через Tmux Plugin Manager</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Ручная установка</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tmux-continuum">Tmux Continuum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Основные функции</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Поддерживаемые системы</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Технические требования</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Установка через Tmux Plugin Manager</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Ручная установка</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
