@@ -23,5 +23,6 @@ parts:
     - file: tmux/text-and-buffer
     - file: tmux/pair-programming
     - file: tmux/workflow
+    - file: tmux/resurrect
     - file: tmux/appendix-a
     - file: tmux/appendix-b
