@@ -480,7 +480,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -496,6 +498,43 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Содержание </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Эффективная работа с панелями и окнами</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Превращение панели в окно</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Превращение окна в панель</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Развертывание и восстановление панелей</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Запуск команд в панелях</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Открытие панели в текущем каталоге</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Одновременное выполнение команд в нескольких  панелях</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Управление сеансами</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Переключение  между сессиями</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Перемещение окон между сеансами</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Создание или присоединение к существующим сеансам</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">tmux и ваша операционная система</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Использование другой оболочки</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Запуск tmux по умолчанию</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Хранение специфических конфигурации</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Запись выходных данных программы в журнал</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Добавление срока службы батареи в строку состояния</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vim">Полная интеграция с Vim</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Расширение tmux с помощью плагинов</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Что дальше?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Для дальнейшего использования</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Ссылки</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -507,6 +546,482 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tmux">
 <span id="tmux-workflow"></span><h1>Рабочий процесс с tmux<a class="headerlink" href="#tmux" title="Ссылка на этот заголовок">#</a></h1>
+<p>Сам по себе tmux - это просто еще один терминал с несколькими прибамбасами, которые позволяют нам отображать … больше сеансов терминала.
+Но tmux упрощает работу с программами, которые мы запускаем в этих сеансах, поэтому в этой главе будут рассмотрены некоторые распространенные и необычные конфигурации и команды, которые могут оказаться полезными в вашей повседневной работе.
+Вы увидите несколько продвинутых способов управления вашими панелями и сеансами, как заставить tmux работать с выбранной вами оболочкой, как расширить команды tmux с помощью внешних скриптов и как создать привязки клавиш, которые выполняют несколько команд.
+Давайте начнем с окон и панелей.</p>
+<section id="id1">
+<h2>Эффективная работа с панелями и окнами<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h2>
+<p>На протяжении всей книги вы видели способы разделения сеансов tmux на панели и окна.
+В этом разделе мы рассмотрим более продвинутые способы работы с ними.</p>
+<section id="id2">
+<h3>Превращение панели в окно<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">#</a></h3>
+<p>Панели отлично подходят для разделения рабочего пространства, но иногда вы можете захотеть превратить панель в полноценное окноа.
+У tmux есть команда для этого.</p>
+<p>В любой панели нажмите <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">!</span></code> и tmux создаст новое окно на из вашей панели, удалив исходную панель.</p>
+</section>
+<section id="id3">
+<h3>Превращение окна в панель<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">#</a></h3>
+<p>Иногда полезно объединить рабочее пространство.
+Вы можете легко взять окно и превратить его в панель.
+Для этого выполните команду <code class="docutils literal notranslate"><span class="pre">join-pane</span></code>.
+Попробуйте. Создайте новый сеанс tmux с двумя окнами.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tmux new-session -s panes -n first -d
+$ tmux new-window -t panes -n second
+$ tmux attach -t panes
+</pre></div>
+</div>
+<p>Теперь, чтобы переместить первое окно на панель второго окна, нажмите <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">:</span></code> для входа в командный режим, и введите команду:</p>
+<p><code class="docutils literal notranslate"><span class="pre">join-pane</span> <span class="pre">-s</span> <span class="pre">panes:1</span></code></p>
+<p>Это означает «Взять окно 1 сеанса panes и присоединить его к текущему окну», поскольку мы не указали цель.
+Когда вы «присоединяетесь» к панели, вы, по сути, перемещаете панель из одного сеанса в другой.
+Вы указываете исходное окно и панель, а затем целевое окно и панель.
+Если вы не указываете цель, текущее активное окно становится целью.</p>
+<p>Вы также можете использовать эту технику для перемещения панелей.
+Если бы ваше первое окно имело две панели, вы могли бы указать исходную панель, имея в виду, что вы устанавливаете базовые индексы окна и панели равными 1 вместо 0 в Главе 2, «Настройка tmux» таким образом</p>
+<p><code class="docutils literal notranslate"><span class="pre">join-pane</span> <span class="pre">-s</span> <span class="pre">panes:1.1</span></code></p>
+<p>Эта команда захватывает первую панель первого окна и соединяет ее с текущим окном.</p>
+<p>Чтобы сделать еще один шаг, вы можете указать другой исходный сеанс, используя нотацию [имя_сеанса]:[окно].[панель] , и вы можете указать целевое окно, используя флаг <code class="docutils literal notranslate"><span class="pre">-t</span></code>, используя ту же нотацию.
+Это позволяет вам перемещать панели из одного сеанса в другой.</p>
+</section>
+<section id="id4">
+<h3>Развертывание и восстановление панелей<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">#</a></h3>
+<p>Иногда вам просто нужно, чтобы панель ненадолго стала полноэкранной, чтобы вы могли видеть ее содержимое или работать с ней более удобным образом.
+Вы можете использовать команду <code class="docutils literal notranslate"><span class="pre">break-pane</span></code>.
+Но тогда вам придется использовать <code class="docutils literal notranslate"><span class="pre">join-pane</span></code>, чтобы вернуть ее на свое прежнее место.
+Оказыватся есть лучший способ.
+Команда <code class="docutils literal notranslate"><span class="pre">resize-pane</span></code> принимает параметр <code class="docutils literal notranslate"><span class="pre">-Z</span></code> для масштабирования панели.
+Лучше всего то, что он уже сопоставлен с <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">z</span></code> , и повторное нажатие восстанавливает исходный размер панели.</p>
+</section>
+<section id="id5">
+<h3>Запуск команд в панелях<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">#</a></h3>
+<p>В Главе 3 «Создание настраиваемых рабочих окружений в tmux» мы рассмотрели, как использовать команды терминала и <code class="docutils literal notranslate"><span class="pre">send-keys</span></code> для запуска программ в наших панелях, но мы можем выполнять команды автоматически при запуске окна или панели.</p>
+<p>У нас есть два сервера, <code class="docutils literal notranslate"><span class="pre">burns</span></code> и <code class="docutils literal notranslate"><span class="pre">smithers</span></code>, на которых работают наш веб-сервер и сервер базы данных соответственно. Когда мы запускаем tmux, мы хотим подключиться к этим серверам, используя одно окно с двумя панелями.</p>
+<p>Давайте напишем новый скрипт с именем <a class="reference external" href="http://server.sh">server.sh</a> создающий один сеанс, подключающийся к двум серверам:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tmux new-session -s servers -d &quot;ssh deploy@burns&quot;
+$ tmux split-window -v &quot;ssh dba@smithers&quot;
+$ tmux  attach -t servers
+</pre></div>
+</div>
+<p>Когда мы создаем новый сеанс, мы можем передать команду, которую хотим выполнить, в качестве последнего аргумента.
+В нашем случае мы запускаем новый сеанс и подключаемся к <code class="docutils literal notranslate"><span class="pre">burns</span></code> в первом окне, а затем отсоединяемся от сеанса.
+Затем мы разделяем окно вертикально, а затем подключаемся к <code class="docutils literal notranslate"><span class="pre">smithers</span></code>.</p>
+<p>Эта конфигурация имеет удобный побочный эффект: когда мы отключимя от наших удаленных серверов, панель или окно закроется.</p>
+</section>
+<section id="id6">
+<h3>Открытие панели в текущем каталоге<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">#</a></h3>
+<p>Когда вы открываете новую панель, tmux помещает вас в каталог, в котором вы изначально запустили tmux.
+Иногда это именно то, что вам нужно, но если вы перешли в другой каталог, вы можете захотеть вместо этого создать новую панель, которая откроется в этом же каталоге.</p>
+<p>Вы можете использовать переменную <code class="docutils literal notranslate"><span class="pre">pane_current_path</span></code>, предоставляемую tmux, при создании новой панели.
+Войдите в командный режим и выполните:</p>
+<p><code class="docutils literal notranslate"><span class="pre">split-window</span> <span class="pre">-v</span> <span class="pre">-c</span> <span class="pre">&quot;#(pane_current_path)&quot;</span></code></p>
+<p>Это разделит окно по горизонтали, и создаст новый сеанс терминала в том же рабочем каталоге, что и текущая панель или окно.
+Вы можете добавить такое решение в свой файл конфигурации, чтобы работать было проще.
+Вместо изменения существующих горячих клавиш для разбиения окон добавляйте новые, чтобы выбрать нужное поведение:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<span class="c1"># Split pane and retain the current directory of existing pane</span>
+
+<span class="n">bind</span> <span class="n">_</span> <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;#(pane_current_path)&quot;</span>
+<span class="n">bind</span> \ <span class="n">split</span><span class="o">-</span><span class="n">window</span> <span class="o">-</span><span class="n">h</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;#</span><span class="si">{pane_current_path}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Эти настройки позволяют нажимать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">_</span></code> для разделения окн по горизонтали, а <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">/</span></code> - по вертикали.</p>
+</section>
+<section id="id7">
+<h3>Одновременное выполнение команд в нескольких  панелях<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">#</a></h3>
+<p>Время от у вас может возникнуть необходимость выполнить одну и ту же команду в нескольких панелях.
+Например, вам может понадобиться запустить один и тот же сценарий обновления на двух серверах.
+Вы можете легко сделать это с помощью tmux.</p>
+<p>Используя команду <code class="docutils literal notranslate"><span class="pre">set-window-option</span> <span class="pre">synchronize-panes</span> <span class="pre">on</span></code>, все, что вы вводите в одной панели, будет немедленно транслироваться на другие панели в текущем сеансе.
+После того, как вы ввели команду, вы можете отключить режим сирхронизации используя <code class="docutils literal notranslate"><span class="pre">set-window-option</span> <span class="pre">synchronize-panes</span> <span class="pre">off</span></code>.
+Чтобы упростить этот процесс, вы можете сопоставить это, например, с <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">CTRL-s</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Shortcut for synchronize-panes toggle</span>
+<span class="n">bind</span> <span class="n">C</span><span class="o">-</span><span class="n">s</span> <span class="nb">set</span><span class="o">-</span><span class="n">window</span><span class="o">-</span><span class="n">option</span> <span class="n">synchronize</span><span class="o">-</span><span class="n">panes</span>
+</pre></div>
+</div>
+<p>Без указания параметра <code class="docutils literal notranslate"><span class="pre">on</span></code> или <code class="docutils literal notranslate"><span class="pre">off</span></code>, команда <code class="docutils literal notranslate"><span class="pre">synchronize-panes</span></code> действует как переключатель.
+Хоть это и не то, чем вы будете пользоваться очень часто, это удивительно удобно, когда вам это нужно.</p>
+</section>
+</section>
+<section id="id8">
+<h2>Управление сеансами<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">#</a></h2>
+<p>Когда вы освоитесь с tmux, вы можете обнаружить, что используете более одного сеанса tmux одновременно.
+Например, вы можете запускать уникальные сеансы tmux для каждого приложения, над которым вы работаете так что вы можете держать среды изолированными.
+Есть несколько замечательных функций tmux, позволяющих легко управлять сеансами.</p>
+<section id="id9">
+<h3>Переключение  между сессиями<a class="headerlink" href="#id9" title="Ссылка на этот заголовок">#</a></h3>
+<p>Все сеансы tmux на одном компьютере размещаются на одном сервере.
+Это означает, что вы можете легко переключаться между сеансами с одного клиента.</p>
+<p>Давайте опробуем это.
+Запустите два отдельных сеанса tmux, один с именем «editor», который запускает Vim, а другой, выполняющиq команду <code class="docutils literal notranslate"><span class="pre">top</span></code>, назовем «processes»:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tmux new -s editor -d vim
+$ tmux new -s processes -d top
+</pre></div>
+</div>
+<p>Подключитесь к сеансу <code class="docutils literal notranslate"><span class="pre">editor</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">attach</span> <span class="pre">-t</span> <span class="pre">editor</span></code></p>
+<p>а затем нажмите <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> для перехода к предыдущему сеансу и <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> для перехода к следующему сеансу.</p>
+<p>Вы также можете использовать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">s</span></code> для отображения списка сеансов, чтобы можно было быстро переключаться между ними</p>
+<!-- TODO
+![](./img/-096-022.png)
+-->
+<p>Еще можно использовать клавиши <code class="docutils literal notranslate"><span class="pre">j</span></code> и <code class="docutils literal notranslate"><span class="pre">k</span></code> для перемещения вверх и вниз, если вы настроили tmux для использования Vim-подобного управления курсором, или можете нажать <code class="docutils literal notranslate"><span class="pre">ПРОБЕЛ</span></code>, чтобы развернуть сеанс, когда вам нужно перейти к определенному окну или панели.</p>
+<p>Для этого вы можете добавить настройки горячих клавиш в файле .tmux.conf, привязав клавиши к команде <code class="docutils literal notranslate"><span class="pre">switch-client</span></code>.
+Конфигурация по умолчанию выглядит так:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/.</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Shortcut for moving between sessions</span>
+<span class="n">bind</span> <span class="p">(</span> <span class="n">switch</span><span class="o">-</span><span class="n">client</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">bind</span> <span class="p">)</span> <span class="n">switch</span><span class="o">-</span><span class="n">client</span> <span class="o">-</span><span class="n">n</span>
+</pre></div>
+</div>
+<p>Если вы настроили несколько рабочих окружений, это чрезвычайно эффективный способ перемещения между ними, без отсоединения и повторного присоединения.</p>
+</section>
+<section id="id10">
+<h3>Перемещение окон между сеансами<a class="headerlink" href="#id10" title="Ссылка на этот заголовок">#</a></h3>
+<p>Вы можете перемещать окно из одного сеанса в другой.
+Это удобно, если вы запустили процесс в одной окружении и хотите переместить его или хотите объединить свои рабочие пространства.</p>
+<p>Команда <code class="docutils literal notranslate"> <span class="pre">move-window</span></code> связана с <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">.</span></code> (точка), так что вы может перейти к окну, которое вы хотите переместить, нажать комбинацию клавиш, а затем ввести имя целевого сеанса.</p>
+<p>Чтобы попробовать это, создайте два сеанса с именами «editor» и «processes», запустив в них <code class="docutils literal notranslate"><span class="pre">vim</span></code> и <code class="docutils literal notranslate"><span class="pre">top</span></code> соответственно:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tmux new -s editor -d vim
+$ tmux new -s processes -d top
+</pre></div>
+</div>
+<p>Переместим окно из сеанса «processes» в сеанс «editor».</p>
+<p>Во-первых, подключитесь к сеансу «processes» следующим образом:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">tmux</span> <span class="pre">attach</span> <span class="pre">-t</span> <span class="pre">processes</span></code></p>
+<p>Затем нажмите <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">.</span></code> и введите <code class="docutils literal notranslate"><span class="pre">processes</span></code> в появившейся командной строке.</p>
+<p>Это удалит единственное окно в сеансе «processes», вызывая его закрытие. Если подключиться к сеансу «editor», вы увидите оба окна.</p>
+<p>Для этого вы также можете использовать команды оболочки, так что вам даже не нужно открывать сеансы.
+Воспользуйте для этого <code class="docutils literal notranslate"><span class="pre">move-window</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">tmux</span> <span class="pre">move-window</span> <span class="pre">-s</span> <span class="pre">processes:1</span> <span class="pre">-t</span> <span class="pre">editor</span></code></p>
+<p>Это переместит первое окно сеанса «processes» в сеанс «editor».</p>
+</section>
+<section id="id11">
+<h3>Создание или присоединение к существующим сеансам<a class="headerlink" href="#id11" title="Ссылка на этот заголовок">#</a></h3>
+<p>До сих пор мы всегда использовали подход создания новых сеансов tmux всякий раз, когда хотели что-то сделать.
+Однако на самом деле мы можем определить, существует ли сеанс tmux, и подключиться к нему, если он есть.</p>
+<p>Команда <code class="docutils literal notranslate"><span class="pre">has-session</span></code> возвращает логическое значение, которое мы можем использовать в скриптах.
+Это означает, что мы можем сделать что-то вроде этого в сценарии Bash:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if ! tmux has-session -t development; then
+  exec tmux new-session -s development -d
+  # other setup commands before attaching....
+fi
+  exec tmux attach -t development
+</pre></div>
+</div>
+<p>Если вы измените сценарий так, чтобы он принимал аргумент, вы можете использовать его для создания одного сценария, который можно использовать для подключиться или создания любых сеансов tmux.</p>
+</section>
+</section>
+<section id="id12">
+<h2>tmux и ваша операционная система<a class="headerlink" href="#id12" title="Ссылка на этот заголовок">#</a></h2>
+<p>По мере того, как tmux становится частью вашего рабочего процесса, вы можете захотеть более тесно интегрировать его с вашей операционной системой.
+В этом разделе вы узнаете, как заставить tmux и вашу систему работать вместе.</p>
+<section id="id13">
+<h3>Использование другой оболочки<a class="headerlink" href="#id13" title="Ссылка на этот заголовок">#</a></h3>
+<p>В этой книге мы использовали оболочку Bash, но если вы поклонник zsh, вы все равно можете получить все преимущества tmux.
+Просто явно установите оболочку по умолчанию в .tmux.conf следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Using a Different Shell zsh</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">default</span><span class="o">-</span><span class="n">shell</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">zsh</span>
+</pre></div>
+</div>
+<p>Поскольку tmux — это просто терминальный мультиплексор, а не собственная оболочка, вы просто указываете, что именно запускать
+при его старте.</p>
+</section>
+<section id="id14">
+<h3>Запуск tmux по умолчанию<a class="headerlink" href="#id14" title="Ссылка на этот заголовок">#</a></h3>
+<p>Вы можете настроить свою систему на автоматический запуск tmux при открытии терминала.
+И используя то, что вы знаете об именах сеансов, вы можете создать новый сеанс, если таковой не существует, или прикрепиться к тому, который существует.</p>
+<p>Когда tmux запущен, он устанавливает для переменной <code class="docutils literal notranslate"><span class="pre">TERM</span></code> значение «screen» или значение <code class="docutils literal notranslate"><span class="pre">default-terminal</span></code> из файла конфигурации.
+Вы можете использовать это значение в файле .bashrc (или .bash_profile в macOS), чтобы определить, находитесь ли вы в настоящее время в сеансе tmux.
+Вы снова установили свой терминал tmux на «screen-256color» в
+Вы настроили свой терминал tmux на «screen-256color» еще в главе 2 «Настройка tmux», и можете спользовать это для определения того, действительно ли запущен tmux.</p>
+<p>Например, вы можете добавить эти строки в конец вашего файла <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">[[</span> <span class="s2">&quot;$TERM&quot;</span> <span class="o">!=</span> <span class="s2">&quot;screen-256color&quot;</span><span class="p">]]</span>
+<span class="n">then</span>
+  <span class="n">tmux</span> <span class="n">attach</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">t</span> <span class="s2">&quot;$USER&quot;</span> <span class="o">||</span> <span class="n">tmux</span> <span class="n">new</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">s</span><span class="s2">&quot;$ USER&quot;</span> <span class="n">fi</span>
+</pre></div>
+</div>
+<p>Здесь первоначально проверяется, что вы еще не находитесь в сеансе tmux. Если это так, производится попытка подключиться к
+сеансу с именем <code class="docutils literal notranslate"><span class="pre">$USER</span></code>, которое является именем вашего пользователя.
+Вы можете заменить это любым значением, которое хотите, но использование имени пользователя помогает избежать конфликтов.</p>
+<p>Если сеанс не существует, tmux выдаст ошибку, которую сценарий оболочки может интерпретировать как ложное значение.
+Затем выполняется правая часть выражения, которая создает новый сеанс с вашим именем пользователя в качестве имени сеанса.
+На этом сценарий заканчивается.</p>
+<p>Когда tmux запустится снова, он снова прочитает наш файл .bashrc или .bash_profile, но на этот раз он увидит, что мы находимся в сеансе tmux, пропустит этот фрагмент кода и выполнит остальные команды в нашем файле конфигурации, гарантируя, что все наши переменные среды являются настроенными для нас.</p>
+<p>Теперь каждый раз, когда вы открываете новый терминал, вы будете в сеансе tmux. Однако будьте осторожны, так как каждый раз вы открываете новый сеанс терминала на своем компьютере, он будет присоединен к тому же сеансу.
+Выход из tmux в одном терминале выйдет из tmux во всех из них.</p>
+</section>
+<section id="id15">
+<h3>Хранение специфических конфигурации<a class="headerlink" href="#id15" title="Ссылка на этот заголовок">#</a></h3>
+<p>В главе 4 «Работа с текстом и буферами» вы узнали, как заставить tmux работать с системными буферами обмена Linux и OS X и, и это потребовало добавления некоторых специфичных параметров в ваш файл .tmux.conf.
+Но если вы хотите, чтобы ваша конфигурация работала в обеих операционных системах, вы столкнетесь с некоторыми конфликтами.</p>
+<p>Решение состоит в том, чтобы переместить конфигурацию, зависящую от вашей ОС, в отдельный файл, а затем заставить tmux загрузить ее с помощью команд <code class="docutils literal notranslate"><span class="pre">if-shell</span></code> и <code class="docutils literal notranslate"><span class="pre">source</span></code>.
+Попробуйте  это.
+Создайте новый файл с именем .tmux.mac.conf в своем домашнем каталоге:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ touch ~/.tmux.mac.conf`
+</pre></div>
+</div>
+<p>В этот файл поместите весь код интеграции tmux c буферjv обмена Mac:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>config/tmux.mac.conf
+
+# Setting the namespace
+set -g default-command &quot;reattach-to-user-namespace -l /bin/bash&quot;
+
+# Prefix C-c copy buffer to system clipboard
+bind C-c run &quot; tmux save-buffer - | reattach-to-user-namespace pbcopy&quot;
+
+# Prefix C-v paste system clipboard into tmux
+bind C-v run \
+&quot;tmux set-buffer \&quot;$ (reattach-to-user-namespace pbpaste)\&quot;; tmux paste-buffer&quot;
+
+# use y in visual mode to copy text to system clipboard
+bind -t vi-copy y copy-pipe ​&quot;reattach-to-user-namespace pbcopy&quot;
+</pre></div>
+</div>
+<p>Затем откройте .tmux.conf и удалите все строки, относящиеся к OS X, если вы их добавили.
+Затем добавьте в конец файла следующие строки:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Load mac-specific settings</span>
+<span class="k">if</span><span class="o">-</span><span class="n">shell</span> <span class="s2">&quot;uname | grep -q Darwin&quot;</span> <span class="s2">&quot;source-file ~/.tmux.mac.conf&quot;</span>
+</pre></div>
+</div>
+<p>Команда <code class="docutils literal notranslate"><span class="pre">if-shell</span></code> запускает команду оболочки, и в случае успеха выполняет шаг.
+В этом случае мы указываем tmux запустить команду <code class="docutils literal notranslate"><span class="pre">uname</span></code> и использовать <code class="docutils literal notranslate"><span class="pre">grep</span></code>, чтобы увидеть, содержит ли она слово «Darwin».
+Если это так, то можно с уверенностью сказать, что мы на Mac, поэтому мы загружаем файл конфигурации.
+Вы можете использовать аналогичный подход для загрузки дополнительных параметров конфигурации в зависимости от других условий.
+Например, вы возможно захотите поделиться своим главным файлом .tmux.conf со всем миром на GitHub, но, возможно, вы захотите сохранить некоторые свои собственные секретные данные в секрете. Поэтому переместите все эти настройки в .tmux.private и добавьте его загрузку в свой файл .tmux.conf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Load private settings if they exist</span>
+<span class="k">if</span><span class="o">-</span><span class="n">shell</span> <span class="s2">&quot;[-f ~/.tmux.private]&quot;</span> <span class="s2">&quot;source ~/.tmux.private&quot;</span>
+</pre></div>
+</div>
+<p>Это позволит загрузить файл только в том случае, если он существует.</p>
+</section>
+<section id="id16">
+<h3>Запись выходных данных программы в журнал<a class="headerlink" href="#id16" title="Ссылка на этот заголовок">#</a></h3>
+<p>Иногда полезно иметь возможность записывать вывод сеанса терминала в журнал.
+Вы уже узнали как для этого использовать <code class="docutils literal notranslate"><span class="pre">capture-pane</span></code> and <code class="docutils literal notranslate"><span class="pre">save-buffer</span></code>, но tmux может фактически записывать действия на панели прямо в  текстовый файл с помощью команды <code class="docutils literal notranslate"><span class="pre">pipe-pane</span></code>.
+Это похоже на команду <code class="docutils literal notranslate"><span class="pre">script</span></code>, доступную во многих оболочках, за исключением что с помощью <code class="docutils literal notranslate"><span class="pre">pipe-pane</span></code> вы можете включать и выключать данный режим, и вы можете запускать его после того, как программа уже выполнилась.</p>
+<p>Для активиции данного режима, войдите в командный режим и введите <code class="docutils literal notranslate"><span class="pre">pipe-pane</span> <span class="pre">-o</span> <span class="pre">&quot;cat</span> <span class="pre">&gt;&gt;</span> <span class="pre">mylog.txt</span></code>.</p>
+<p>Вы можете использовать флаг <code class="docutils literal notranslate"><span class="pre">-o</span></code> для переключения вывода, что означает, что если вы снова отправите такую команду, вы можете отключить логгирование.
+Чтобы упростить выполнение этой команды, назначьте сочетание клавиш для нею в свой файл конфигурации.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Log output to a text file on demand</span>
+<span class="n">bind</span> <span class="n">P</span> <span class="n">pipe</span><span class="o">-</span><span class="n">pane</span> <span class="o">-</span><span class="n">o</span> <span class="s2">&quot;cat &gt;&gt;~/#W.log&quot;</span> \<span class="p">;</span> <span class="n">display</span> <span class="s2">&quot;Toggled logging to ~/#W.log&quot;</span>
+</pre></div>
+</div>
+<p>Теперь вы можете нажать <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">P</span></code>, чтобы включть/выключить ведение журнала.</p>
+<p>Благодаря команде <code class="docutils literal notranslate"><span class="pre">display</span></code> (сокращение от <code class="docutils literal notranslate"><span class="pre">display-message</span></code>),
+вы увидите имя файла журнала, отображаемое в строке состояния. Команда <code class="docutils literal notranslate"><span class="pre">display</span></code> имеет доступ к тем же переменным, что и строка состояния, которые указзаны в Таблице 1 Переменные строки состояния.</p>
+</section>
+<section id="id17">
+<h3>Добавление срока службы батареи в строку состояния<a class="headerlink" href="#id17" title="Ссылка на этот заголовок">#</a></h3>
+<p>Если вы используете tmux на ноутбуке, вы можете захотеть показать оставшееся время работы от батареи в строки состояния состояния, особенно если вы запускаете свой терминал в полноэкранном режиме.
+Этого очень легко добиться переменной  #(shell-command).
+Давайте добавим состояние батареи в наш файл конфигурации. Возьмем сценарий оболочки, который может получить оставшиеся заряд батареи и отображать его на экране.
+Поместим этот файл с именем battery в нашей домашней папке и сообщим tmux, чтобы он запускал его.</p>
+<p>Сначала скачайте файл:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">check</span><span class="o">-</span><span class="n">certificate</span> \
+    <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">richo</span><span class="o">/</span><span class="n">battery</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">battery</span>
+</pre></div>
+</div>
+<p>Вы также можете найти скрипт <code class="docutils literal notranslate"><span class="pre">battery</span></code> в загрузках исходного кода книги.</p>
+<p>Теперь сделайте его исполняемым, чтобы tmux мог его использовать:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">~/battery</span></code></p>
+<p>Проверьте как это будет выглядить
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">~/battery</span> <span class="pre">Discharging</span></code></p>
+<p>Если вы запускаете это на ноутбуке не подключенного к электросети, вы увидите, сколько процентов осталось в батарее.</p>
+<p>Мы можем заставить tmux отображать вывод любой программы командной строки в строке состояния, используя #(<command>).</p>
+<p>Итак, чтобы отображать батарею перед часами, измените строку состояния справа в .tmux.conf на это:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Status line right side - 50% | 31 Oct 13:37​</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">right</span> <span class="s2">&quot;#(~/battery Discharging) | #[fg=cyan]</span><span class="si">%d</span><span class="s2"> %b %R&quot;</span>
+</pre></div>
+</div>
+<p>Теперь, когда вы перезагрузите файл .tmux.conf, появится индикатор состояния батареи.</p>
+<!-- TODO
+![](./img/-101-023.png)
+-->
+<p>Чтобы получить состояние батареи, когда она заряжается, вам нужно выполнить команду</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">~/battery</span> <span class="pre">Charging</span></code></p>
+<p>и вставьте это в строку состояния.
+Я оставлю это на ваше усмотрение.</p>
+<p>Вы можете использовать этот подход для дальнейшей настройки строки состояния.
+Вам просто нужно написать свой собственный
+скрипт, который возвращает значение, которое вы хотите отобразить, а затем поместите его в строку состояния.</p>
+</section>
+<section id="vim">
+<h3>Полная интеграция с Vim<a class="headerlink" href="#vim" title="Ссылка на этот заголовок">#</a></h3>
+<p>Текстовый редактор Vim довольно хорошо работает с tmux, но разработчик Мислав Марохнич разработал решение, которое позволяет легко перемещаться между панелями tmux и Vim.
+Чтобы это работало, вам нужно установить плагин <code class="docutils literal notranslate"><span class="pre">vim-tmux-navigator</span></code> Криса Туми для Vim[16] и добавить несколько сочетаний клавиш в ваш файл .tmux.conf.</p>
+<p>Эта настройка создаст следующие сочетания клавиш:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CTRL-j</span></code> двигаться вверх</p>
+<p><code class="docutils literal notranslate"><span class="pre">CTRL-k</span></code> двигаться вниз</p>
+<p><code class="docutils literal notranslate"><span class="pre">CTRL-h</span></code> двигаться влево</p>
+<p><code class="docutils literal notranslate"><span class="pre">CTRL-l</span></code> двигаться вправо</p>
+<p>Если вы находитесь в tmux и переходите на Vim, плагин Vim берет на себя управление.
+Если вы находитесь в Vim и переходите в tmux, тогда tmux берет на себя управление.
+Вместо того, чтобы изучать два набора команд для навигации, вы
+просто будете иметь один.</p>
+<p>Чтобы настроить это, установите плагин Vim с помощью Vundle, добавив его в свой файл .vimrc:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Plugin</span> <span class="pre">'christoomey/vim-tmux-navigator'</span></code></p>
+<p>Затем сохраните файл .vimrc и запустите</p>
+<p><code class="docutils literal notranslate"> <span class="pre">:PluginInstall</span></code></p>
+<p>в Vim для установки плагина.</p>
+<p>Затем в .tmux.conf добавьте следующие строки:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># Integrating Seamlessly with Vim</span>
+<span class="n">is_vim</span><span class="o">=</span><span class="s2">&quot;ps -o state= -o comm= -t &#39;#</span><span class="si">{pane_tty}</span><span class="s2">&#39; </span><span class="se">\</span>
+<span class="s2">  | grep -iqE &#39;^[^TXZ ]+ +(</span><span class="se">\\</span><span class="s2">S+</span><span class="se">\\</span><span class="s2">/)?g?(view|n?vim?x?)(diff)?$&#39;&quot;</span>
+<span class="n">bind</span><span class="o">-</span><span class="n">key</span> <span class="o">-</span><span class="n">n</span> <span class="n">C</span><span class="o">-</span><span class="n">h</span> <span class="k">if</span><span class="o">-</span><span class="n">shell</span> <span class="s2">&quot;$is_vim&quot;</span> <span class="s2">&quot;send-keys C-h&quot;</span> <span class="s2">&quot;select-pane -L&quot;</span>
+<span class="n">bind</span><span class="o">-</span><span class="n">key</span> <span class="o">-</span><span class="n">n</span> <span class="n">C</span><span class="o">-</span><span class="n">j</span> <span class="k">if</span><span class="o">-</span><span class="n">shell</span> <span class="s2">&quot;$is_vim&quot;</span> <span class="s2">&quot;send-keys C-j&quot;</span> <span class="s2">&quot;select-pane -D&quot;</span>
+<span class="n">bind</span><span class="o">-</span><span class="n">key</span> <span class="o">-</span><span class="n">n</span> <span class="n">C</span><span class="o">-</span><span class="n">k</span> <span class="k">if</span><span class="o">-</span><span class="n">shell</span> <span class="s2">&quot;$is_vim&quot;</span> <span class="s2">&quot;send-keys C-k&quot;</span> <span class="s2">&quot;select-pane -U&quot;</span>
+<span class="n">bind</span><span class="o">-</span><span class="n">key</span> <span class="o">-</span><span class="n">n</span> <span class="n">C</span><span class="o">-</span><span class="n">l</span> <span class="k">if</span><span class="o">-</span><span class="n">shell</span> <span class="s2">&quot;$is_vim&quot;</span> <span class="s2">&quot;send-keys C-l&quot;</span> <span class="s2">&quot;select-pane -R&quot;</span>
+<span class="n">bind</span><span class="o">-</span><span class="n">key</span> <span class="o">-</span><span class="n">n</span> <span class="n">C</span><span class="o">-</span>\ <span class="k">if</span><span class="o">-</span><span class="n">shell</span> <span class="s2">&quot;$is_vim&quot;</span> <span class="s2">&quot;send-keys C-</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="s2">&quot;select-pane -l&quot;</span>
+
+<span class="n">bind</span> <span class="n">C</span><span class="o">-</span><span class="n">l</span> <span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="s1">&#39;C-l&#39;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">CTRL-l</span></code> — это сочетание клавиш, используемое библиотекой <code class="docutils literal notranslate"><span class="pre">readline</span></code> во многих оболочках для очистки экрана.
+Последняя строка этой конфигурации устанавливает <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">CTRL-l</span></code> вместо этой команды.</p>
+</section>
+</section>
+<section id="id18">
+<h2>Расширение tmux с помощью плагинов<a class="headerlink" href="#id18" title="Ссылка на этот заголовок">#</a></h2>
+<p>До сих пор мы вносили изменения непосредственно в файл конфигурации tmux.
+Хотя это работает, сделать так что-то более сложное может быть немного неудобно.
+Бруно Сутик разработал решение этой проблемы под названием TPM, менеджер плагинов tmux (tmux plugin manager).
+С тех пор все больше и больше людей объединяются для создания плагинов для расширения tmux.
+Давайте воспользуемся TPM для установки невероятно полезного плагина <code class="docutils literal notranslate"><span class="pre">tmux-resurrect</span></code> [17], который может восстанавливать сеансы tmux даже после перезагрузки!
+Чтобы настроить его, сначала клонируйте репозиторий в папку с именем ~/.tmux/plugins/tpm:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/tmux-plugins/tpm</span> <span class="pre">~/.tmux/plugins/tpm</span></code></p>
+<p>Затем добавьте эти строки в ваш файл .tmux.conf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">/</span><span class="n">tmux</span><span class="o">.</span><span class="n">conf</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="nd">@plugin</span> <span class="s1">&#39;tmux-plugins/tpm&#39;</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">g</span> <span class="nd">@plugin</span> <span class="s1">&#39;tmux-plugins/tmux-resurrect&#39;</span>
+<span class="n">run</span> <span class="s1">&#39;~/.tmux/plugins/tpm/tpm&#39;</span>
+</pre></div>
+</div>
+<p>Сначала мы указываем сам TPM, а затем подключаемый модуль tmux-resurrect.
+Далее мы загружаем TPM, чтобы он мог загружать другие плагины.
+Сохраните этот файл и перезагрузите конфигурацию.
+Затем нажмите <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">I</span></code>, чтобы установить плагин.
+Вы увидите следующий вывод:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Already</span> <span class="n">installed</span> <span class="s2">&quot;tpm&quot;</span>
+
+<span class="n">Installing</span> <span class="s2">&quot;tmux-resurrect&quot;</span>
+  <span class="s2">&quot;tmux-resurrect&quot;</span> <span class="n">download</span> <span class="n">success</span>
+
+<span class="n">TMUX</span> <span class="n">environment</span> <span class="n">reloaded</span><span class="o">.</span>
+
+<span class="n">Done</span><span class="p">,</span> <span class="n">press</span> <span class="n">ENT</span> <span class="n">ER</span> <span class="n">to</span> <span class="k">continue</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Теперь протестируйте программу <code class="docutils literal notranslate"><span class="pre">tmux-resurrect</span></code>.
+Откройте еще пару панелей, а затем нажмите <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">CTRL-s</span></code>, чтобы сохранить состояние сеанса tmux.
+Затем закройте все панели и выйдите из tmux.
+Наконец, перезагрузите tmux и нажмите <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">CTRL-r</span></code> для восстановления сохраненного сеанса.
+Все ваши окна вернутся!
+Посетите список плагинов tmux[18] и найдите тот, который хотите установить.
+Вы найдете один для тестомера, который мы настроили, другой для буфера обмена конкретной операционной системы и даже один с разумными параметрами конфигурации.</p>
+</section>
+<section id="id19">
+<h2>Что дальше?<a class="headerlink" href="#id19" title="Ссылка на этот заголовок">#</a></h2>
+<p>Теперь, когда вы знаете основы и имеете некоторый опыт работы с различными конфигурациями, вы можете сделать с tmux гораздо больше.</p>
+<p>Руководство по tmux, к которому вы можете получить доступ с вашего терминала</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">man</span> <span class="pre">tmux</span></code></p>
+<p>содержит полный список опций конфигурации и доступных команд.</p>
+<p>И не забывайте, что сам tmux быстро развивается.
+В следующей версии появятся новые параметры конфигурации, что даст вам еще больше гибкости.</p>
+<p>Когда вы интегрируете tmux в свой рабочий процесс, вы можете открыть для себя другие методы, на которые вы начнете полагаться.
+Например, вы можете использовать tmux и текстовый редактор на удаленном сервере для создания невероятно эффективной
+среды разработки, которую вы можете использовать для совместной работы с другим разработчиком.
+Вы даже можете использовать irssi ((клиент IRC на базе терминала) и Alpine (приложение электронной почты на основе терминала) в сеансах tmux либо рядом с вашим текстовым редактором на панели или в фоновых окнах.
+Вы даже вы можете отключиться от сеанса и вернуться к нему позже, и вся ваша среда будет готова к работе.</p>
+<p>Продолжайте работать с tmux, и, прежде чем вы это поймете, он станет неотъемлемой частью вашего рабочего процесса.</p>
+</section>
+<section id="id20">
+<h2>Для дальнейшего использования<a class="headerlink" href="#id20" title="Ссылка на этот заголовок">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Команда</p></th>
+<th class="head text-left"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td class="text-left"><p>Преобразует текущую панель в новое окно.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">join-pane</span> <span class="pre">-s</span> <span class="pre">[session]:[window].[pane]</span></code></p></td>
+<td class="text-left"><p>Преобразует окно или панель указанного сеанса в панель в текущем окне.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>`join-pane -s [session]:[window].[pane] -t [other</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>session]`</p></td>
+<td class="text-left"><p>Преобразует окно или панель указанного сеанса в панель целевого сеанса.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">z</span></code></p></td>
+<td class="text-left"><p>Увеличивает масштаб текущей панели, делая ее полноэкранной. Повторное нажатие на нее восстанавливает первоначальный размер панели.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">new-session</span> <span class="pre">&quot;[command]&quot;</span></code></p></td>
+<td class="text-left"><p>Запускает tmux и выполняет команду. Когда команда завершается, сеанс tmux закрывается.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">split-pane</span> <span class="pre">&quot;[command]&quot;</span></code></p></td>
+<td class="text-left"><p>Разбивает текущее окно и выполняет указанную команду в новой панели. Когда команда завершится, панель закроется.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">split-window</span> <span class="pre">-c</span> <span class="pre">&quot;#{pane_current_path}&quot;</span></code></p></td>
+<td class="text-left"><p>Разбивает панель и устанавливает рабочий каталог новой панели в текущий рабочий каталог сфокусированной панели.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set-window-option</span> <span class="pre">synchronize-panes</span></code></p></td>
+<td class="text-left"><p>Переключает синхронизацию панелей, при которой нажатия клавиш выполняются для всех панелей одновременно, а не только для текущей панели.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code></p></td>
+<td class="text-left"><p>Переходит к следующему сеансу tmux.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td class="text-left"><p>Переходит к предыдущему сеансу tmux.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> <code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td class="text-left"><p>Показывает список выбора сеанса.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">move-window</span> <span class="pre">-s</span> <span class="pre">[source</span> <span class="pre">session]:[window]</span> <span class="pre">-t</span> <span class="pre">[target</span> <span class="pre">session]</span></code></p></td>
+<td class="text-left"><p>Перемещает окно из одного сеанса в другой. Также доступно через <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> `.“, за которым следует имя целевого сеанса.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">default-shell</span> <span class="pre">[shell]</span></code></p></td>
+<td class="text-left"><p>Задает оболочку по умолчанию, которую tmux использует при создании новых окон.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-g</span> <span class="pre">default-command</span> <span class="pre">[command]</span></code></p></td>
+<td class="text-left"><p>Задает команду по умолчанию, которую tmux использует при создании новых окон. По умолчанию пусто.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">if-shell</span> <span class="pre">&quot;[condition]&quot;</span> <span class="pre">&quot;[command]&quot;</span></code></p></td>
+<td class="text-left"><p>Выполняет заданную команду, если условие оценивается как <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pipe-pane</span> <span class="pre">-o</span> <span class="pre">&quot;cat</span> <span class="pre">&gt;&gt;~/#W.log&quot;</span></code></p></td>
+<td class="text-left"><p>Записывает текущую панель в текстовый файл.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="id21">
+<h3>Ссылки<a class="headerlink" href="#id21" title="Ссылка на этот заголовок">#</a></h3>
+<ol class="arabic simple" start="16">
+<li><p><a class="github reference external" href="https://github.com/christoomey/vim-tmux-navigator">christoomey/vim-tmux-navigator</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/tmux-plugins/tmux-resurrect">tmux-plugins/tmux-resurrect</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/tmux-plugins">tmux-plugins</a></p></li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -563,6 +1078,50 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Содержание
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Эффективная работа с панелями и окнами</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Превращение панели в окно</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Превращение окна в панель</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Развертывание и восстановление панелей</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Запуск команд в панелях</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Открытие панели в текущем каталоге</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Одновременное выполнение команд в нескольких  панелях</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Управление сеансами</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Переключение  между сессиями</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Перемещение окон между сеансами</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Создание или присоединение к существующим сеансам</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">tmux и ваша операционная система</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Использование другой оболочки</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Запуск tmux по умолчанию</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Хранение специфических конфигурации</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Запись выходных данных программы в журнал</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Добавление срока службы батареи в строку состояния</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vim">Полная интеграция с Vim</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Расширение tmux с помощью плагинов</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Что дальше?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Для дальнейшего использования</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Ссылки</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
